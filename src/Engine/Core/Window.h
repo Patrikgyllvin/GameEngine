@@ -6,6 +6,8 @@
 #include <cstdio>
 #include <cstdlib>
 
+#include <string>
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -17,7 +19,7 @@ namespace Engine
 		Window();
 		~Window();
 	
-		int createWindow( int width, int height, bool fullscreen );
+		int createWindow( int width, int height, std::string text, bool fullscreen );
 		void destroyWindow();
 
 		bool getInitialized();

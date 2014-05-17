@@ -1,4 +1,4 @@
-#include "Core Systems/System.h"
+#include "System.h"
 
 System::System( EventManager* evtManager, EntityManager* entManager, unsigned int compTypeBits )
 :

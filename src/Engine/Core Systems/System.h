@@ -3,8 +3,8 @@
 
 #include <set>
 
-#include "EventManager.h"
-#include "EntityManager.h"
+#include "../Events/EventManager.h"
+#include "../Entity Core/EntityManager.h"
 
 class System : public IEventListener
 {
