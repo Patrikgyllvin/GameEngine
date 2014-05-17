@@ -17,7 +17,7 @@ namespace Engine
 		Window();
 		~Window();
 	
-		int createWindow( int width, int height, bool fullscreen );
+		int createWindow( int width, int height, std::string text, bool fullscreen );
 		void destroyWindow();
 
 		bool getInitialized();
