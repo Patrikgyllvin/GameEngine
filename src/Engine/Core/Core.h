@@ -8,11 +8,16 @@
 #ifndef CORE_H
 #define CORE_H
 
+#include <GLFW/glfw3.h>
+
 namespace Engine {
 	class Core {
 	public:
 		Core();
 		virtual ~Core();
+
+	private:
+
 	};
 }
 

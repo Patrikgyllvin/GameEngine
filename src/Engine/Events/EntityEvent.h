@@ -3,7 +3,7 @@
 
 #include "Events.h"
 
-#include "Entity.h"
+#include "../Entity Core/Entity.h"
 
 struct EntityEvent : public IEvent
 {

@@ -2,7 +2,7 @@
 #define POSITIONCOMPONENT_H
 
 #include "Component.h"
-#include "ComponentTypes.h"
+#include "../../ComponentTypes.h"
 
 class TransformComponent : public Component
 {

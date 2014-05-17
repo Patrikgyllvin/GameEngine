@@ -1,4 +1,4 @@
-#include "Core Systems/MovementSystem.h"
+#include "MovementSystem.h"
 
 MovementSystem::MovementSystem( EventManager* evtManager, EntityManager* entManager ) : System( evtManager, entManager, COMPONENT_MOVEMENT_BIT | COMPONENT_TRANSFORM_BIT )
 {}

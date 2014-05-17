@@ -6,13 +6,13 @@
 
 #include <vector>
 
-#include "EventManager.h"
-#include "EntityEvent.h"
+#include "../Events/EventManager.h"
+#include "../Events/EntityEvent.h"
 
 #include "Entity.h"
 
-#include "Core Components/Component.h"
-#include "ComponentTypes.h"
+#include "../Core Components/Component.h"
+#include "../../ComponentTypes.h"
 
 class EntityManager
 {
