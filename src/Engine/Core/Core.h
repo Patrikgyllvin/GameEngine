@@ -8,7 +8,11 @@
 #ifndef CORE_H
 #define CORE_H
 
+#include <iostream>
+
 #include <GLFW/glfw3.h>
+
+#include "Window.h"
 
 namespace Engine {
 	class Core {
@@ -16,8 +20,11 @@ namespace Engine {
 		Core();
 		virtual ~Core();
 
-	private:
+		void createWindow( int w, int h, std::string text, bool fullscreen );
+		void destroyWindow();
 
+	private:
+		Window* window;
 	};
 }
 
