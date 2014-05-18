@@ -85,7 +85,7 @@ namespace Engine {
 		
 		while( isRunning )
 		{
-			bool render;
+			bool willRender;
 			
 			frameTime = 1.0 / framerate;
 			
@@ -106,7 +106,7 @@ namespace Engine {
 			
 			while( unproccessedTime > frameTime )
 			{
-				render = true;
+				willRender = true;
 				
 				if( window->shouldClose() )
 					stop();
@@ -116,7 +116,7 @@ namespace Engine {
 				unproccessedTime -= frameTime;
 			}
 			
-			if( render )
+			if( willRender )
 			{
 				render();
 				
