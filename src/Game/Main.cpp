@@ -14,8 +14,8 @@ int main( int argc, char** argv )
 	Engine::Core* engine = new Engine::Core();
 
 	engine->createWindow( 600, 800, "3D Game", false );
-
-	std::cout << "Huge dick!\n";
+	
+	engine->start();
 
 	return 0;
 }
