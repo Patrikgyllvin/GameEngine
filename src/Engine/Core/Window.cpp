@@ -15,11 +15,21 @@ namespace Engine
 		cleanup();
 	}
 
-	int Window::createWindow( int width, int height, std::string text, bool fullscreen )
+	int Window::createWindow( int width, int height, std::string text, bool resizable, bool fullscreen )
 	{
-		// TODO: fullscreen support
-
-		window = glfwCreateWindow( width, height, text.c_str(), nullptr, nullptr );
+		glfwWindowHint( GLFW_CONTEXT_VERSION_MAJOR, 3 );
+		glfwWindowHint( GLFW_CONTEXT_VERSION_MINOR, 3 );
+		glfwWindowHint( GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE );
+		
+		if( resizable )
+			glfwWindowHint( GLFW_RESIZABLE, 1 );
+		else
+			glfwWindowHint( GLFW_RESIZABLE, 0 );
+		
+		if( fullscreen )
+			window = glfwCreateWindow( width, height, text.c_str(), glfwGetPrimaryMontor(), nullptr );
+		else
+			window = glfwCreateWindow( width, height, text.c_str(), nullptr, nullptr );
 
 		if( !window )
 		{
@@ -55,6 +65,13 @@ namespace Engine
 
 		return 0;
 	}
+	
+	int Window::setupGL()
+	{
+		glViewport( 0, 0, this->w, this->h );
+
+		return 0;
+	}
 
 	void Window::destroyWindow()
 	{
@@ -65,14 +82,12 @@ namespace Engine
 	{
 		return isInitialized;
 	}
-
-	int Window::setupGL()
+	
+	bool Window::shouldClose()
 	{
-		glViewport( 0, 0, this->w, this->h );
-
-		return 0;
+		return glfwWindowShouldClose( window );
 	}
-
+	
 	void Window::swapBuffers()
 	{
 		glfwSwapBuffers( window );

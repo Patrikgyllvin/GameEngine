@@ -19,10 +19,12 @@ namespace Engine
 		Window();
 		~Window();
 	
-		int createWindow( int width, int height, std::string text, bool fullscreen );
+		int createWindow( int width, int height, std::string text, bool resizable, bool fullscreen );
 		void destroyWindow();
 
 		bool getInitialized();
+		
+		bool shouldClose();
 
 		void swapBuffers();
 	
