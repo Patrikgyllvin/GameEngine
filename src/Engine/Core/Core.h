@@ -10,6 +10,9 @@
 
 #include <iostream>
 
+#include <chrono>
+#include <thread>
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -24,6 +27,17 @@ namespace Engine {
 		void createWindow( int w, int h, std::string text, bool resizable, bool fullscreen );
 		void destroyWindow();
 		
+		void start();
+		void stop();
+		
+		void run();
+		
+		void init();
+		void update();
+		void render();
+		
+		void setFramerate( double framerate );
+		
 		// Sets function pointers which will be called at init, update and render, respectively
 		void setInitFunction( void (*initFunc)() );
 		void setUpdateFunction( void (*updtFunc)() );
@@ -31,6 +45,10 @@ namespace Engine {
 
 	private:
 		Window* window;
+		
+		bool isRunning;
+		double frameTime;
+		double framerate;
 		
 		// TODO: Figure out delta-time thingy...
 		void (*initializationFunc)();
