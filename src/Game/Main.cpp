@@ -5,7 +5,10 @@
  *      Author: Patrik Gyllvin
  */
 
+#include <iostream>
+
 int main( int argc, char** argv )
 {
+	std::cout << "ASD\n";
 	return 0;
 }
