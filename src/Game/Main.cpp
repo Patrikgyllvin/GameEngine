@@ -7,12 +7,13 @@
 
 #include <iostream>
 
+#include "../Engine/Core/Core.h"
+
 int main( int argc, char** argv )
 {
-	float f = 0;
-	f += 10;
+	Engine::Core* engine = new Engine::Core();
 
-	int i = 0;
+	engine->createWindow( 600, 800, "3D Game", false );
 
 	return 0;
 }

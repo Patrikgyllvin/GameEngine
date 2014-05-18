@@ -11,7 +11,8 @@ namespace Engine {
 	Core::Core()
 	:
 	window( new Window() )
-	{}
+	{
+	}
 
 	Core::~Core()
 	{
