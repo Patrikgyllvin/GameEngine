@@ -11,5 +11,8 @@ int main( int argc, char** argv )
 {
 	float f = 0;
 	f += 10;
+
+	int i = 0;
+
 	return 0;
 }
