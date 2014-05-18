@@ -9,6 +9,7 @@
 
 int main( int argc, char** argv )
 {
-	std::cout << "Hello, world!\n";
+	float f = 0;
+	f += 10;
 	return 0;
 }
