@@ -24,6 +24,7 @@ namespace Engine {
 		void createWindow( int w, int h, std::string text, bool fullscreen );
 		void destroyWindow();
 		
+		// Sets function pointers which will be called at init, update and render, respectively
 		void setInitFunction( void (*initFunc)() );
 		void setUpdateFunction( void (*updtFunc)() );
 		void setRenderFunction( void (*rndrFunc)() );
@@ -32,6 +33,7 @@ namespace Engine {
 		Window* window;
 		
 		// TODO: Figure out delta-time thingy...
+		void (*initializationFunc)();
 		void (*updateFunc)();
 		void (*renderFunc)();
 	};
