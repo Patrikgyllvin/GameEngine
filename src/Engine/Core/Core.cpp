@@ -7,6 +7,11 @@
 
 #include "Core.h"
 
+void errorCallback( int error, const char* desc )
+{
+	fputs( desc, stderr );
+}
+
 namespace Engine {
 	Core::Core()
 	:
@@ -19,6 +24,8 @@ namespace Engine {
 	renderFunc( nullptr )
 	{
 		glfwInit();
+
+		glfwSetErrorCallback( errorCallback );
 	}
 
 	Core::~Core()
