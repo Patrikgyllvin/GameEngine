@@ -153,15 +153,18 @@ namespace Engine {
 		
 		if( updateFunc )
 			updateFunc();
+
+		glfwPollEvents();
 	}
 	
 	void Core::render()
 	{
 		// Add render shit here
 		
-		
 		if( renderFunc )
 			renderFunc();
+
+		window->swapBuffers();
 	}
 	
 	void Core::setFramerate( double framerate )
