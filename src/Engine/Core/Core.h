@@ -23,9 +23,17 @@ namespace Engine {
 
 		void createWindow( int w, int h, std::string text, bool fullscreen );
 		void destroyWindow();
+		
+		void setInitFunction( void (*initFunc)() );
+		void setUpdateFunction( void (*updtFunc)() );
+		void setRenderFunction( void (*rndrFunc)() );
 
 	private:
 		Window* window;
+		
+		// TODO: Figure out delta-time thingy...
+		void (*updateFunc)();
+		void (*renderFunc)();
 	};
 }
 

@@ -10,7 +10,10 @@
 namespace Engine {
 	Core::Core()
 	:
-	window( new Window() )
+	window( new Window() ),
+	initializationFunc( nullptr ),
+	updateFunc( nullptr ),
+	renderFunc( nullptr )
 	{
 		glfwInit();
 	}
@@ -38,5 +41,20 @@ namespace Engine {
 			window->destroyWindow();
 		else
 			std::cout << "Warning: Cannot destroy non-existent window!\n";
+	}
+	
+	void Core::setInitFunction( void (*initFunc)() )
+	{
+		initializationFunc = initFunc;
+	}
+	
+	void Core::setUpdateFunction( void (*updtFunc)() )
+	{
+		updateFunc = updtFunc;
+	}
+	
+	void Core::setRenderFunction( void (*rndrFunc) () )
+	{
+		renderFunc = rndrFunc;
 	}
 }
