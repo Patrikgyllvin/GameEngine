@@ -12,7 +12,8 @@ namespace Engine {
 	:
 	window( new Window() ),
 	isRunning( false ),
-	frameTime( 1.0 / 10000.0 ),
+	framerate( 10000.0 ),
+	frameTime( 1.0 / framerate ),
 	initializationFunc( nullptr ),
 	updateFunc( nullptr ),
 	renderFunc( nullptr )

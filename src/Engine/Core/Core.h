@@ -47,8 +47,8 @@ namespace Engine {
 		Window* window;
 		
 		bool isRunning;
-		double frameTime;
 		double framerate;
+		double frameTime;
 		
 		// TODO: Figure out delta-time thingy...
 		void (*initializationFunc)();
