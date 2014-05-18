@@ -24,6 +24,7 @@ namespace Engine
 #ifdef __APPLE__
 		glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, 1 );
 #endif
+		glfwWindowHint( GLFW_SAMPLES, 4 );
 		
 		if( resizable )
 			glfwWindowHint( GLFW_RESIZABLE, 1 );
