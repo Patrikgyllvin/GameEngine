@@ -2,9 +2,9 @@
 
 Game::Game()
 :
-eventManager( new EventManager() ),
-entityManager( new EntityManager( eventManager ) ),
-moveSys( new MovementSystem( eventManager, entityManager ) )
+eventManager( new Engine::EventManager() ),
+entityManager( new Engine::EntityManager( eventManager ) ),
+moveSys( new Engine::MovementSystem( eventManager, entityManager ) )
 {}
 
 Game::~Game()

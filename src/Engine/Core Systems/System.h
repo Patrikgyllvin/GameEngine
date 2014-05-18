@@ -6,33 +6,36 @@
 #include "../Events/EventManager.h"
 #include "../Entity Core/EntityManager.h"
 
-class System : public IEventListener
+namespace Engine
 {
-public:
-	System( EventManager* evtManager, EntityManager* entManager, unsigned int compTypeBits );
-	virtual ~System();
+	class System : public IEventListener
+	{
+	public:
+		System( EventManager* evtManager, EntityManager* entManager, unsigned int compTypeBits );
+		virtual ~System();
 
-	virtual void processEvent( const IEvent& e );
+		virtual void processEvent( const IEvent& e );
 
-	void update();
+		void update();
 
-protected:
+	protected:
 
-	virtual void init() = 0;
+		virtual void init() = 0;
 
-	virtual void preUpdate() = 0;
+		virtual void preUpdate() = 0;
 
-	virtual void updateEntities( const std::set< Entity* >& entities ) = 0;
+		virtual void updateEntities( const std::set< Entity* >& entities ) = 0;
 
-	virtual void postUpdate() = 0;
+		virtual void postUpdate() = 0;
 
-	EntityManager* entityManager;
-	EventManager* eventManager;
+		EntityManager* entityManager;
+		EventManager* eventManager;
 
-private:
-	std::set< Entity* > chosenOnes;
+	private:
+		std::set< Entity* > chosenOnes;
 
-	unsigned int typeBits;
-};
+		unsigned int typeBits;
+	};
+}
 
 #endif

@@ -4,158 +4,161 @@
 #include "Component.h"
 #include "../../ComponentTypes.h"
 
-class TransformComponent : public Component
+namespace Engine
 {
-public:
-	TransformComponent() : Component( COMPONENT_TRANSFORM ) {}
-	virtual ~TransformComponent() {}
-
-	TransformComponent* setPosition( float x, float y, float z )
+	class TransformComponent : public Component
 	{
-		posX = x;
-		posY = y;
-		posZ = z;
+	public:
+		TransformComponent() : Component( COMPONENT_TRANSFORM ) {}
+		virtual ~TransformComponent() {}
 
-		return this;
-	}
+		TransformComponent* setPosition( float x, float y, float z )
+		{
+			posX = x;
+			posY = y;
+			posZ = z;
 
-	TransformComponent* setPosX( float x )
-	{
-		posX = x;
+			return this;
+		}
 
-		return this;
-	}
+		TransformComponent* setPosX( float x )
+		{
+			posX = x;
 
-	TransformComponent* setPosY( float y )
-	{
-		posY = y;
+			return this;
+		}
 
-		return this;
-	}
+		TransformComponent* setPosY( float y )
+		{
+			posY = y;
 
-	TransformComponent* setPosZ( float z )
-	{
-		posZ = z;
+			return this;
+		}
 
-		return this;
-	}
+		TransformComponent* setPosZ( float z )
+		{
+			posZ = z;
 
-
-	float getPosX()
-	{
-		return this->posX;
-	}
-
-	float getPosY()
-	{
-		return this->posY;
-	}
-
-	float getPosZ()
-	{
-		return this->posZ;
-	}
+			return this;
+		}
 
 
-	// TODO: Change to quaternion...
-	TransformComponent* setRotation( float x, float y, float z )
-	{
-		rotX = x;
-		rotY = y;
-		rotZ = z;
+		float getPosX()
+		{
+			return this->posX;
+		}
 
-		return this;
-	}
+		float getPosY()
+		{
+			return this->posY;
+		}
 
-	TransformComponent* setRotX( float x )
-	{
-		rotX = x;
-
-		return this;
-	}
-
-	TransformComponent* setRotY( float y )
-	{
-		rotY = y;
-
-		return this;
-	}
-
-	TransformComponent* setRotZ( float z )
-	{
-		rotZ = z;
-
-		return this;
-	}
-
-	float getRotX()
-	{
-		return this->rotX;
-	}
-
-	float getRotY()
-	{
-		return this->rotY;
-	}
-
-	float getRotZ()
-	{
-		return this->rotZ;
-	}
+		float getPosZ()
+		{
+			return this->posZ;
+		}
 
 
-	TransformComponent* setScale( float x, float y, float z )
-	{
-		scaleX = x;
-		scaleY = y;
-		scaleZ = z;
+		// TODO: Change to quaternion...
+		TransformComponent* setRotation( float x, float y, float z )
+		{
+			rotX = x;
+			rotY = y;
+			rotZ = z;
 
-		return this;
-	}
+			return this;
+		}
 
-	TransformComponent* setScaleX( float x )
-	{
-		scaleX = x;
+		TransformComponent* setRotX( float x )
+		{
+			rotX = x;
 
-		return this;
-	}
+			return this;
+		}
 
-	TransformComponent* setScaleY( float y )
-	{
-		scaleY = y;
+		TransformComponent* setRotY( float y )
+		{
+			rotY = y;
 
-		return this;
-	}
+			return this;
+		}
 
-	TransformComponent* setScaleZ( float z )
-	{
-		scaleZ = z;
+		TransformComponent* setRotZ( float z )
+		{
+			rotZ = z;
 
-		return this;
-	}
+			return this;
+		}
 
-	float getScaleX()
-	{
-		return this->scaleX;
-	}
+		float getRotX()
+		{
+			return this->rotX;
+		}
 
-	float getScaleY()
-	{
-		return this->scaleY;
-	}
+		float getRotY()
+		{
+			return this->rotY;
+		}
 
-	float getScaleZ()
-	{
-		return this->scaleZ;
-	}
+		float getRotZ()
+		{
+			return this->rotZ;
+		}
 
-private:
-	float posX, posY, posZ;
 
-	// TODO: Change to quaternion...
-	float rotX, rotY, rotZ;
+		TransformComponent* setScale( float x, float y, float z )
+		{
+			scaleX = x;
+			scaleY = y;
+			scaleZ = z;
 
-	float scaleX, scaleY, scaleZ;
-};
+			return this;
+		}
+
+		TransformComponent* setScaleX( float x )
+		{
+			scaleX = x;
+
+			return this;
+		}
+
+		TransformComponent* setScaleY( float y )
+		{
+			scaleY = y;
+
+			return this;
+		}
+
+		TransformComponent* setScaleZ( float z )
+		{
+			scaleZ = z;
+
+			return this;
+		}
+
+		float getScaleX()
+		{
+			return this->scaleX;
+		}
+
+		float getScaleY()
+		{
+			return this->scaleY;
+		}
+
+		float getScaleZ()
+		{
+			return this->scaleZ;
+		}
+
+	private:
+		float posX, posY, posZ;
+
+		// TODO: Change to quaternion...
+		float rotX, rotY, rotZ;
+
+		float scaleX, scaleY, scaleZ;
+	};
+}
 
 #endif

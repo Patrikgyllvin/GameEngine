@@ -19,9 +19,9 @@ public:
 	void render();
 
 private:
-	EventManager* eventManager;
-	EntityManager* entityManager;
-	System* moveSys;
+	Engine::EventManager* eventManager;
+	Engine::EntityManager* entityManager;
+	Engine::System* moveSys;
 };
 
 #endif

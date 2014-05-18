@@ -11,11 +11,14 @@ namespace Engine {
 	Core::Core()
 	:
 	window( new Window() )
-	{}
+	{
+		glfwInit();
+	}
 
 	Core::~Core()
 	{
 		delete window;
+		glfwTerminate();
 	}
 
 	void Core::createWindow(int w, int h, std::string text, bool fullscreen )
