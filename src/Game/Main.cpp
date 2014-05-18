@@ -9,6 +9,6 @@
 
 int main( int argc, char** argv )
 {
-	std::cout << "ASD\n";
+	std::cout << "Hello, world!\n";
 	return 0;
 }
