@@ -27,7 +27,7 @@ namespace Engine
 			glfwWindowHint( GLFW_RESIZABLE, 0 );
 		
 		if( fullscreen )
-			window = glfwCreateWindow( width, height, text.c_str(), glfwGetPrimaryMontor(), nullptr );
+			window = glfwCreateWindow( width, height, text.c_str(), glfwGetPrimaryMonitor(), nullptr );
 		else
 			window = glfwCreateWindow( width, height, text.c_str(), nullptr, nullptr );
 
