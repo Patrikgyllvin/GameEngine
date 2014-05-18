@@ -46,7 +46,7 @@ namespace Engine {
 			std::cout << "Warning: Cannot destroy non-existent window!\n";
 	}
 	
-	void start()
+	void Core::start()
 	{
 		if( isRunning )
 		{
@@ -57,7 +57,7 @@ namespace Engine {
 		run();
 	}
 	
-	void stop()
+	void Core::stop()
 	{
 		if( !isRunning )
 		{
@@ -68,7 +68,7 @@ namespace Engine {
 		isRunning = false;
 	}
 	
-	void run()
+	void Core::run()
 	{
 		init();
 		
@@ -129,7 +129,7 @@ namespace Engine {
 		}
 	}
 	
-	void init()
+	void Core::init()
 	{
 		// Add INIT shit here
 		
@@ -138,7 +138,7 @@ namespace Engine {
 			initializationFunc();
 	}
 	
-	void update()
+	void Core::update()
 	{
 		// Add update shit here
 		
@@ -147,7 +147,7 @@ namespace Engine {
 			updateFunc();
 	}
 	
-	void render()
+	void Core::render()
 	{
 		// Add render shit here
 		
