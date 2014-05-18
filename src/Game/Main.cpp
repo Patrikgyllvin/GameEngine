@@ -13,7 +13,7 @@ int main( int argc, char** argv )
 {
 	Engine::Core* engine = new Engine::Core();
 
-	engine->createWindow( 600, 800, "3D Game", false );
+	engine->createWindow( 600, 800, "3D Game", false, false );
 	
 	engine->start();
 
