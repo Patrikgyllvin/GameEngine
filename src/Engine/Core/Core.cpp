@@ -10,6 +10,7 @@
 void errorCallback( int error, const char* desc )
 {
 	fputs( desc, stderr );
+	std::cout << "\n";
 }
 
 namespace Engine {
