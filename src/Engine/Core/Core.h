@@ -21,7 +21,7 @@ namespace Engine {
 		Core();
 		virtual ~Core();
 
-		void createWindow( int w, int h, std::string text, bool fullscreen );
+		void createWindow( int w, int h, std::string text, bool resizable, bool fullscreen );
 		void destroyWindow();
 		
 		// Sets function pointers which will be called at init, update and render, respectively

@@ -24,7 +24,7 @@ namespace Engine {
 		glfwTerminate();
 	}
 
-	void Core::createWindow(int w, int h, std::string text, bool fullscreen )
+	void Core::createWindow(int w, int h, std::string text, bool resizable, bool fullscreen )
 	{
 		if( window->getInitialized() )
 		{
@@ -32,7 +32,7 @@ namespace Engine {
 			return;
 		}
 
-		window->createWindow( w, h, text, fullscreen );
+		window->createWindow( w, h, text, resizable, fullscreen );
 	}
 
 	void Core::destroyWindow()
