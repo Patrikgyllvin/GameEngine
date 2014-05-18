@@ -3,22 +3,25 @@
 
 #include "Component.h"
 
-class SpriteComponent : public Component
+namespace Engine
 {
-public:
-	SpriteComponent() : Component( COMPONENT_SPRITE ) {}
-	virtual ~SpriteComponent() {}
-
-	bool getPerspective()
+	class SpriteComponent : public Component
 	{
-		return perspective;
-	}
+	public:
+		SpriteComponent() : Component( COMPONENT_SPRITE ) {}
+		virtual ~SpriteComponent() {}
+
+		bool getPerspective()
+		{
+			return perspective;
+		}
 
 
 
-private:
-	bool perspective;
-	int spriteW, spriteH, texIndexX, texIndexY;
-};
+	private:
+		bool perspective;
+		int spriteW, spriteH, texIndexX, texIndexY;
+	};
+}
 
 #endif

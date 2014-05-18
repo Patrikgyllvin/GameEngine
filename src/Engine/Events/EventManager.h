@@ -6,25 +6,28 @@
 
 #include "Events.h"
 
-class EventManager
+namespace Engine
 {
-public:
-	EventManager();
-	~EventManager();
+	class EventManager
+	{
+	public:
+		EventManager();
+		~EventManager();
 
-	void subscribeToEvent( IEventListener* listener, EventType eType );
-	void unsubsribeFromEvent( IEventListener* listener, EventType eType );
+		void subscribeToEvent( IEventListener* listener, EventType eType );
+		void unsubsribeFromEvent( IEventListener* listener, EventType eType );
 
-	void subscribeGlobally( IEventListener* listener );
-	void unsubscribeGlobally( IEventListener* listener );
+		void subscribeGlobally( IEventListener* listener );
+		void unsubscribeGlobally( IEventListener* listener );
 
-	void unsubscribeAll();
+		void unsubscribeAll();
 
-	void pushEvent( const IEvent& e );
+		void pushEvent( const IEvent& e );
 
-private:
-	std::vector< IEventListener* > globalListeners;
-	std::vector< std::vector< IEventListener* > > listeners;
-};
+	private:
+		std::vector< IEventListener* > globalListeners;
+		std::vector< std::vector< IEventListener* > > listeners;
+	};
+}
 
 #endif

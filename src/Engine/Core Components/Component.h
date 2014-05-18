@@ -3,18 +3,21 @@
 
 #include "../../ComponentTypes.h"
 
-class Component
+namespace Engine
 {
-public:
-	Component( ComponentType compType ) : type( compType ), typeBits( 1 << compType ) {}
-	virtual ~Component() {}
+	class Component
+	{
+	public:
+		Component( ComponentType compType ) : type( compType ), typeBits( 1 << compType ) {}
+		virtual ~Component() {}
 
-	ComponentType getType() const { return type; }
-	unsigned int getTypeBits() const { return typeBits; }
+		ComponentType getType() const { return type; }
+		unsigned int getTypeBits() const { return typeBits; }
 
-private:
-	ComponentType type;
-	unsigned int typeBits;
-};
+	private:
+		ComponentType type;
+		unsigned int typeBits;
+	};
+}
 
 #endif

@@ -3,23 +3,26 @@
 
 typedef unsigned int EntityID;
 
-class Entity
+namespace Engine
 {
-	friend class EntityManager;
+	class Entity
+	{
+		friend class EntityManager;
 
-public:
-	~Entity() {}
+	public:
+		~Entity() {}
 
-	EntityID getID() const { return id; }
+		EntityID getID() const { return id; }
 
-	unsigned int getTypeBits() const { return typeBits; }
+		unsigned int getTypeBits() const { return typeBits; }
 
-private:
-	Entity( EntityID eID ) : id( eID ), typeBits( 0 ) {}
+	private:
+		Entity( EntityID eID ) : id( eID ), typeBits( 0 ) {}
 
-	const EntityID id;
+		const EntityID id;
 
-	unsigned int typeBits;
-};
+		unsigned int typeBits;
+	};
+}
 
 #endif

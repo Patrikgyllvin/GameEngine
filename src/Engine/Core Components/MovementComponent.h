@@ -3,59 +3,62 @@
 
 #include "Component.h"
 
-class MovementComponent : public Component
+namespace Engine
 {
-public:
-	MovementComponent() : Component( COMPONENT_MOVEMENT ) {}
-	virtual ~MovementComponent() {}
-
-	MovementComponent* setVelocity( float x, float y, float z )
+	class MovementComponent : public Component
 	{
-		velX = x;
-		velY = y;
-		velZ = z;
+	public:
+		MovementComponent() : Component( COMPONENT_MOVEMENT ) {}
+		virtual ~MovementComponent() {}
 
-		return this;
-	}
+		MovementComponent* setVelocity( float x, float y, float z )
+		{
+			velX = x;
+			velY = y;
+			velZ = z;
 
-	MovementComponent* setVelocityX( float x )
-	{
-		velX = x;
+			return this;
+		}
 
-		return this;
-	}
+		MovementComponent* setVelocityX( float x )
+		{
+			velX = x;
 
-	MovementComponent* setVelocityY( float y )
-	{
-		velY = y;
+			return this;
+		}
 
-		return this;
-	}
+		MovementComponent* setVelocityY( float y )
+		{
+			velY = y;
 
-	MovementComponent* setVelocityZ( float z )
-	{
-		velZ = z;
+			return this;
+		}
 
-		return this;
-	}
+		MovementComponent* setVelocityZ( float z )
+		{
+			velZ = z;
 
-	float getVelocityX()
-	{
-		return this->velX;
-	}
+			return this;
+		}
 
-	float getVelocityY()
-	{
-		return this->velY;
-	}
+		float getVelocityX()
+		{
+			return this->velX;
+		}
 
-	float getVelocityZ()
-	{
-		return this->velZ;
-	}
+		float getVelocityY()
+		{
+			return this->velY;
+		}
 
-private:
-	float velX, velY, velZ;
-};
+		float getVelocityZ()
+		{
+			return this->velZ;
+		}
+
+	private:
+		float velX, velY, velZ;
+	};
+}
 
 #endif
