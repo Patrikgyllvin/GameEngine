@@ -33,7 +33,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	$(CC) $(CFLAGS) $(INCLUDE) $< -o $@
 
 $(EXEC): $(OBJS)
-	$(CC) -o $(EXEC) $(OBJS) $(LFLAGS)
+	$(CC) -o $(BINDIR)/$(EXEC) $(OBJS) $(LFLAGS)
 
 bin:
 	mkdir -p $(BINDIR)
