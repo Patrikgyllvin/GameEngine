@@ -22,23 +22,23 @@ OBJS = $(addsuffix .o,$(_OBJECTS))
 
 .PHONY: all
 
-all: obj $(OBJS)
+all: $(OBJS)
 
 .PHONY: rebuild
 
 rebuild: clean all
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR)
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(INCLUDE) $< -o $@
 
-$(EXEC): bin $(OBJS)
+$(EXEC): $(BINDIR) $(OBJS)
 	$(CC) -o $(BINDIR)/$(EXEC) $(OBJS) $(LFLAGS)
 
-bin:
+$(BINDIR):
 	mkdir -p $(BINDIR)
 
-obj:
+$(OBJDIR):
 	mkdir -p $(OBJDIR)
 
 $(OUT): 
