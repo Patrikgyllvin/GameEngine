@@ -5,7 +5,10 @@ BINDIR = $(RTDIR)/bin
 OBJDIR = $(RTDIR)/obj
 
 CC = g++
-CFLAGS = --std=c++11 -Wall -O2 -c
+#DEBUG FLAGS
+CFLAGS = --std=c++11 -Wall -O0 -g -c -DDebug
+#RELEASE FLAGS
+#CFLAGS = --std=c++11 -Wall -O2 -c
 LFLAGS = -lGL -lGLEW -lglfw
 INCLUDE = -I$(INCDIR)
 
