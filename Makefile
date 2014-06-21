@@ -8,19 +8,39 @@ CC = g++
 CFLAGS = --std=c++11 -Wall -O2 -c
 LFLAGS = -lGL -lGLEW -lGLFW
 INCLUDE = -I$(INCDIR)
-INCLUDE_RT = -I../$(INCDIR)
 
-SOURCES = $(wildcard $(SRCDIR)/*.cpp) $(wildcard $(SRCDIR)/*/*.cpp) $(wildcard $(SRCDIR)/*/*/*.cpp) \
+OUT = Game
+
+_SOURCES = $(wildcard $(SRCDIR)/*.cpp) $(wildcard $(SRCDIR)/*/*.cpp) $(wildcard $(SRCDIR)/*/*/*.cpp) \
 	$(wildcard $(SRCDIR)/*/*/*/*.cpp) $(wildcard $(SRCDIR)/*/*/*/*/*.cpp)
 
-SOURCES_RT = $(patsubst %,../%,$(SOURCES))
+SOURCES = $(subst $(SRCDIR)/,,$(_SOURCES))
 
-build: $(SOURCES) createdirs
-	cd $(OBJDIR); \
-	$(CC) $(CFLAGS) $(INCLUDE_RT) $(SOURCES_RT)
+_OBJS = $(basename $(SOURCES))
+_OBJECTS = $(patsubst %,$(OBJDIR)/%,$(_OBJS))
+OBJS = $(addsuffix .o,$(_OBJECTS))
 
-createdirs:
-	mkdir -p $(BINDIR) $(OBJDIR)
+.PHONY: all
+
+all: obj $(OBJS)
+
+.PHONY: rebuild
+
+rebuild: clean all
+
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(INCLUDE) $< -o $@
+
+bin:
+	mkdir -p $(BINDIR)
+
+obj:
+	mkdir -p $(OBJDIR)
+
+$(OUT): 
+
+.PHONY: clean
 
 clean:
 	rm -rf $(BINDIR) $(OBJDIR)
