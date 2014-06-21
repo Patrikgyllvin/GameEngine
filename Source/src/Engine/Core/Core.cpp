@@ -5,7 +5,7 @@
  *      Author: Patrik Gyllvin
  */
 
-#include "Core.h"
+#include "Engine/Core/Core.h"
 
 void errorCallback( int error, const char* desc )
 {

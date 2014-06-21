@@ -3,7 +3,7 @@
 
 #include "Events.h"
 
-#include "../Entity Core/Entity.h"
+#include "../EntityCore/Entity.h"
 
 namespace Engine
 {

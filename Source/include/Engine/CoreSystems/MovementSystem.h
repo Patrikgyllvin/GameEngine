@@ -3,8 +3,8 @@
 
 #include "System.h"
 
-#include "../Core Components/MovementComponent.h"
-#include "../Core Components/TransformComponent.h"
+#include "../CoreComponents/MovementComponent.h"
+#include "../CoreComponents/TransformComponent.h"
 
 namespace Engine
 {

@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "../Engine/Core/Core.h"
+#include "Engine/Core/Core.h"
 
 int main( int argc, char** argv )
 {

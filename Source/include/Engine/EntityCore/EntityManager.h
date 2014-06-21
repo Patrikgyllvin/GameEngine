@@ -11,7 +11,7 @@
 
 #include "Entity.h"
 
-#include "../Core Components/Component.h"
+#include "../CoreComponents/Component.h"
 #include "../../ComponentTypes.h"
 
 namespace Engine

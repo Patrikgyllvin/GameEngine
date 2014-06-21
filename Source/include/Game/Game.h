@@ -1,11 +1,11 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "../Engine/Entity Core/EntityManager.h"
+#include "Engine/EntityCore/EntityManager.h"
 
-#include "../Engine/Core Components/TransformComponent.h"
-#include "../Engine/Core Components/MovementComponent.h"
-#include "../Engine/Core Systems/MovementSystem.h"
+#include "Engine/CoreComponents/TransformComponent.h"
+#include "Engine/CoreComponents/MovementComponent.h"
+#include "Engine/CoreSystems/MovementSystem.h"
 
 class Game
 {
