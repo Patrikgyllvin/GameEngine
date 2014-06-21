@@ -6,10 +6,10 @@ OBJDIR = $(RTDIR)/obj
 
 CC = g++
 CFLAGS = --std=c++11 -Wall -O2 -c
-LFLAGS = -lGL -lGLEW -lGLFW
+LFLAGS = -lGL -lGLEW -lglfw
 INCLUDE = -I$(INCDIR)
 
-OUT = Game
+EXEC = Game
 
 _SOURCES = $(wildcard $(SRCDIR)/*.cpp) $(wildcard $(SRCDIR)/*/*.cpp) $(wildcard $(SRCDIR)/*/*/*.cpp) \
 	$(wildcard $(SRCDIR)/*/*/*/*.cpp) $(wildcard $(SRCDIR)/*/*/*/*/*.cpp)
@@ -31,6 +31,9 @@ rebuild: clean all
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(INCLUDE) $< -o $@
+
+$(EXEC): $(OBJS)
+	$(CC) -o $(EXEC) $(OBJS) $(LFLAGS)
 
 bin:
 	mkdir -p $(BINDIR)
