@@ -121,9 +121,7 @@ namespace Engine
 			if( entity->getID() >= entList.size() )
 				break;
 
-			Component* comp = entList[ entity->getID() ];
-
-			destroyComponent( entity, comp );
+			destroyComponent( entity, (ComponentType) i );
 		}
 	}
 
