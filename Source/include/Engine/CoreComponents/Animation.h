@@ -28,31 +28,23 @@ namespace Engine
 
         int getFrame()
         {
-            // if our animation is enabled
-            if( active )
-            {
-				double currTime = glfwGetTime(); // TODO: engine get time...
-               	
-               	if( lastTime == -1)
-            		lastTime = currTime;
+	    double currTime = glfwGetTime(); // TODO: engine get time...
+	    
+	    if( lastTime == -1)
+		    lastTime = currTime;
 
-                // if it's time to switch frames
-                if( currTime - lastTime > timeInterval )
-                {
-                    if( currFrame == lastFrame )
-                        currFrame = firstFrame;
-                    else
-                        currFrame++;
-                }
-                
-                lastTime = currTime;
+	    // if it's time to switch frames
+	    if( currTime - lastTime > timeInterval )
+	    {
+		if( currFrame == lastFrame )
+		    currFrame = firstFrame;
+		else
+		    currFrame++;
+	    }
+	    
+	    lastTime = currTime;
 
-               	return currFrame;
-            }
-            else
-            {
-                return this->currFrame;
-            }
+	    return currFrame;
         }
 
         void setInactive()

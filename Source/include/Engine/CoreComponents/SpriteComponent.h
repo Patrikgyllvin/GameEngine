@@ -8,7 +8,7 @@ namespace Engine
 	class SpriteComponent : public Component
 	{
 	public:
-		SpriteComponent( bool perspective, int width, int height, int texIndexX, texIndexY )
+		SpriteComponent( bool perspective, int width, int height, int texIndexX, int texIndexY )
 		:
 		isPerspective( perspective ),
 		spriteW( width ),

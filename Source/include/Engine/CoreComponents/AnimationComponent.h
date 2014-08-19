@@ -19,7 +19,7 @@ namespace Engine
         AnimationComponent()
         :
         active( nullptr ),
-        Component( COMPONENT_ANIMATION );
+        Component( COMPONENT_ANIMATION )
         {}
 
         void addAnimation( Animation* animation )
@@ -45,14 +45,14 @@ namespace Engine
                 if( (*it)->getName() == animation )
                 {
                     delete * it;
-                    it = animations.erase( *it );
+                    it = animations.erase( it );
                 }
             }
         }
 
         void setActiveAnimation( std::string animation )
         {
-            for( std::vector< Animations* >::iterator it = animations.begin(); it != animations.end(); ++it )
+            for( std::vector< Animation* >::iterator it = animations.begin(); it != animations.end(); ++it )
             {
                 if( active != nullptr )
                     active->setInactive();

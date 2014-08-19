@@ -1,7 +1,7 @@
 #include "Engine/CoreSystems/AnimationSystem.h"
 
 namespace Engine
-
+{
 	AnimationSystem::AnimationSystem( EventManager* evtManager, EntityManager* entityManager )
 	:
 	System( evtManager, entityManager, COMPONENT_ANIMATION_BIT | COMPONENT_ANIMATION_BIT )
@@ -37,10 +37,10 @@ namespace Engine
 		int rows = texWidth / spriteComp->getWidth();;
 		int columns = texHeight / spriteComp->getHeight();;
 
-		spriteComp->setTexIndexX = currFrame % rows;
-		spriteComp->setTexIndexY = currFrame / columns;
+		spriteComp->setTexIndexX( currFrame % rows );
+		spriteComp->setTexIndexY( currFrame / columns );
 	}
 
-	void AnimationSystem::postUpdate();
+	void AnimationSystem::postUpdate()
 	{}
 }
