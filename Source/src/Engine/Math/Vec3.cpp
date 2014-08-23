@@ -48,7 +48,7 @@ namespace Engine::Math
 
 		if( len != 0 )
 		{
-			return Vec3( this->x / len, this->y / len, this->z / len )
+			return Vec3( this->x / len, this->y / len, this->z / len );
 		}
 
 		return *this;
@@ -81,11 +81,11 @@ namespace Engine::Math
 
 	float Vec3::getZ() const
 	{
-		return this->z;direction vector
+		return this->z;
 	}
 
 	Vec3 Vec3::operator+( const Vec3& otherVec )
-	{direction vector
+	{
 		return Vec3( x + otherVec.getX(), y + otherVec.getY(), z + otherVec.getZ() );
 	}
 
@@ -104,8 +104,39 @@ namespace Engine::Math
 		return Vec3( x / denominator, y / denominator, z / denominator );
 	}
 
-	Vec3& Vec3::operator+=( const Vec3& otherVec ){}
-	Vec3& Vec3::operator-=( const Vec3& otherVec ){}
-	Vec3& Vec3::operator*=( float factor ){}
-	Vec3& Vec3::operator/=( float denominator ){}
+	Vec3& Vec3::operator+=( const Vec3& otherVec )
+	{
+		this->x += otherVec.getX();
+		this->y += otherVec.getY();
+		this->z += otherVec.getZ();
+
+		return *this;
+	}
+	
+	Vec3& Vec3::operator-=( const Vec3& otherVec )
+	{
+		this->x -= otherVec.getX();
+		this->y -= otherVec.getY();
+		this->z -= otherVec.getZ();
+
+		return *this;
+	}
+
+	Vec3& Vec3::operator*=( float factor )
+	{
+		this->x *= factor;
+		this->y *= factor;
+		this->z *= factor;
+
+		return *this;
+	}
+	
+	Vec3& Vec3::operator/=( float denominator )
+	{
+		this->x /= denominator;
+		this->y /= denominator;
+		this->z /= denominator;
+
+		return *this;
+	}
 }
