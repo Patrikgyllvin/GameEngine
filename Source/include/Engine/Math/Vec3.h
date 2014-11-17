@@ -1,11 +1,12 @@
 #ifndef VEC3_H
 #define VEC3_H
 
+#include <sstream>
 #include <string>
 
 #include <cmath>
 
-namespace Engine::Math
+namespace Engine
 {
 	class Vec3
 	{
@@ -15,7 +16,7 @@ namespace Engine::Math
 
 		~Vec3();
 
-		std::string toString();
+		const std::string toString() const;
 
 		float dot( const Vec3& otherVec );
 		Vec3 cross( const Vec3& otherVec );

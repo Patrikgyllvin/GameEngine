@@ -1,6 +1,7 @@
 #ifndef VEC2_H
 #define VEC2_H
 
+#include <sstream>
 #include <string>
 
 #include <cmath>
@@ -15,7 +16,7 @@ namespace Engine
 
 		~Vec2();
 
-		const std::string& toString() const;
+		const std::string toString() const;
 
 		float dot( const Vec2& otherVec );
 		Vec2 cross( const Vec2& otherVec );

@@ -17,9 +17,12 @@ namespace Engine
 	Vec2::~Vec2()
 	{}
 
-	const std::string& Vec2::toString() const
+	const std::string Vec2::toString() const
 	{
-		return std::string( x << " " << y );
+		std::ostringstream oStr;
+		oStr << x << ", " << y;
+
+		return std::string( oStr.str() );
 	}
 
 	float Vec2::dot( const Vec2& otherVec )
@@ -66,7 +69,7 @@ namespace Engine
 
 	Vec2 Vec2::operator+( const Vec2& otherVec )
 	{
-		return Vec2( this->x + otherVec.getX(), this->y + otherVec.getY() )
+		return Vec2( this->x + otherVec.getX(), this->y + otherVec.getY() );
 	}
 
 	Vec2 Vec2::operator+( float f )
@@ -93,19 +96,27 @@ namespace Engine
 	//Vec2 operator/( const Vec2& otherVec );
 	Vec2 Vec2::operator/( float denominator )
 	{
-		return Vec2()
+		return Vec2();
 	}
 
-	Vec2& Vec2::operator+=( const Vec2& otherVec );
-	Vec2& Vec2::operator+=( float f );
+	Vec2& Vec2::operator+=( const Vec2& otherVec )
+	{}
+	
+	Vec2& Vec2::operator+=( float f )
+	{}
 
-	Vec2& Vec2::operator-=( const Vec2& otherVec );
-	Vec2& Vec2::operator-=( float f );
+	Vec2& Vec2::operator-=( const Vec2& otherVec )
+	{}
+	Vec2& Vec2::operator-=( float f )
+	{}
 
-	Vec2& Vec2::operator*=( const Vec2& otherVec );
-	Vec2& Vec2::operator*=( float factor );
+	Vec2& Vec2::operator*=( const Vec2& otherVec )
+	{}
+	Vec2& Vec2::operator*=( float factor )
+	{}
 
-	Vec2& Vec2::operator/=( const Vec2& otherVec );
-	Vec2& Vec2::operator/=( float denominator );
-
+	Vec2& Vec2::operator/=( const Vec2& otherVec )
+	{}
+	Vec2& Vec2::operator/=( float denominator )
+	{}
 }

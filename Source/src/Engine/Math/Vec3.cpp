@@ -1,6 +1,6 @@
 #include "Engine/Math/Vec3.h"
 
-namespace Engine::Math
+namespace Engine
 {
 	Vec3::Vec3()
 	:
@@ -18,9 +18,12 @@ namespace Engine::Math
 
 	Vec3::~Vec3(){}
 
-	std::string Vec3::toString( )
+	const std::string Vec3::toString( ) const
 	{
-		return std::string(x + " " + y + " " + z);
+		std::ostringstream oStr;
+		oStr << x << ", " << y << ", " << z;
+
+		return std::string( oStr.str() );
 	}
 
 	float Vec3::dot( const Vec3& otherVec )
