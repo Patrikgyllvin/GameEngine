@@ -11,6 +11,7 @@ syntax: glob
 *.tlog
 *.pdb
 *.idb
+*.opensdf
 tests/*.err
 
 syntax: regexp

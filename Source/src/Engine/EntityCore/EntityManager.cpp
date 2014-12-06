@@ -27,7 +27,7 @@ namespace Engine
 		components.clear();
 	}
 
-	Entity* EntityManager::genEntity()
+	Entity& EntityManager::genEntity()
 	{
 		EntityID id;
 
@@ -44,14 +44,14 @@ namespace Engine
 		if( id >= entities.size() )
 			entities.resize( id + 1, nullptr );
 
-		Entity* entity = new Entity( id );
+		Entity* entity = new Entity( id, this, components );
 
 		entities[ id ] = entity;
 
 		// Notify systems
 		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_CREATED, entity ) );
 
-		return entity;
+		return *entity;
 	}
 
 	void EntityManager::destroyEntity( Entity* entity )
@@ -87,54 +87,5 @@ namespace Engine
 		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_COMPONENT_ADDED, entity ) );
 
 		return comp;
-	}
-
-	void EntityManager::destroyComponent( Entity* entity, ComponentType compType )
-	{
-		std::vector< Component* >& entList = components[ compType ];
-
-		if( entity->getID() >= entList.size() )
-			return;
-
-		Component* entComp = entList[ entity->getID() ];
-
-		if( entComp != nullptr )
-		{
-			delete entComp;
-			entComp = nullptr;
-		}
-
-		// No more components of type
-		if( entComp == nullptr )
-			entity->typeBits &= ( ~compType );
-
-		// Notify systems
-		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_COMPONENT_DESTROYED, entity ) );
-	}
-
-	void EntityManager::destroyAllComponents( Entity* entity )
-	{
-		for( unsigned int i = 0; i < COMPONENT_LAST; i++ )
-		{
-			std::vector< Component* >& entList = components[ i ];
-
-			if( entity->getID() >= entList.size() )
-				break;
-
-			destroyComponent( entity, (ComponentType) i );
-		}
-	}
-
-	Component* EntityManager::getComponent( Entity* entity, ComponentType compType )
-	{
-		std::vector< Component* >& entList = components[ compType ];
-
-		// Entity not in list - doesn't contain any components of type compType...
-		if( entity->getID() >= entList.size() )
-		{
-			return nullptr;
-		}
-
-		return entList[ entity->getID() ];
 	}
 }

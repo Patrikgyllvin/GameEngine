@@ -18,7 +18,7 @@ namespace Engine
 	  virtual void init();
 
 	  virtual void preUpdate();
-	  virtual void updateEntities( const std::set< Entity* >& entities );
+	  virtual void updateEntities( const Entity& entities );
 	  virtual void postUpdate();
 
   private:

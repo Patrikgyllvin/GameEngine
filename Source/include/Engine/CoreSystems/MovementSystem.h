@@ -11,14 +11,14 @@ namespace Engine
 	class MovementSystem : public System
 	{
 	public:
-		MovementSystem( EventManager* evtManager, EntityManager* entManager );
+		MovementSystem();
 		virtual ~MovementSystem();
 
 	protected:
 		virtual void init();
 
 		virtual void preUpdate();
-		virtual void updateEntities( const std::set< Entity* >& entities );
+		virtual void updateEntities( const Entity& entity );
 		virtual void postUpdate();
 
 	private:

@@ -6,10 +6,10 @@
 
 #include <vector>
 
+#include "Entity.h"
+
 #include "../Events/EventManager.h"
 #include "../Events/EntityEvent.h"
-
-#include "Entity.h"
 
 #include "../CoreComponents/Component.h"
 #include "../../ComponentTypes.h"
@@ -22,15 +22,8 @@ namespace Engine
 		EntityManager( EventManager* eManager );
 		~EntityManager();
 
-		Entity* genEntity();
+		Entity& genEntity();
 		void destroyEntity( Entity* entity );
-
-		Component* addComponent( Entity* entity, Component* comp );
-		void destroyComponent( Entity* entity, ComponentType compType );
-
-		void destroyAllComponents( Entity* entity );
-
-		Component* getComponent( Entity* entity, ComponentType compType );
 
 	private:
 		typedef std::vector< Entity* > EntityList;
@@ -42,7 +35,8 @@ namespace Engine
 		std::vector< unsigned int > usedIDs;
 	
 		EntityList entities;
-		std::vector< std::vector< Component* > > components;
+
+		ComponentList components;
 	};
 }
 
