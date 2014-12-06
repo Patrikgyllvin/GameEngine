@@ -100,23 +100,34 @@ namespace Engine
 	}
 
 	Vec2& Vec2::operator+=( const Vec2& otherVec )
-	{}
-	
-	Vec2& Vec2::operator+=( float f )
-	{}
+	{
+		this->x += otherVec.getX();
+		this->y += otherVec.getY();
+
+		return *this;
+	}
 
 	Vec2& Vec2::operator-=( const Vec2& otherVec )
-	{}
-	Vec2& Vec2::operator-=( float f )
-	{}
+	{
+		this->x -= otherVec.getX();
+		this->y -= otherVec.getY();
+
+		return *this;
+	}
 
 	Vec2& Vec2::operator*=( const Vec2& otherVec )
-	{}
-	Vec2& Vec2::operator*=( float factor )
-	{}
+	{
+		this->x *= otherVec.getX();
+		this->y *= otherVec.getY();
 
-	Vec2& Vec2::operator/=( const Vec2& otherVec )
-	{}
-	Vec2& Vec2::operator/=( float denominator )
-	{}
+		return *this;
+	}
+
+	Vec2& Vec2::operator*=( float factor )
+	{
+		this->x *= factor;
+		this->y *= factor;
+
+		return *this;
+	}
 }

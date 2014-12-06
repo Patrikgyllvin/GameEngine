@@ -44,16 +44,11 @@ namespace Engine
 
 
 		Vec2& operator+=( const Vec2& otherVec );
-		Vec2& operator+=( float f );
 
 		Vec2& operator-=( const Vec2& otherVec );
-		Vec2& operator-=( float f );
 
 		Vec2& operator*=( const Vec2& otherVec );
 		Vec2& operator*=( float factor );
-
-		Vec2& operator/=( const Vec2& otherVec );
-		Vec2& operator/=( float denominator );
 
 	private:
 		float x, y;

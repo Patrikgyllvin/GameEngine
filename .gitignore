@@ -6,6 +6,11 @@ syntax: glob
 *.rej
 *~
 *.o
+*.obj
+*.log
+*.tlog
+*.pdb
+*.idb
 tests/*.err
 
 syntax: regexp

@@ -8,33 +8,24 @@
 
 namespace Engine
 {
-	class System : public IEventListener
+	class System
 	{
 	public:
-		System( EventManager* evtManager, EntityManager* entManager, unsigned int compTypeBits );
+		System();
 		virtual ~System();
 
-		virtual void processEvent( const IEvent& e );
+		virtual bool shouldProcessEntity( const Entity& entity ) = 0;
 
-		void update();
+		void update( const Entity& entity );
 
 	protected:
-
 		virtual void init() = 0;
 
-		virtual void preUpdate() = 0;
+		virtual void preProcess() = 0;
 
-		virtual void updateEntities( const std::set< Entity* >& entities ) = 0;
+		virtual void processEntity( const Entity& entity ) = 0;
 
-		virtual void postUpdate() = 0;
-
-		EntityManager* entityManager;
-		EventManager* eventManager;
-
-	private:
-		std::set< Entity* > chosenOnes;
-
-		unsigned int typeBits;
+		virtual void postProcess() = 0;
 	};
 }
 
