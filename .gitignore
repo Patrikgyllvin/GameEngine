@@ -1,0 +1,12 @@
+syntax: glob
+.cproject
+.project
+.DS_Store
+*.orig
+*.rej
+*~
+*.o
+tests/*.err
+
+syntax: regexp
+.*\#.*\#$
