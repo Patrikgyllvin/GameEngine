@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F72510A1A6BD99900BE6DB2"
+               BlueprintIdentifier = "5FF8DDAC1A6C613E000BC39A"
                BuildableName = "GameEngine.app"
                BlueprintName = "GameEngine"
                ReferencedContainer = "container:GameEngine.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F72511D1A6BD99900BE6DB2"
+               BlueprintIdentifier = "5FF8DDBF1A6C613F000BC39A"
                BuildableName = "GameEngineTests.xctest"
                BlueprintName = "GameEngineTests"
                ReferencedContainer = "container:GameEngine.xcodeproj">
@@ -40,13 +40,13 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Release">
+      buildConfiguration = "Debug">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F72511D1A6BD99900BE6DB2"
+               BlueprintIdentifier = "5FF8DDBF1A6C613F000BC39A"
                BuildableName = "GameEngineTests.xctest"
                BlueprintName = "GameEngineTests"
                ReferencedContainer = "container:GameEngine.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F72510A1A6BD99900BE6DB2"
+            BlueprintIdentifier = "5FF8DDAC1A6C613E000BC39A"
             BuildableName = "GameEngine.app"
             BlueprintName = "GameEngine"
             ReferencedContainer = "container:GameEngine.xcodeproj">
@@ -68,14 +68,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F72510A1A6BD99900BE6DB2"
+            BlueprintIdentifier = "5FF8DDAC1A6C613E000BC39A"
             BuildableName = "GameEngine.app"
             BlueprintName = "GameEngine"
             ReferencedContainer = "container:GameEngine.xcodeproj">
@@ -93,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F72510A1A6BD99900BE6DB2"
+            BlueprintIdentifier = "5FF8DDAC1A6C613E000BC39A"
             BuildableName = "GameEngine.app"
             BlueprintName = "GameEngine"
             ReferencedContainer = "container:GameEngine.xcodeproj">
@@ -101,7 +101,7 @@
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Release">
+      buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
