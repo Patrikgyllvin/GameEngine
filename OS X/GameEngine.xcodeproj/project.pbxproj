@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5F7251301A6BDA3C00BE6DB2 /* include in Resources */ = {isa = PBXBuildFile; fileRef = 5F72512E1A6BDA3C00BE6DB2 /* include */; };
 		5F7251311A6BDA3C00BE6DB2 /* src in Resources */ = {isa = PBXBuildFile; fileRef = 5F72512F1A6BDA3C00BE6DB2 /* src */; };
-		5F7251361A6BE6AF00BE6DB2 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 5F7251351A6BE6AF00BE6DB2 /* Makefile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,13 +22,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5F72510B1A6BD99900BE6DB2 /* GameEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F72510F1A6BD99900BE6DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5F72511E1A6BD99900BE6DB2 /* GameEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F7251231A6BD99900BE6DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F72512E1A6BDA3C00BE6DB2 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = ../../Source/include; sourceTree = "<group>"; };
 		5F72512F1A6BDA3C00BE6DB2 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../../Source/src; sourceTree = "<group>"; };
 		5F7251351A6BE6AF00BE6DB2 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../Makefile; sourceTree = "<group>"; };
+		5FF8DDA21A6C53CC000BC39A /* GameEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = GameEngine.app; path = "/Users/Patrik/GameEngine/OS X/build/Release/GameEngine.app"; sourceTree = "<absolute>"; };
+		5FF8DDA31A6C53CC000BC39A /* GameEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GameEngineTests.xctest; path = "/Users/Patrik/GameEngine/OS X/build/Release/GameEngineTests.xctest"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,18 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				5F72510D1A6BD99900BE6DB2 /* GameEngine */,
-				5F7251211A6BD99900BE6DB2 /* GameEngineTests */,
-				5F72510C1A6BD99900BE6DB2 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		5F72510C1A6BD99900BE6DB2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5F72510B1A6BD99900BE6DB2 /* GameEngine.app */,
-				5F72511E1A6BD99900BE6DB2 /* GameEngineTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		5F72510D1A6BD99900BE6DB2 /* GameEngine */ = {
@@ -83,22 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				5F72510F1A6BD99900BE6DB2 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5F7251211A6BD99900BE6DB2 /* GameEngineTests */ = {
-			isa = PBXGroup;
-			children = (
-				5F7251221A6BD99900BE6DB2 /* Supporting Files */,
-			);
-			path = GameEngineTests;
-			sourceTree = "<group>";
-		};
-		5F7251221A6BD99900BE6DB2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				5F7251231A6BD99900BE6DB2 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -137,7 +108,7 @@
 			);
 			name = GameEngine;
 			productName = GameEngine;
-			productReference = 5F72510B1A6BD99900BE6DB2 /* GameEngine.app */;
+			productReference = 5FF8DDA21A6C53CC000BC39A /* GameEngine.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5F72511D1A6BD99900BE6DB2 /* GameEngineTests */ = {
@@ -155,7 +126,7 @@
 			);
 			name = GameEngineTests;
 			productName = GameEngineTests;
-			productReference = 5F72511E1A6BD99900BE6DB2 /* GameEngineTests.xctest */;
+			productReference = 5FF8DDA31A6C53CC000BC39A /* GameEngineTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -188,7 +159,7 @@
 				Base,
 			);
 			mainGroup = 5F7251021A6BD99900BE6DB2;
-			productRefGroup = 5F72510C1A6BD99900BE6DB2 /* Products */;
+			productRefGroup = 5F7251021A6BD99900BE6DB2;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -223,7 +194,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F7251361A6BE6AF00BE6DB2 /* Makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +282,7 @@
 			buildSettings = {
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GameEngine;
 			};
 			name = Release;
 		};

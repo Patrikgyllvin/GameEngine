@@ -3,8 +3,7 @@
 namespace Engine
 {
 	AnimationSystem::AnimationSystem( EventManager* evtManager, EntityManager* entityManager )
-	:
-	System( evtManager, entityManager, COMPONENT_ANIMATION_BIT | COMPONENT_ANIMATION_BIT )
+	//System( evtManager, entityManager, COMPONENT_ANIMATION_BIT | COMPONENT_ANIMATION_BIT )
 	{}
 
 	AnimationSystem::~AnimationSystem()
@@ -12,10 +11,10 @@ namespace Engine
 
 	void AnimationSystem::init()
 	{}
-
+/*
 	void AnimationSystem::preUpdate()
 	{}
-
+*//*
 	void AnimationSystem::updateEntities( const std::set< Entity* >& entities )
 	{
 		for( std::set< Entity* >::const_iterator it = entities.begin(); it != entities.end(); ++it )
@@ -40,7 +39,5 @@ namespace Engine
 		spriteComp->setTexIndexX( currFrame % rows );
 		spriteComp->setTexIndexY( currFrame / columns );
 	}
-
-	void AnimationSystem::postUpdate()
-	{}
+*/
 }

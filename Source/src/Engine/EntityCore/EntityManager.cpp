@@ -44,7 +44,7 @@ namespace Engine
 		if( id >= entities.size() )
 			entities.resize( id + 1, nullptr );
 
-		Entity* entity = new Entity( id, this, components );
+	/*	Entity* entity = new Entity( id, this, components );
 
 		entities[ id ] = entity;
 
@@ -52,20 +52,20 @@ namespace Engine
 		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_CREATED, entity ) );
 
 		return *entity;
-	}
+*/	}
 
 	void EntityManager::destroyEntity( Entity* entity )
 	{
 		usedIDs.push_back( entity->getID() );
 
-		destroyAllComponents( entity );
+		//destroyAllComponents( entity );
 
 		// Notify systems
 		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_DESTROYED, entity ) );
 
 		delete entity;
 	}
-	
+	/*
 	Component* EntityManager::addComponent( Entity* entity, Component* comp )
 	{
 		std::vector< Component* >& entList = components[ comp->getType() ];
@@ -87,5 +87,5 @@ namespace Engine
 		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_COMPONENT_ADDED, entity ) );
 
 		return comp;
-	}
+	}*/
 }

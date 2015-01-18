@@ -16,11 +16,12 @@ namespace Engine
 
 	protected:
 		virtual void init();
-
+// TODO: CHANGE NAMES
+        /*
 		virtual void preUpdate();
 		virtual void updateEntities( const Entity& entity );
 		virtual void postUpdate();
-
+*/
 	private:
 		void updateEntityPosition( Entity* entity );
 	};

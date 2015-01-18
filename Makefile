@@ -16,7 +16,7 @@ ifeq ($(OS),Windows_NT)
 else
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S),Darwin)
-		LFLAGS = -framework OpenGL -lGL -lGLEW -lglfw
+		LFLAGS = -L/usr/local/lib -lGLEW -lglfw3 -framework OpenGL -framework Cocoa -framework IOKit -framework CoreVideo
         INCLUDE += -I/usr/local/include
 	endif
 endif

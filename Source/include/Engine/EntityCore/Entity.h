@@ -41,7 +41,8 @@ namespace Engine
 			// Entity not in list - doesn't contain any components of type compType...
 			if(this->id >= entList.size() )
 			{
-				return;
+                // TODO: Fix this shit!
+				//return;
 			}
 
 			return entList[ this->id ];
@@ -80,13 +81,15 @@ namespace Engine
 				this->typeBits &= ( ~compType );
 
 			// Notify systems
-			eventManager->pushEvent( EntityEvent( EVENT_ENTITY_COMPONENT_DESTROYED, entity ) );
+			//TODO: eventManager !?
+            //eventManager->pushEvent( EntityEvent( EVENT_ENTITY_COMPONENT_DESTROYED, entity ) );
 		}
 
 	private:
-		Entity( EntityID eID, EntityManager& eMgr, ComponentList& comps ) : id( eID ), entityManager( eMgr ), components( comps ) {}
+        // TODO: WHAT?
+		//Entity( EntityID eID, EntityManager& eMgr, ComponentList& comps ) : id( eID ), entityManager( eMgr ), components( comps ) {}
 
-		EntityManager& entityManager;
+		//EntityManager& entityManager;
 
 		const EntityID id;
 
