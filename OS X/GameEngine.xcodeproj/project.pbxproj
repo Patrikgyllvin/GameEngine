@@ -1,0 +1,357 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F7251301A6BDA3C00BE6DB2 /* include in Resources */ = {isa = PBXBuildFile; fileRef = 5F72512E1A6BDA3C00BE6DB2 /* include */; };
+		5F7251311A6BDA3C00BE6DB2 /* src in Resources */ = {isa = PBXBuildFile; fileRef = 5F72512F1A6BDA3C00BE6DB2 /* src */; };
+		5F7251361A6BE6AF00BE6DB2 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 5F7251351A6BE6AF00BE6DB2 /* Makefile */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5F72511F1A6BD99900BE6DB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5F7251031A6BD99900BE6DB2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F72510A1A6BD99900BE6DB2;
+			remoteInfo = GameEngine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5F72510B1A6BD99900BE6DB2 /* GameEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F72510F1A6BD99900BE6DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F72511E1A6BD99900BE6DB2 /* GameEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F7251231A6BD99900BE6DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F72512E1A6BDA3C00BE6DB2 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; name = include; path = ../../Source/include; sourceTree = "<group>"; };
+		5F72512F1A6BDA3C00BE6DB2 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; name = src; path = ../../Source/src; sourceTree = "<group>"; };
+		5F7251351A6BE6AF00BE6DB2 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../Makefile; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5F7251081A6BD99900BE6DB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F72511B1A6BD99900BE6DB2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5F7251021A6BD99900BE6DB2 = {
+			isa = PBXGroup;
+			children = (
+				5F72510D1A6BD99900BE6DB2 /* GameEngine */,
+				5F7251211A6BD99900BE6DB2 /* GameEngineTests */,
+				5F72510C1A6BD99900BE6DB2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5F72510C1A6BD99900BE6DB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5F72510B1A6BD99900BE6DB2 /* GameEngine.app */,
+				5F72511E1A6BD99900BE6DB2 /* GameEngineTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5F72510D1A6BD99900BE6DB2 /* GameEngine */ = {
+			isa = PBXGroup;
+			children = (
+				5F7251351A6BE6AF00BE6DB2 /* Makefile */,
+				5F72512E1A6BDA3C00BE6DB2 /* include */,
+				5F72512F1A6BDA3C00BE6DB2 /* src */,
+				5F72510E1A6BD99900BE6DB2 /* Supporting Files */,
+			);
+			path = GameEngine;
+			sourceTree = "<group>";
+		};
+		5F72510E1A6BD99900BE6DB2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5F72510F1A6BD99900BE6DB2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5F7251211A6BD99900BE6DB2 /* GameEngineTests */ = {
+			isa = PBXGroup;
+			children = (
+				5F7251221A6BD99900BE6DB2 /* Supporting Files */,
+			);
+			path = GameEngineTests;
+			sourceTree = "<group>";
+		};
+		5F7251221A6BD99900BE6DB2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5F7251231A6BD99900BE6DB2 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		5F7251321A6BDE8E00BE6DB2 /* GameEngineApp */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 5F7251331A6BDE8E00BE6DB2 /* Build configuration list for PBXLegacyTarget "GameEngineApp" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = /Users/Patrik/GameEngine;
+			dependencies = (
+			);
+			name = GameEngineApp;
+			passBuildSettingsInEnvironment = 1;
+			productName = GameEngineApp;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		5F72510A1A6BD99900BE6DB2 /* GameEngine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F7251281A6BD99900BE6DB2 /* Build configuration list for PBXNativeTarget "GameEngine" */;
+			buildPhases = (
+				5F7251071A6BD99900BE6DB2 /* Sources */,
+				5F7251081A6BD99900BE6DB2 /* Frameworks */,
+				5F7251091A6BD99900BE6DB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GameEngine;
+			productName = GameEngine;
+			productReference = 5F72510B1A6BD99900BE6DB2 /* GameEngine.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5F72511D1A6BD99900BE6DB2 /* GameEngineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F72512B1A6BD99900BE6DB2 /* Build configuration list for PBXNativeTarget "GameEngineTests" */;
+			buildPhases = (
+				5F72511A1A6BD99900BE6DB2 /* Sources */,
+				5F72511B1A6BD99900BE6DB2 /* Frameworks */,
+				5F72511C1A6BD99900BE6DB2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5F7251201A6BD99900BE6DB2 /* PBXTargetDependency */,
+			);
+			name = GameEngineTests;
+			productName = GameEngineTests;
+			productReference = 5F72511E1A6BD99900BE6DB2 /* GameEngineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5F7251031A6BD99900BE6DB2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Patrik Gyllvin";
+				TargetAttributes = {
+					5F72510A1A6BD99900BE6DB2 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					5F72511D1A6BD99900BE6DB2 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 5F72510A1A6BD99900BE6DB2;
+					};
+					5F7251321A6BDE8E00BE6DB2 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 5F7251061A6BD99900BE6DB2 /* Build configuration list for PBXProject "GameEngine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5F7251021A6BD99900BE6DB2;
+			productRefGroup = 5F72510C1A6BD99900BE6DB2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5F72510A1A6BD99900BE6DB2 /* GameEngine */,
+				5F72511D1A6BD99900BE6DB2 /* GameEngineTests */,
+				5F7251321A6BDE8E00BE6DB2 /* GameEngineApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5F7251091A6BD99900BE6DB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7251311A6BDA3C00BE6DB2 /* src in Resources */,
+				5F7251301A6BDA3C00BE6DB2 /* include in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F72511C1A6BD99900BE6DB2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F7251071A6BD99900BE6DB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7251361A6BE6AF00BE6DB2 /* Makefile in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F72511A1A6BD99900BE6DB2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5F7251201A6BD99900BE6DB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F72510A1A6BD99900BE6DB2 /* GameEngine */;
+			targetProxy = 5F72511F1A6BD99900BE6DB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5F7251271A6BD99900BE6DB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		5F72512A1A6BD99900BE6DB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = GameEngine/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5F72512D1A6BD99900BE6DB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GameEngineTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameEngine.app/Contents/MacOS/GameEngine";
+			};
+			name = Release;
+		};
+		5F7251341A6BDE8E00BE6DB2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5F7251061A6BD99900BE6DB2 /* Build configuration list for PBXProject "GameEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F7251271A6BD99900BE6DB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F7251281A6BD99900BE6DB2 /* Build configuration list for PBXNativeTarget "GameEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F72512A1A6BD99900BE6DB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F72512B1A6BD99900BE6DB2 /* Build configuration list for PBXNativeTarget "GameEngineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F72512D1A6BD99900BE6DB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F7251331A6BDE8E00BE6DB2 /* Build configuration list for PBXLegacyTarget "GameEngineApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F7251341A6BDE8E00BE6DB2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5F7251031A6BD99900BE6DB2 /* Project object */;
+}
