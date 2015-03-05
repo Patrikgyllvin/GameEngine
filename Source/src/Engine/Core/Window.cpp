@@ -1,4 +1,8 @@
+#ifndef __APPLE__
 #include "Engine/Core/Window.h"
+#else
+#include "Window.h"
+#endif
 
 namespace Engine
 {

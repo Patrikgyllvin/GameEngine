@@ -1,4 +1,8 @@
+#ifndef __APPLE__
 #include "Engine/Math/Vec3.h"
+#else
+#include "Vec3.h"
+#endif
 
 namespace Engine
 {

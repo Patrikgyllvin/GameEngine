@@ -1,4 +1,8 @@
+#ifndef __APPLE__
 #include "Engine/CoreSystems/AnimationSystem.h"
+#else
+#include "AnimationSystem.h"
+#endif
 
 namespace Engine
 {

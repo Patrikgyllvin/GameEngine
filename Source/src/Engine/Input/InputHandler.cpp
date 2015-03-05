@@ -1,4 +1,8 @@
+#ifndef __APPLE__
 #include "Engine/Input/InputHandler.h"
+#else
+#include "InputHandler.h"
+#endif
 
 namespace Engine
 {

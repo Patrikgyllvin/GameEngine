@@ -1,4 +1,8 @@
+#ifndef __APPLE__
 #include "Engine/CoreSystems/MovementSystem.h"
+#else
+#include "MovementSystem.h"
+#endif
 
 namespace Engine
 {

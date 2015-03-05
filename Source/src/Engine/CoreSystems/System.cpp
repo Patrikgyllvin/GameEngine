@@ -1,4 +1,8 @@
+#ifndef __APPLE__
 #include "Engine/CoreSystems/System.h"
+#else
+#include "System.h"
+#endif
 
 namespace Engine
 {

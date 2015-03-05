@@ -1,4 +1,8 @@
+#ifndef __APPLE__
 #include "Game/Game.h"
+#else
+#include "Game.h"
+#endif
 
 Game::Game()
 :

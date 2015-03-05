@@ -1,4 +1,8 @@
+#ifndef __APPLE__
 #include "Engine/EntityCore/EntityManager.h"
+#else
+#include "EntityManager.h"
+#endif
 
 namespace Engine
 {

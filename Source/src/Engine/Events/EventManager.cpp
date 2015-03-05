@@ -1,4 +1,8 @@
+#ifndef __APPLE__
 #include "Engine/Events/EventManager.h"
+#else
+#include "EventManager.h"
+#endif
 
 namespace Engine
 {

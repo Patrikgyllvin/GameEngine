@@ -7,7 +7,11 @@
 
 #include <iostream>
 
+#ifndef __APPLE__
 #include "Engine/Core/Core.h"
+#else
+#include "Core.h"
+#endif
 
 int main( int argc, char** argv )
 {

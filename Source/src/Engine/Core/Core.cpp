@@ -5,7 +5,11 @@
  *      Author: Patrik Gyllvin
  */
 
+#ifndef __APPLE__
 #include "Engine/Core/Core.h"
+#else
+#include "Core.h"
+#endif
 
 void errorCallback( int error, const char* desc )
 {
