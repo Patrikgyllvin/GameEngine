@@ -13,9 +13,7 @@
 #include <chrono>
 #include <thread>
 
-#ifndef __APPLE__
 #include <GL/glew.h>
-#endif
 #include <GLFW/glfw3.h>
 
 #include "Window.h"

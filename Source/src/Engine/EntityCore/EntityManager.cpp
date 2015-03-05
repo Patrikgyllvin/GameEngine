@@ -48,7 +48,9 @@ namespace Engine
 		if( id >= entities.size() )
 			entities.resize( id + 1, nullptr );
 
-	/*	Entity* entity = new Entity( id, this, components );
+        // TODO: Remove
+        // Temp. return...
+		Entity* entity;
 
 		entities[ id ] = entity;
 
@@ -56,7 +58,7 @@ namespace Engine
 		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_CREATED, entity ) );
 
 		return *entity;
-*/	}
+	}
 
 	void EntityManager::destroyEntity( Entity* entity )
 	{

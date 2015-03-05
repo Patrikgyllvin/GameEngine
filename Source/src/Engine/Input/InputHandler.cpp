@@ -365,6 +365,8 @@ namespace Engine
 
 		if( keyboard )
 			return keyboard;
+        
+        return 0;
 	}
 
 	void InputHandler::getMousePos( double* mouseX, double* mouseY )

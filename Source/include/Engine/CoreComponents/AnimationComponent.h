@@ -64,7 +64,9 @@ namespace Engine
         int getFrame()
         {
             if( active != nullptr )
-                active->getFrame();
+                return active->getFrame();
+            else
+                return 0;
         }
 
     private:
