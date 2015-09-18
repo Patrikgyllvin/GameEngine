@@ -1,4 +1,4 @@
-#ifndef __APPLE__
+#if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
 #include "Engine/CoreSystems/AnimationSystem.h"
 #else
 #include "AnimationSystem.h"
