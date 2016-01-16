@@ -6,7 +6,7 @@
  */
 
 #if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
-#include "Engine/Core/Core.h"
+#include "../../../include/Engine/Core/Core.h"
 #else
 #include "Core.h"
 #endif
@@ -93,11 +93,11 @@ namespace Engine {
 		double unproccessedTime = 0;
 		
 		double frameCounter = 0;
-		int frames;
+		int frames = 0;
 		
 		while( isRunning )
 		{
-			bool willRender;
+			bool willRender = false;
 			
 			frameTime = 1.0 / framerate;
 			

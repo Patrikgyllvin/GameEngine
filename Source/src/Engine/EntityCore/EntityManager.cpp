@@ -1,5 +1,5 @@
 #if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
-#include "Engine/EntityCore/EntityManager.h"
+#include "../../../include/Engine/EntityCore/EntityManager.h"
 #else
 #include "EntityManager.h"
 #endif
@@ -50,9 +50,9 @@ namespace Engine
 
         // TODO: Remove
         // Temp. return...
-		Entity* entity;
+		Entity* entity = nullptr;
 
-		entities[ id ] = entity;
+		//entities[ id ] = entity;
 
 		// Notify systems
 		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_CREATED, entity ) );

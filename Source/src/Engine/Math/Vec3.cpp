@@ -1,5 +1,5 @@
 #if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
-#include "Engine/Math/Vec3.h"
+#include "../../../include/Engine/Math/Vec3.h"
 #else
 #include "Vec3.h"
 #endif

@@ -8,7 +8,7 @@
 #include <iostream>
 
 #if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
-#include "Engine/Core/Core.h"
+#include "../../include/Engine/Core/Core.h"
 #else
 #include "Core.h"
 #endif

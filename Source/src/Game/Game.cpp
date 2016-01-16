@@ -1,5 +1,5 @@
 #if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
-#include "Game/Game.h"
+#include "../../include/Game/Game.h"
 #else
 #include "Game.h"
 #endif

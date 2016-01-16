@@ -1,5 +1,5 @@
 #if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
-#include "Engine/Input/InputHandler.h"
+#include "../../../include/Engine/Input/InputHandler.h"
 #else
 #include "InputHandler.h"
 #endif

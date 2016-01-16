@@ -24,7 +24,7 @@ namespace Engine
 
 		bool getInitialized();
 		
-		bool shouldClose();
+		int shouldClose();
 
 		void swapBuffers();
 	
