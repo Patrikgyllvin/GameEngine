@@ -33,6 +33,7 @@ namespace Engine
 	    if( lastTime == -1)
 		    lastTime = currTime;
 
+		// TODO: CHECK IF MULTIPLE MOVES NEEDED? (currTime - lastTime > 2*timeInterval)
 	    // if it's time to switch frames
 	    if( currTime - lastTime > timeInterval )
 	    {

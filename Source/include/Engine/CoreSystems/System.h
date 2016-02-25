@@ -16,14 +16,14 @@ namespace Engine
 
 		virtual bool shouldProcessEntity( const Entity& entity ) = 0;
 
-		void update( const Entity& entity );
+		void update( Entity& entity );
 
 	protected:
 		virtual void init() = 0;
 
 		virtual void preProcess() = 0;
 
-		virtual void processEntity( const Entity& entity ) = 0;
+		virtual void processEntity( Entity& entity ) = 0;
 
 		virtual void postProcess() = 0;
 	};

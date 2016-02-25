@@ -17,14 +17,11 @@ namespace Engine
   protected:
 	  virtual void init();
       
-      // TODO: NAMES
-/*
-	  virtual void preUpdate();
-	  virtual void updateEntities( const Entity& entities );
-	  virtual void postUpdate();
-*/
+	  virtual void preProcess();
+	  virtual void processEntity( Entity& entity );
+	  virtual void postProcess();
   private:
-	  void updateEntityAnimation( Entity* entity );
+	  //void updateEntityAnimation( Entity* entity );
   };
 }
 

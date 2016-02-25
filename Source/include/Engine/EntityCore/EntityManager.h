@@ -6,8 +6,6 @@
 
 #include <vector>
 
-#include "Entity.h"
-
 #include "../Events/EventManager.h"
 #include "../Events/EntityEvent.h"
 
@@ -16,6 +14,8 @@
 
 namespace Engine
 {
+	class Entity;
+
 	class EntityManager
 	{
 	public:
@@ -35,8 +35,6 @@ namespace Engine
 		std::vector< unsigned int > usedIDs;
 	
 		EntityList entities;
-
-		ComponentList components;
 	};
 }
 

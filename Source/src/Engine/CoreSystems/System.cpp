@@ -12,7 +12,7 @@ namespace Engine
 	System::~System()
 	{}
 
-	void System::update( const Entity& entity )
+	void System::update( Entity& entity )
 	{
 		preProcess();
 

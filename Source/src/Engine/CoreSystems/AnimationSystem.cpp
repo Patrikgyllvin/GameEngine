@@ -7,7 +7,6 @@
 namespace Engine
 {
 	AnimationSystem::AnimationSystem( EventManager* evtManager, EntityManager* entityManager )
-	//System( evtManager, entityManager, COMPONENT_ANIMATION_BIT | COMPONENT_ANIMATION_BIT )
 	{}
 
 	AnimationSystem::~AnimationSystem()
@@ -15,33 +14,31 @@ namespace Engine
 
 	void AnimationSystem::init()
 	{}
-/*
-	void AnimationSystem::preUpdate()
-	{}
-*//*
-	void AnimationSystem::updateEntities( const std::set< Entity* >& entities )
-	{
-		for( std::set< Entity* >::const_iterator it = entities.begin(); it != entities.end(); ++it )
-		{
-			updateEntityAnimation( *it );
-		}
-	}
 
-	void AnimationSystem::updateEntityAnimation( Entity* entity )
+	void AnimationSystem::preProcess()
+	{}
+
+	void AnimationSystem::processEntity( Entity& entity )
 	{
-		SpriteComponent* spriteComp = static_cast< SpriteComponent* >( entityManager->getComponent( entity, COMPONENT_SPRITE ) );
-		AnimationComponent* animComp = static_cast< AnimationComponent* >( entityManager->getComponent( entity, COMPONENT_ANIMATION ) );
+		std::vector< Component* >& spriteComps = entity.getComponents( COMPONENT_SPRITE );
+		std::vector< Component* >& animComps = entity.getComponents( COMPONENT_ANIMATION );
+		
+		// TODO: Remove quickfix :D Though makes no sense to use multiple spritecomponents etc.
+		SpriteComponent* spriteComp = static_cast< SpriteComponent* >( spriteComps[ 0 ] );
+		AnimationComponent* animComp = static_cast< AnimationComponent* >( animComps[ 0 ] );
 
 		int currFrame = animComp->getFrame();
 
 		int texWidth = 256;
 		int texHeight = 256;
 
-		int rows = texWidth / spriteComp->getWidth();;
-		int columns = texHeight / spriteComp->getHeight();;
+		int rows = texWidth / spriteComp->getWidth();
+		int columns = texHeight / spriteComp->getHeight();
 
 		spriteComp->setTexIndexX( currFrame % rows );
 		spriteComp->setTexIndexY( currFrame / columns );
 	}
-*/
+
+	void AnimationSystem::postProcess()
+	{}
 }
