@@ -4,7 +4,7 @@
 #include <set>
 
 #include "../Events/EventManager.h"
-#include "../EntityCore/EntityManager.h"
+#include "Entity.h"
 
 namespace Engine
 {

@@ -14,8 +14,8 @@
 
 namespace Engine
 {
-	class Entity;
-
+    typedef unsigned int EntityID;
+    
 	class EntityManager
 	{
 	public:

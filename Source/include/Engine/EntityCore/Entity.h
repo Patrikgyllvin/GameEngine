@@ -5,18 +5,16 @@
 
 #include "EntityManager.h"
 
-typedef unsigned int EntityID;
-
 namespace Engine
 {
-	typedef std::vector< std::vector< Component* > > ComponentList;
+    typedef std::vector< std::vector< Component* > > ComponentList;
 	
 	class Entity
 	{
 		friend class EntityManager;
 		
 	public:
-		EntityManager& entityManager;
+        EntityManager& entityManager;
 		
 		~Entity()
 		{

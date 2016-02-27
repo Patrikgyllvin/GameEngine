@@ -2,6 +2,7 @@
 #include "../../../include/Engine/EntityCore/EntityManager.h"
 #else
 #include "EntityManager.h"
+#include "Entity.h"
 #endif
 
 namespace Engine
