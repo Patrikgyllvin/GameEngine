@@ -20,9 +20,6 @@ namespace Engine
 		virtual void preProcess();
 		virtual void processEntity( Entity& entity );
 		virtual void postProcess();
-
-	private:
-		//void updateEntityPosition( Entity* entity );
 	};
 }
 

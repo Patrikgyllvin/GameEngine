@@ -11,7 +11,7 @@ namespace Engine
   class AnimationSystem : public System
   {
   public:
-	  AnimationSystem( EventManager* evtManager, EntityManager* entityManager );
+	  AnimationSystem();
 	  virtual ~AnimationSystem();
 
   protected:
@@ -20,8 +20,6 @@ namespace Engine
 	  virtual void preProcess();
 	  virtual void processEntity( Entity& entity );
 	  virtual void postProcess();
-  private:
-	  //void updateEntityAnimation( Entity* entity );
   };
 }
 
