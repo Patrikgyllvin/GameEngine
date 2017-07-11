@@ -13,6 +13,8 @@ namespace Engine
 	public:
 		MovementSystem();
 		virtual ~MovementSystem();
+        
+        virtual bool shouldProcessEntity( const Entity& entity );
 
 	protected:
 		virtual void init();

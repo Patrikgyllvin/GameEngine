@@ -14,6 +14,8 @@
 
 namespace Engine
 {
+    class System;
+    
     typedef unsigned int EntityID;
     
 	class EntityManager
@@ -24,9 +26,13 @@ namespace Engine
 
 		Entity& genEntity();
 		void destroyEntity( Entity* entity );
+        
+        void registerSystem( System* system );
+        void update();
 
 	private:
 		typedef std::vector< Entity* > EntityList;
+        typedef std::vector< System* > SystemList;
 
 		EventManager* eventManager;
 
@@ -35,6 +41,7 @@ namespace Engine
 		std::vector< unsigned int > usedIDs;
 	
 		EntityList entities;
+        SystemList systems;
 	};
 }
 

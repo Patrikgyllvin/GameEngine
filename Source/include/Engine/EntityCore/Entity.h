@@ -8,6 +8,7 @@
 namespace Engine
 {
     typedef std::vector< std::vector< Component* > > ComponentList;
+    typedef unsigned int EntityID;
 	
 	class Entity
 	{
@@ -59,8 +60,7 @@ namespace Engine
 			// No components of type compType...
 			if( !compList.size() )
 			{
-                // TODO: Fix this shit!
-				//return EMPTY?;
+				return empty;
 			}
 
 			return compList;
@@ -110,6 +110,7 @@ namespace Engine
         Entity( EntityID eID, EntityManager& eMgr ) : id( eID ), entityManager( eMgr )
 		{
 			components.resize( COMPONENT_LAST );
+            empty.push_back(nullptr);
 		}
 
 		const EntityID id;
@@ -117,6 +118,8 @@ namespace Engine
 		unsigned int typeBits;
 
 		ComponentList components;
+        
+        std::vector< Component* > empty;
 	};
 }
 

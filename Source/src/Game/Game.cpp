@@ -8,7 +8,6 @@ Game::Game()
 :
 eventManager( new Engine::EventManager() ),
 entityManager( new Engine::EntityManager( eventManager ) )
-//moveSys( new Engine::MovementSystem( eventManager, entityManager ) )
 {}
 
 Game::~Game()
@@ -19,6 +18,7 @@ Game::~Game()
 
 void Game::init()
 {
+    entityManager->registerSystem( new Engine::MovementSystem() );
 }
 
 void Game::tick()

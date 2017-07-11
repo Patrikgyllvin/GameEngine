@@ -21,7 +21,6 @@ public:
 private:
 	Engine::EventManager* eventManager;
 	Engine::EntityManager* entityManager;
-	Engine::System* moveSys;
 };
 
 #endif

@@ -3,6 +3,7 @@
 #else
 #include "EntityManager.h"
 #include "Entity.h"
+#include "System.h"
 #endif
 
 namespace Engine
@@ -19,6 +20,9 @@ namespace Engine
 	{
 		for( std::vector< Entity* >::iterator it = entities.begin(); it != entities.end(); ++it )
 			destroyEntity( *it );
+        
+        for( auto it = systems.begin(); it != systems.end(); ++it )
+            delete *it;
 
 		entities.clear();
 
@@ -63,4 +67,25 @@ namespace Engine
 
 		delete entity;
 	}
+    
+    void EntityManager::registerSystem( System* system )
+    {
+        systems.push_back( system );
+    }
+    
+    void EntityManager::update()
+    {
+        // Process all entities
+        for( auto it = entities.begin(); it != entities.end(); ++it )
+        {
+            for( auto sIt = systems.begin(); sIt != systems.end(); ++sIt )
+            {
+                // Check if entity should be processed by any system. If so, do it
+                if( (*sIt)->shouldProcessEntity( **it ) )
+                {
+                    (*sIt)->update( **it );
+                }
+            }
+        }
+    }
 }
