@@ -12,34 +12,34 @@ namespace Engine
 		TransformComponent() : Component( COMPONENT_TRANSFORM ) {}
 		virtual ~TransformComponent() {}
 
-		TransformComponent* setPosition( float x, float y, float z )
+		TransformComponent& setPosition( float x, float y, float z )
 		{
 			posX = x;
 			posY = y;
 			posZ = z;
 
-			return this;
+			return *this;
 		}
 
-		TransformComponent* setPosX( float x )
+		TransformComponent& setPosX( float x )
 		{
 			posX = x;
 
-			return this;
+			return *this;
 		}
 
-		TransformComponent* setPosY( float y )
+		TransformComponent& setPosY( float y )
 		{
 			posY = y;
 
-			return this;
+			return *this;
 		}
 
-		TransformComponent* setPosZ( float z )
+		TransformComponent& setPosZ( float z )
 		{
 			posZ = z;
 
-			return this;
+			return *this;
 		}
 
 
@@ -60,34 +60,34 @@ namespace Engine
 
 
 		// TODO: Change to quaternion...
-		TransformComponent* setRotation( float x, float y, float z )
+		TransformComponent& setRotation( float x, float y, float z )
 		{
 			rotX = x;
 			rotY = y;
 			rotZ = z;
 
-			return this;
+			return *this;
 		}
 
-		TransformComponent* setRotX( float x )
+		TransformComponent& setRotX( float x )
 		{
 			rotX = x;
 
-			return this;
+			return *this;
 		}
 
-		TransformComponent* setRotY( float y )
+		TransformComponent& setRotY( float y )
 		{
 			rotY = y;
 
-			return this;
+			return *this;
 		}
 
-		TransformComponent* setRotZ( float z )
+		TransformComponent& setRotZ( float z )
 		{
 			rotZ = z;
 
-			return this;
+			return *this;
 		}
 
 		float getRotX()
@@ -106,34 +106,34 @@ namespace Engine
 		}
 
 
-		TransformComponent* setScale( float x, float y, float z )
+		TransformComponent& setScale( float x, float y, float z )
 		{
 			scaleX = x;
 			scaleY = y;
 			scaleZ = z;
 
-			return this;
+			return *this;
 		}
 
-		TransformComponent* setScaleX( float x )
+		TransformComponent& setScaleX( float x )
 		{
 			scaleX = x;
 
-			return this;
+			return *this;
 		}
 
-		TransformComponent* setScaleY( float y )
+		TransformComponent& setScaleY( float y )
 		{
 			scaleY = y;
 
-			return this;
+			return *this;
 		}
 
-		TransformComponent* setScaleZ( float z )
+		TransformComponent& setScaleZ( float z )
 		{
 			scaleZ = z;
 
-			return this;
+			return *this;
 		}
 
 		float getScaleX()

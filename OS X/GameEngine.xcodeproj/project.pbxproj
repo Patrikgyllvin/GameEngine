@@ -31,15 +31,13 @@
 		5F28E5AB1AA8A23900EF627F /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F28E5941AA8A23900EF627F /* Game.cpp */; };
 		5F28E5AC1AA8A23900EF627F /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F28E5951AA8A23900EF627F /* Main.cpp */; };
 		5F28E5AD1AA8A23900EF627F /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5F28E5951AA8A23900EF627F /* Main.cpp */; };
-		5F28E5B31AA8AB2100EF627F /* libglfw.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F28E5B21AA8AB2100EF627F /* libglfw.3.1.dylib */; };
 		5F28E5B51AA8AB2C00EF627F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F28E5B41AA8AB2C00EF627F /* OpenGL.framework */; };
-		5F28E5B81AA8AF3400EF627F /* libGLEW.1.12.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F28E5B61AA8AF3400EF627F /* libGLEW.1.12.0.dylib */; };
-		5F28E5B91AA8AF3400EF627F /* libGLEWmx.1.12.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F28E5B71AA8AF3400EF627F /* libGLEWmx.1.12.0.dylib */; };
 		5F28E5BA1AA8B03400EF627F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F28E5B41AA8AB2C00EF627F /* OpenGL.framework */; };
-		5F28E5BB1AA8B05200EF627F /* libGLEW.1.12.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F28E5B61AA8AF3400EF627F /* libGLEW.1.12.0.dylib */; };
-		5F28E5BC1AA8B05200EF627F /* libGLEWmx.1.12.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F28E5B71AA8AF3400EF627F /* libGLEWmx.1.12.0.dylib */; };
-		5F28E5BD1AA8B05200EF627F /* libglfw.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F28E5B21AA8AB2100EF627F /* libglfw.3.1.dylib */; };
+		5F812F461F1642260092F865 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFBA5351F158BD800FEB4EF /* libglfw.3.2.dylib */; };
+		5F812F471F16422F0092F865 /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFBA5331F158BB300FEB4EF /* libGLEW.2.0.0.dylib */; };
 		5FF8DDB81A6C613E000BC39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8DDB71A6C613E000BC39A /* Images.xcassets */; };
+		5FFBA5341F158BB300FEB4EF /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFBA5331F158BB300FEB4EF /* libGLEW.2.0.0.dylib */; };
+		5FFBA5361F158BD800FEB4EF /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFBA5351F158BD800FEB4EF /* libglfw.3.2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,16 +84,14 @@
 		5F28E5921AA8A23900EF627F /* Vec3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vec3.cpp; sourceTree = "<group>"; };
 		5F28E5941AA8A23900EF627F /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		5F28E5951AA8A23900EF627F /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
-		5F28E5B01AA8A69700EF627F /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../usr/local/lib/libglfw3.a; sourceTree = "<group>"; };
-		5F28E5B21AA8AB2100EF627F /* libglfw.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.1.dylib; path = ../../../../opt/local/lib/libglfw.3.1.dylib; sourceTree = "<group>"; };
 		5F28E5B41AA8AB2C00EF627F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		5F28E5B61AA8AF3400EF627F /* libGLEW.1.12.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.1.12.0.dylib; path = ../../../../opt/local/lib/libGLEW.1.12.0.dylib; sourceTree = "<group>"; };
-		5F28E5B71AA8AF3400EF627F /* libGLEWmx.1.12.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEWmx.1.12.0.dylib; path = ../../../../opt/local/lib/libGLEWmx.1.12.0.dylib; sourceTree = "<group>"; };
 		5FF8DDAD1A6C613E000BC39A /* GameEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF8DDB11A6C613E000BC39A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FF8DDB71A6C613E000BC39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5FF8DDC01A6C613F000BC39A /* GameEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GameEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF8DDC51A6C613F000BC39A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FFBA5331F158BB300FEB4EF /* libGLEW.2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.0.0.dylib; path = ../../../../usr/local/Cellar/glew/2.0.0/lib/libGLEW.2.0.0.dylib; sourceTree = "<group>"; };
+		5FFBA5351F158BD800FEB4EF /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +99,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F28E5B81AA8AF3400EF627F /* libGLEW.1.12.0.dylib in Frameworks */,
-				5F28E5B91AA8AF3400EF627F /* libGLEWmx.1.12.0.dylib in Frameworks */,
+				5FFBA5361F158BD800FEB4EF /* libglfw.3.2.dylib in Frameworks */,
+				5FFBA5341F158BB300FEB4EF /* libGLEW.2.0.0.dylib in Frameworks */,
 				5F28E5B51AA8AB2C00EF627F /* OpenGL.framework in Frameworks */,
-				5F28E5B31AA8AB2100EF627F /* libglfw.3.1.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,9 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F28E5BB1AA8B05200EF627F /* libGLEW.1.12.0.dylib in Frameworks */,
-				5F28E5BC1AA8B05200EF627F /* libGLEWmx.1.12.0.dylib in Frameworks */,
-				5F28E5BD1AA8B05200EF627F /* libglfw.3.1.dylib in Frameworks */,
+				5F812F471F16422F0092F865 /* libGLEW.2.0.0.dylib in Frameworks */,
+				5F812F461F1642260092F865 /* libglfw.3.2.dylib in Frameworks */,
 				5F28E5BA1AA8B03400EF627F /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -312,14 +306,11 @@
 		5FF8DDA41A6C613E000BC39A = {
 			isa = PBXGroup;
 			children = (
-				5F28E5B61AA8AF3400EF627F /* libGLEW.1.12.0.dylib */,
-				5F28E5B71AA8AF3400EF627F /* libGLEWmx.1.12.0.dylib */,
 				5F28E5B41AA8AB2C00EF627F /* OpenGL.framework */,
-				5F28E5B21AA8AB2100EF627F /* libglfw.3.1.dylib */,
-				5F28E5B01AA8A69700EF627F /* libglfw3.a */,
 				5FF8DDAF1A6C613E000BC39A /* GameEngine */,
 				5FF8DDC31A6C613F000BC39A /* GameEngineTests */,
 				5FF8DDAE1A6C613E000BC39A /* Products */,
+				5FFBA5321F158BB200FEB4EF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -365,6 +356,15 @@
 				5FF8DDC51A6C613F000BC39A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FFBA5321F158BB200FEB4EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5FFBA5351F158BD800FEB4EF /* libglfw.3.2.dylib */,
+				5FFBA5331F158BB300FEB4EF /* libGLEW.2.0.0.dylib */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -514,7 +514,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -548,6 +548,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -559,7 +561,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -587,6 +589,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -597,19 +601,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libc++";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/opt/local/include,
+					/usr/local/include,
 				);
 				INFOPLIST_FILE = GameEngine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/opt/local/lib,
+					"$(PROJECT_DIR)",
+					/usr/local/Cellar/glew/2.0.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "-lGLEW";
 				PRODUCT_BUNDLE_IDENTIFIER = "Potte.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -619,19 +631,27 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libc++";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/opt/local/include,
+					/usr/local/include,
 				);
 				INFOPLIST_FILE = GameEngine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/opt/local/lib,
+					"$(PROJECT_DIR)",
+					/usr/local/Cellar/glew/2.0.0/lib,
+					/usr/local/Cellar/glfw/3.2.1/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "-lGLEW";
 				PRODUCT_BUNDLE_IDENTIFIER = "Potte.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -653,14 +673,20 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/opt/local/include,
+					/usr/local/include,
 				);
 				INFOPLIST_FILE = GameEngineTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = /opt/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/glew/2.0.0/lib,
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
+				OTHER_LDFLAGS = "-lGLEW";
 				PRODUCT_BUNDLE_IDENTIFIER = "Potte.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameEngine.app/Contents/MacOS/GameEngine";
+				TEST_HOST = "";
 			};
 			name = Debug;
 		};
@@ -676,14 +702,20 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/opt/local/include,
+					/usr/local/include,
 				);
 				INFOPLIST_FILE = GameEngineTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				LIBRARY_SEARCH_PATHS = /opt/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/glew/2.0.0/lib,
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					/usr/local/Cellar/glfw/3.2.1/lib,
+				);
+				OTHER_LDFLAGS = "-lGLEW";
 				PRODUCT_BUNDLE_IDENTIFIER = "Potte.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GameEngine.app/Contents/MacOS/GameEngine";
+				TEST_HOST = "";
 			};
 			name = Release;
 		};

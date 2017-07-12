@@ -19,11 +19,17 @@ Game::~Game()
 void Game::init()
 {
     entityManager->registerSystem( new Engine::MovementSystem() );
+    
+    entityManager->genEntity().addComponent( &( new Engine::TransformComponent() )->setPosition( 1.0, 1.0, 1.0 ) )
+        .addComponent( new Engine::MovementComponent() );
 }
 
 void Game::tick()
 {
+    entityManager->update();
 }
 
 void Game::render()
-{}
+{
+    glClear( GL_COLOR_BUFFER_BIT );
+}

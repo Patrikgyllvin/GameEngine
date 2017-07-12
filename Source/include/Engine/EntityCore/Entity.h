@@ -36,7 +36,7 @@ namespace Engine
 			return ( typeBits & componentBit ) == componentBit;
 		}
 
-		void addComponent( Component* comp )
+		Entity& addComponent( Component* comp )
 		{
 			std::vector< Component* >& compList = components[ comp->getType() ];
 
@@ -46,6 +46,8 @@ namespace Engine
 
 			// Notify systems
 			//eventManager->pushEvent( EntityEvent( EVENT_ENTITY_COMPONENT_ADDED, entity ) );
+            
+            return *this;
 		}
 
 		Component& getFirstComponentOf( ComponentType compType ) const

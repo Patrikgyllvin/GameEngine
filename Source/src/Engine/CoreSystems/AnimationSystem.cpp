@@ -6,8 +6,8 @@
 
 namespace Engine
 {
-	AnimationSystem::AnimationSystem( EventManager* evtManager, EntityManager* entityManager )
-	{}
+	AnimationSystem::AnimationSystem()
+    {}
 
 	AnimationSystem::~AnimationSystem()
 	{}

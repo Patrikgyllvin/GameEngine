@@ -14,7 +14,7 @@ namespace Engine
 
     bool MovementSystem::shouldProcessEntity( const Entity& entity )
     {
-        return entity.getTypeBits() == ( COMPONENT_MOVEMENT_BIT | COMPONENT_TRANSFORM_BIT );
+        return entity.hasComponent( COMPONENT_MOVEMENT_BIT | COMPONENT_TRANSFORM_BIT );
     }
     
 	void MovementSystem::init()

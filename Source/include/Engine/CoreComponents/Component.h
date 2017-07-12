@@ -12,7 +12,7 @@ namespace Engine
 		virtual ~Component() {}
 
 		ComponentType getType() const { return type; }
-		unsigned int getTypeBits() const { return typeBits; }
+		const unsigned int getTypeBits() const { return typeBits; }
 
 	private:
 		ComponentType type;

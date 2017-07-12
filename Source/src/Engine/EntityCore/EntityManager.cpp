@@ -81,7 +81,7 @@ namespace Engine
             for( auto sIt = systems.begin(); sIt != systems.end(); ++sIt )
             {
                 // Check if entity should be processed by any system. If so, do it
-                if( (*sIt)->shouldProcessEntity( **it ) )
+                if( *it != nullptr && (*sIt)->shouldProcessEntity( **it ) )
                 {
                     (*sIt)->update( **it );
                 }

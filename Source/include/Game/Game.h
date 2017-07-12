@@ -7,6 +7,9 @@
 #include "../Engine/CoreComponents/MovementComponent.h"
 #include "../Engine/CoreSystems/MovementSystem.h"
 
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
 class Game
 {
 public:
