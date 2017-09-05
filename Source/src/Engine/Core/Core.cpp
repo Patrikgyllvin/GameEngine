@@ -123,16 +123,16 @@ namespace Engine {
 				if( window->shouldClose() )
 					stop();
 				
-				update();
-				
+                update();
+                
 				unproccessedTime -= frameTime;
 			}
 			
 			if( willRender )
 			{
 				render();
-				
-				frames++;
+                
+                frames++;
 			}
 			else
 			{

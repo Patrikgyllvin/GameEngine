@@ -35,9 +35,9 @@
 		5F28E5BA1AA8B03400EF627F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F28E5B41AA8AB2C00EF627F /* OpenGL.framework */; };
 		5F812F461F1642260092F865 /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFBA5351F158BD800FEB4EF /* libglfw.3.2.dylib */; };
 		5F812F471F16422F0092F865 /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFBA5331F158BB300FEB4EF /* libGLEW.2.0.0.dylib */; };
+		5FA7113D1F5F407B0048073B /* libGLEW.2.1.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA7113C1F5F407B0048073B /* libGLEW.2.1.0.dylib */; };
+		5FA7113F1F5F408D0048073B /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA7113E1F5F408D0048073B /* libglfw.3.2.dylib */; };
 		5FF8DDB81A6C613E000BC39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FF8DDB71A6C613E000BC39A /* Images.xcassets */; };
-		5FFBA5341F158BB300FEB4EF /* libGLEW.2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFBA5331F158BB300FEB4EF /* libGLEW.2.0.0.dylib */; };
-		5FFBA5361F158BD800FEB4EF /* libglfw.3.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FFBA5351F158BD800FEB4EF /* libglfw.3.2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +85,8 @@
 		5F28E5941AA8A23900EF627F /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		5F28E5951AA8A23900EF627F /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
 		5F28E5B41AA8AB2C00EF627F /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		5FA7113C1F5F407B0048073B /* libGLEW.2.1.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libGLEW.2.1.0.dylib; path = ../../../../../usr/local/Cellar/glew/2.1.0/lib/libGLEW.2.1.0.dylib; sourceTree = "<group>"; };
+		5FA7113E1F5F408D0048073B /* libglfw.3.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libglfw.3.2.dylib; path = ../../../../../usr/local/Cellar/glfw/3.2.1/lib/libglfw.3.2.dylib; sourceTree = "<group>"; };
 		5FF8DDAD1A6C613E000BC39A /* GameEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FF8DDB11A6C613E000BC39A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FF8DDB71A6C613E000BC39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -99,8 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FFBA5361F158BD800FEB4EF /* libglfw.3.2.dylib in Frameworks */,
-				5FFBA5341F158BB300FEB4EF /* libGLEW.2.0.0.dylib in Frameworks */,
+				5FA7113F1F5F408D0048073B /* libglfw.3.2.dylib in Frameworks */,
+				5FA7113D1F5F407B0048073B /* libGLEW.2.1.0.dylib in Frameworks */,
 				5F28E5B51AA8AB2C00EF627F /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,6 +363,8 @@
 		5FFBA5321F158BB200FEB4EF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5FA7113E1F5F408D0048073B /* libglfw.3.2.dylib */,
+				5FA7113C1F5F407B0048073B /* libGLEW.2.1.0.dylib */,
 				5FFBA5351F158BD800FEB4EF /* libglfw.3.2.dylib */,
 				5FFBA5331F158BB300FEB4EF /* libGLEW.2.0.0.dylib */,
 			);
@@ -617,8 +621,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					/usr/local/Cellar/glew/2.0.0/lib,
 					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/Cellar/glew/2.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = "-lGLEW";
@@ -647,8 +651,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					/usr/local/Cellar/glew/2.0.0/lib,
 					/usr/local/Cellar/glfw/3.2.1/lib,
+					/usr/local/Cellar/glew/2.1.0/lib,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_LDFLAGS = "-lGLEW";
