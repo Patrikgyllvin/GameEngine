@@ -16,7 +16,9 @@ namespace Engine
 
 		virtual bool shouldProcessEntity( const Entity& entity ) = 0;
 
-		void update( Entity& entity );
+        void initialize();
+        void update();
+		void updateEntity( Entity& entity );
 
 	protected:
 		virtual void init() = 0;

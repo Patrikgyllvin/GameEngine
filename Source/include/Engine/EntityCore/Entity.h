@@ -38,7 +38,7 @@ namespace Engine
 
 		Entity& addComponent( Component* comp )
 		{
-			std::vector< Component* >& compList = components[ comp->getType() ];
+			std::vector< Component* >& compList = this->components[ comp->getType() ];
 
 			compList.push_back( comp );
 

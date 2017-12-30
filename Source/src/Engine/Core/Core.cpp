@@ -22,7 +22,7 @@ namespace Engine {
 	:
 	window( new Window() ),
 	isRunning( false ),
-	framerate( 10000.0 ),
+	framerate( 60.0 ),
 	frameTime( 1.0 / framerate ),
 	initializationFunc( nullptr ),
 	updateFunc( nullptr ),

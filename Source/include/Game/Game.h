@@ -7,8 +7,20 @@
 #include "../Engine/CoreComponents/MovementComponent.h"
 #include "../Engine/CoreSystems/MovementSystem.h"
 
+#include "../Engine/Input/InputHandler.h"
+
+#include "PhysicsSystem.h"
+#include "RenderSystem.h"
+
+#include "CameraComponent.h"
+
+#include "CarComponent.h"
+#include "CarSystem.h"
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+
+#include <Box2D/Box2D.h>
 
 class Game
 {
@@ -24,6 +36,8 @@ public:
 private:
 	Engine::EventManager* eventManager;
 	Engine::EntityManager* entityManager;
+    
+    Engine::InputHandler* inputHandler;
 };
 
 #endif

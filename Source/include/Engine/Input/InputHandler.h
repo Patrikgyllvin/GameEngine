@@ -1,6 +1,7 @@
 #ifndef INPUTHANDLER_H
 #define INPUTHANDLER_H
 
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 #include <string>
@@ -10,44 +11,44 @@
 
 namespace Engine
 {
-#define NO_INPUT -1
-
-#define JOYSTICK_BUTTON_1 0
-#define JOYSTICK_BUTTON_2 1
-#define JOYSTICK_BUTTON_3 2
-#define JOYSTICK_BUTTON_4 3
-#define JOYSTICK_BUTTON_5 4
-#define JOYSTICK_BUTTON_6 5
-#define JOYSTICK_BUTTON_7 6
-#define JOYSTICK_BUTTON_8 7
-#define JOYSTICK_BUTTON_9 8
-#define JOYSTICK_BUTTON_10 9
-#define JOYSTICK_BUTTON_11 10
-#define JOYSTICK_BUTTON_12 11
-#define JOYSTICK_BUTTON_13 12
-#define JOYSTICK_BUTTON_14 13
-#define JOYSTICK_BUTTON_15 14
-#define JOYSTICK_BUTTON_16 15
-#define JOYSTICK_BUTTON_17 16
-#define JOYSTICK_BUTTON_18 17
-#define JOYSTICK_BUTTON_19 18
-#define JOYSTICK_BUTTON_20 19
-#define JOYSTICK_BUTTONS 20
-
-#define MOUSE_AXIS_X 0
-#define MOUSE_AXIS_Y 1
-
-#define JOYSTICK_AXIS_1 0
-#define JOYSTICK_AXIS_2 1
-#define JOYSTICK_AXIS_3 2
-#define JOYSTICK_AXIS_4 3
-#define JOYSTICK_AXIS_5 4
-#define JOYSTICK_AXIS_6 5
-#define JOYSTICK_AXIS_7 6
-#define JOYSTICK_AXIS_8 7
-#define JOYSTICK_AXIS_9 8
-#define JOYSTICK_AXIS_10 9
-
+    const int NO_INPUT = -1;
+    
+    const int JOYSTICK_BUTTON_1 = 0;
+    const int JOYSTICK_BUTTON_2 = 1;
+    const int JOYSTICK_BUTTON_3 = 2;
+    const int JOYSTICK_BUTTON_4 = 3;
+    const int JOYSTICK_BUTTON_5 = 4;
+    const int JOYSTICK_BUTTON_6 = 5;
+    const int JOYSTICK_BUTTON_7 = 6;
+    const int JOYSTICK_BUTTON_8 = 7;
+    const int JOYSTICK_BUTTON_9 = 8;
+    const int JOYSTICK_BUTTON_10 = 9;
+    const int JOYSTICK_BUTTON_11 = 10;
+    const int JOYSTICK_BUTTON_12 = 11;
+    const int JOYSTICK_BUTTON_13 = 12;
+    const int JOYSTICK_BUTTON_14 = 13;
+    const int JOYSTICK_BUTTON_15 = 14;
+    const int JOYSTICK_BUTTON_16 = 15;
+    const int JOYSTICK_BUTTON_17 = 16;
+    const int JOYSTICK_BUTTON_18 = 17;
+    const int JOYSTICK_BUTTON_19 = 18;
+    const int JOYSTICK_BUTTON_20 = 19;
+    const int JOYSTICK_BUTTONS = 20;
+    
+    const int MOUSE_AXIS_X = 0;
+    const int MOUSE_AXIS_Y = 1;
+    
+    const int JOYSTICK_AXIS_1 = 0;
+    const int JOYSTICK_AXIS_2 = 1;
+    const int JOYSTICK_AXIS_3 = 2;
+    const int JOYSTICK_AXIS_4 = 3;
+    const int JOYSTICK_AXIS_5 = 4;
+    const int JOYSTICK_AXIS_6 = 5;
+    const int JOYSTICK_AXIS_7 = 6;
+    const int JOYSTICK_AXIS_8 = 7;
+    const int JOYSTICK_AXIS_9 = 8;
+    const int JOYSTICK_AXIS_10 = 9;
+    
 	typedef struct KeyBinding
 	{
 		KeyBinding( const std::string& name, int key, int mouseBut, int joyBut )

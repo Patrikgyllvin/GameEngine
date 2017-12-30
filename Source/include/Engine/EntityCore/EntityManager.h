@@ -5,6 +5,7 @@
 #include <iomanip>
 
 #include <vector>
+#include <queue>
 
 #include "../Events/EventManager.h"
 #include "../Events/EntityEvent.h"
@@ -15,6 +16,7 @@
 namespace Engine
 {
     class System;
+    class RenderingSystem;
     
     typedef unsigned int EntityID;
     
@@ -28,20 +30,28 @@ namespace Engine
 		void destroyEntity( Entity* entity );
         
         void registerSystem( System* system );
+        void registerRenderingSystem( RenderingSystem* system );
+        
+        void init();
         void update();
+        void render();
 
 	private:
 		typedef std::vector< Entity* > EntityList;
         typedef std::vector< System* > SystemList;
+        typedef std::vector< RenderingSystem* > RenderingSystemList;
 
 		EventManager* eventManager;
 
 		EntityID nextID;
 	
-		std::vector< unsigned int > usedIDs;
+		std::queue< unsigned int > usedIDs;
 	
+        std::queue< Entity* > toBeAdded;
+        
 		EntityList entities;
         SystemList systems;
+        RenderingSystemList renderingSystems;
 	};
 }
 

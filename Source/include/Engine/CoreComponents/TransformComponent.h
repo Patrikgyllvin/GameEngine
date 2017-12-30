@@ -9,8 +9,22 @@ namespace Engine
 	class TransformComponent : public Component
 	{
 	public:
-		TransformComponent() : Component( COMPONENT_TRANSFORM ) {}
-		virtual ~TransformComponent() {}
+		TransformComponent()
+        :
+        Component( COMPONENT_TRANSFORM ),
+        posX( 0 ),
+        posY( 0 ),
+        posZ( 0 ),
+        rotX( 0 ),
+        rotY( 0 ),
+        rotZ( 0 ),
+        scaleX( 0 ),
+        scaleY( 0 ),
+        scaleZ( 0 )
+        {}
+        
+		virtual ~TransformComponent()
+        {}
 
 		TransformComponent& setPosition( float x, float y, float z )
 		{

@@ -43,7 +43,7 @@ namespace Engine
 			}
 		}
 
-		for( int i = 0; i < GLFW_KEY_LAST; i++ )
+		for( int i = 44; i < 93; i++ )
 		{
 			keyboardLast[ i ] = glfwGetKey( glfwGetCurrentContext(), i );
 		}

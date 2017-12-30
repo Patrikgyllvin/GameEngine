@@ -4,7 +4,12 @@
 #include "EntityManager.h"
 #include "Entity.h"
 #include "System.h"
+#include "RenderingSystem.h"
 #endif
+
+
+
+#include <ctime>
 
 namespace Engine
 {
@@ -25,31 +30,36 @@ namespace Engine
             delete *it;
 
 		entities.clear();
-
-		usedIDs.clear();
 	}
 
 	Entity& EntityManager::genEntity()
 	{
 		EntityID id;
 
-		if( usedIDs.size() )
+		if( !usedIDs.empty() )
 		{
-			id = usedIDs.back();
-			usedIDs.pop_back();
+			id = usedIDs.front();
+			usedIDs.pop();
 		}
 		else
 		{
 			id = nextID++;
 		}
+        
+        std::cout << "Current ID: " << id << '\n';
+        
+        Entity* entity = new Entity( id, *this );
 		
 		if( id >= entities.size() )
-			entities.resize( id + 10, nullptr );
-		
-		Entity* entity = new Entity( id, *this );
-
-		entities[ id ] = entity;
-
+        {
+            // Add to queue, add entity later when there is time to resize.
+            toBeAdded.push( entity );
+        }
+        else
+        {
+            entities[ id ] = entity;
+        }
+        
 		// Notify systems
 		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_CREATED, entity ) );
 
@@ -58,7 +68,9 @@ namespace Engine
 
 	void EntityManager::destroyEntity( Entity* entity )
 	{
-		usedIDs.push_back( entity->getID() );
+        entities[ entity->getID() ] = nullptr;
+        
+		usedIDs.push( entity->getID() );
 
 		entity->destroyAllComponents();
 		
@@ -73,8 +85,48 @@ namespace Engine
         systems.push_back( system );
     }
     
+    void EntityManager::registerRenderingSystem( RenderingSystem *system )
+    {
+        renderingSystems.push_back( system );
+    }
+    
+    void EntityManager::init()
+    {
+        // Initialize all systems
+        for( auto sIt = systems.begin(); sIt != systems.end(); ++sIt )
+        {
+            (*sIt)->initialize();
+        }
+        
+        for( auto rSIt = renderingSystems.begin(); rSIt != renderingSystems.end(); ++rSIt )
+        {
+            (*rSIt)->initialize();
+        }
+    }
+    
     void EntityManager::update()
     {
+        // Add entities in queue
+        entities.resize( toBeAdded.back()->getID() + 10, nullptr );
+        
+        while( !toBeAdded.empty() )
+        {
+            entities[ toBeAdded.front()->getID() ] = toBeAdded.front();
+            
+            toBeAdded.pop();
+        }
+        
+        // Pre-process all systems...
+        for( auto it = systems.begin(); it != systems.end(); ++it )
+        {
+            (*it)->update();
+        }
+        
+        for( auto it = renderingSystems.begin(); it != renderingSystems.end(); ++it )
+        {
+            (*it)->update();
+        }
+        
         // Process all entities
         for( auto it = entities.begin(); it != entities.end(); ++it )
         {
@@ -83,7 +135,32 @@ namespace Engine
                 // Check if entity should be processed by any system. If so, do it
                 if( *it != nullptr && (*sIt)->shouldProcessEntity( **it ) )
                 {
-                    (*sIt)->update( **it );
+                    (*sIt)->updateEntity( **it );
+                }
+            }
+            
+            for( auto rSIt = renderingSystems.begin(); rSIt != renderingSystems.end(); ++rSIt )
+            {
+                // Check if entity should be processed by the rendering system. If so, do it
+                if( *it != nullptr && (*rSIt)->shouldProcessEntity( **it ) )
+                {
+                    (*rSIt)->updateEntity( **it );
+                }
+            }
+        }
+    }
+    
+    void EntityManager::render()
+    {
+        // Render all entities which should be rendered
+        for( auto it = entities.begin(); it != entities.end(); ++it )
+        {
+            for( auto rSIt = renderingSystems.begin(); rSIt != renderingSystems.end(); ++rSIt )
+            {
+                // Check if entity should be processed by the rendering system. If so, do it
+                if( *it != nullptr && (*rSIt)->shouldRenderEntity( **it ) )
+                {
+                    (*rSIt)->render( **it );
                 }
             }
         }

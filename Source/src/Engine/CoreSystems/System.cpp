@@ -12,12 +12,18 @@ namespace Engine
 	System::~System()
 	{}
 
-	void System::update( Entity& entity )
+    void System::initialize()
+    {
+        init();
+    }
+    
+	void System::update()
 	{
 		preProcess();
-
-		processEntity( entity );
-
-		postProcess();
 	}
+    
+    void System::updateEntity( Engine::Entity &entity )
+    {
+        processEntity( entity );
+    }
 }
