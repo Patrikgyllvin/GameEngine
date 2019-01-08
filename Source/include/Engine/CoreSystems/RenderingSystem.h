@@ -17,16 +17,16 @@ namespace Engine {
     public:
         RenderingSystem();
         virtual ~RenderingSystem();
-        
+
         virtual bool shouldRenderEntity( const Entity& entity ) = 0;
-        
+
         void render( Entity& entity );
-        
+
     protected:
         virtual void preRender() = 0;
-        
+
         virtual void renderEntity( Entity& entity ) = 0;
-        
+
         virtual void postRender() = 0;
     };
 }

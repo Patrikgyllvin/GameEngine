@@ -9,22 +9,17 @@ namespace Engine
 {
     typedef std::vector< std::vector< Component* > > ComponentList;
     typedef unsigned int EntityID;
-	
+
 	class Entity
 	{
 		friend class EntityManager;
-		
+
 	public:
         EntityManager& entityManager;
-		
+
 		~Entity()
 		{
 			destroyAllComponents();
-
-			for (unsigned int i = 0; i < COMPONENT_LAST; i++)
-				components[i].clear();
-
-			components.clear();
 		}
 
 		const EntityID getID() const { return id; }
@@ -38,15 +33,15 @@ namespace Engine
 
 		Entity& addComponent( Component* comp )
 		{
-			std::vector< Component* >& compList = this->components[ comp->getType() ];
+			std::vector< Component* >& compList = components[ comp->getType() ];
 
 			compList.push_back( comp );
 
-			typeBits |= comp->getTypeBits();
+            typeBits |= comp->getTypeBits();
 
 			// Notify systems
-			//eventManager->pushEvent( EntityEvent( EVENT_ENTITY_COMPONENT_ADDED, entity ) );
-            
+			eventManager.pushEvent( EntityEvent( EVENT_ENTITY_COMPONENT_ADDED, this, comp ) );
+
             return *this;
 		}
 
@@ -70,57 +65,81 @@ namespace Engine
 
 		void destroyAllComponents()
 		{
-			for( unsigned int i = 0; i < COMPONENT_LAST; i++ )
+			for( unsigned int i = 0; i != COMPONENT_LAST; i++ )
 			{
 				if( components[ i ].empty() )
 					continue;
 
-				destroyFirstComponent( (ComponentType)i );
+                for( auto it = components[ i ].begin(); it != components[ i ].end(); ++it )
+                {
+                    destroyComponent( *it );
+                }
+                components[ i ].clear();
 			}
+
+            components.clear();
 		}
 
-		void destroyFirstComponent( ComponentType compType )
+        // Change to take ID or component
+		void destroyLastComponent( ComponentType compType )
 		{
 			std::vector< Component* >& compList = components[ compType ];
+
+            // Notify systems
+            eventManager.pushEvent( EntityEvent( EVENT_ENTITY_COMPONENT_DESTROYED, this, &compList.back() ) );
 
 			if( compList.empty() )
 				return;
 
-			if( compList[ 0 ] != nullptr )
-			{
-				delete compList[ 0 ];
-				compList[ 0 ] = nullptr;
-			}
+            delete compList[ compList.size() - 1 ];
+			compList.pop_back();
 
 			// No more components of type
-			if( compList[ 0 ] == nullptr && compList.empty() )
+			if( compList.empty() )
 				this->typeBits &= ( ~compType );
-
-			// Notify systems
-			//TODO: eventManager !?
-            //eventManager->pushEvent( EntityEvent( EVENT_ENTITY_COMPONENT_DESTROYED, entity ) );
 		}
+
+        void destroyComponent( Component* component )
+        {
+            std::vector< Component* >& compList = components[ component->getType() ];
+
+            // Notify systems
+            eventManager.pushEvent( EntityEvent( EVENT_ENTITY_COMPONENT_DESTROYED, this, component ) );
+
+            if( compList.empty() )
+                return;
+
+            if( component != nullptr )
+            {
+                delete component;
+                component = nullptr;
+            }
+
+            // No more components of type
+            if( component == nullptr && compList.empty() )
+                this->typeBits &= ( ~component->getType() );
+        }
 
 		void destroyEntity()
 		{
-			destroyAllComponents();
-
 			entityManager.destroyEntity( this );
 		}
 
 	private:
-        Entity( EntityID eID, EntityManager& eMgr ) : id( eID ), entityManager( eMgr )
+        Entity( EntityID eID, EntityManager& eMgr, EventManager& evtMgr ) : entityManager( eMgr ), eventManager( evtMgr ), id( eID ), typeBits( 0 )
 		{
 			components.resize( COMPONENT_LAST );
             empty.push_back(nullptr);
 		}
+
+        EventManager& eventManager;
 
 		const EntityID id;
 
 		unsigned int typeBits;
 
 		ComponentList components;
-        
+
         std::vector< Component* > empty;
 	};
 }

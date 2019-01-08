@@ -18,7 +18,7 @@ public:
     :
     Component( COMPONENT_CAMERA )
     {}
-    
+
     ~CameraComponent()
     {}
 };

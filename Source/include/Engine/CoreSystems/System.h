@@ -2,7 +2,7 @@
 #define SYSTEM_H
 
 #include "../Events/EventManager.h"
-#include "Entity.h"
+#include "../EntityCore/Entity.h"
 
 #include "../../ComponentTypes.h"
 
@@ -16,12 +16,12 @@ namespace Engine
 
 		virtual bool shouldProcessEntity( const Entity& entity ) = 0;
 
-        void initialize();
+   		void initialize( EntityManager& entityManager );
         void update();
 		void updateEntity( Entity& entity );
 
 	protected:
-		virtual void init() = 0;
+		virtual void init( EntityManager& entityManager ) = 0;
 
 		virtual void preProcess() = 0;
 

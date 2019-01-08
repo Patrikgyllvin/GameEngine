@@ -17,7 +17,7 @@ class Shader
 public:
 	Shader();
 	Shader( const char* vertPath, const char* fragPath );
-	
+
 	~Shader();
 
 	void loadAndCompile( const char* vertPath, const char* fragPath );

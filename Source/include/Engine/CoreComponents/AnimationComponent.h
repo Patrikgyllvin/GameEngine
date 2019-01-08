@@ -3,10 +3,7 @@
 
 #include <iostream>
 
-#include <string>
 #include <vector>
-
-#include <GLFW/glfw3.h>
 
 #include "Component.h"
 #include "Animation.h"
@@ -18,8 +15,8 @@ namespace Engine
     public:
         AnimationComponent()
         :
-        active( nullptr ),
-        Component( COMPONENT_ANIMATION )
+        Component( COMPONENT_ANIMATION ),
+        active( nullptr )
         {}
 
         void addAnimation( Animation* animation )

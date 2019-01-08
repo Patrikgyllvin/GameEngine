@@ -1,8 +1,4 @@
-#if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
 #include "../../../include/Engine/Math/Vec2.h"
-#else
-#include "Vec2.h"
-#endif
 
 namespace Engine
 {

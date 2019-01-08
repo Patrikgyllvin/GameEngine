@@ -18,23 +18,23 @@ namespace Engine
 	public:
 		Window();
 		~Window();
-	
+
 		int createWindow( int width, int height, std::string text, bool resizable, bool fullscreen );
 		void destroyWindow();
 
 		bool getInitialized();
-		
+
 		int shouldClose();
 
 		void swapBuffers();
-	
+
 	private:
 		int setupGL();
 
 		void cleanup();
 
 		GLFWwindow *window;
-	
+
 		bool isInitialized;
 
 		int w, h;

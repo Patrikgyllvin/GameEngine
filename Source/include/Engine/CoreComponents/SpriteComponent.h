@@ -10,14 +10,14 @@ namespace Engine
 	public:
 		SpriteComponent( bool perspective, int width, int height, int texIndexX, int texIndexY )
 		:
+		Component( COMPONENT_SPRITE ),
 		isPerspective( perspective ),
 		spriteW( width ),
 		spriteH( height ),
 		texIndexX( texIndexX ),
-		texIndexY( texIndexY ),
-		Component( COMPONENT_SPRITE )
+		texIndexY( texIndexY )
 		{}
-		
+
 		virtual ~SpriteComponent() {}
 
 		bool getPerspective()
@@ -44,7 +44,7 @@ namespace Engine
 		{
 			return texIndexY;
 		}
-		
+
 		void setTexIndexX( int texX )
 		{
 			texIndexX = texX;

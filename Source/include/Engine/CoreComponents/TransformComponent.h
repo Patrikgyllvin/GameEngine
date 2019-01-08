@@ -22,7 +22,7 @@ namespace Engine
         scaleY( 0 ),
         scaleZ( 0 )
         {}
-        
+
 		virtual ~TransformComponent()
         {}
 

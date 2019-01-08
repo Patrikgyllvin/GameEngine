@@ -17,9 +17,9 @@ namespace Engine
 {
     class System;
     class RenderingSystem;
-    
+
     typedef unsigned int EntityID;
-    
+
 	class EntityManager
 	{
 	public:
@@ -28,10 +28,10 @@ namespace Engine
 
 		Entity& genEntity();
 		void destroyEntity( Entity* entity );
-        
+
         void registerSystem( System* system );
         void registerRenderingSystem( RenderingSystem* system );
-        
+
         void init();
         void update();
         void render();
@@ -44,11 +44,12 @@ namespace Engine
 		EventManager* eventManager;
 
 		EntityID nextID;
-	
+
 		std::queue< unsigned int > usedIDs;
-	
+
         std::queue< Entity* > toBeAdded;
-        
+        std::queue< Entity* > toBeRemoved;
+
 		EntityList entities;
         SystemList systems;
         RenderingSystemList renderingSystems;

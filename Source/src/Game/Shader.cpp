@@ -1,4 +1,4 @@
-#include "Shader.h"
+#include "../../include/Game/Shader.h"
 
 Shader::Shader()
 {}
@@ -55,10 +55,10 @@ void Shader::loadAndCompile( const char* vertPath, const char* fragPath )
 
 	const char* vertCode = vsCode.c_str();
 	GLuint vertShader = glCreateShader( GL_VERTEX_SHADER );
-	
+
 	glShaderSource( vertShader, 1, &vertCode, NULL );
 	glCompileShader( vertShader );
-	
+
 	GLint result = GL_FALSE;
 	int infoLogLength;
 
@@ -76,10 +76,10 @@ void Shader::loadAndCompile( const char* vertPath, const char* fragPath )
 
 	const char* fragCode = fsCode.c_str();
 	GLuint fragShader = glCreateShader( GL_FRAGMENT_SHADER );
-	
+
 	glShaderSource( fragShader, 1, &fragCode, NULL );
 	glCompileShader( fragShader );
-	
+
 	glGetShaderiv( fragShader, GL_COMPILE_STATUS, &result );
 	glGetShaderiv( fragShader, GL_INFO_LOG_LENGTH, &infoLogLength );
 

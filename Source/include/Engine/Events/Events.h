@@ -3,6 +3,8 @@
 
 namespace Engine
 {
+    class EventManager;
+    
 	enum EventType
 	{
 		EVENT_ENTITY_CREATED = 0,
@@ -28,9 +30,14 @@ namespace Engine
 	class IEventListener
 	{
 	public:
+        IEventListener( EventManager& evtMgr ) : eventManager( evtMgr ) {}
+        
 		virtual ~IEventListener() {}
 
 		virtual void processEvent( const IEvent& e ) = 0;
+        
+    protected:
+        EventManager& eventManager;
 	};
 }
 

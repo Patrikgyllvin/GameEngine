@@ -13,12 +13,12 @@ namespace Engine
 	public:
 		MovementSystem();
 		virtual ~MovementSystem();
-        
+
         virtual bool shouldProcessEntity( const Entity& entity );
 
 	protected:
-		virtual void init();
-		
+		virtual void init( EntityManager& entityManager );
+
 		virtual void preProcess();
 		virtual void processEntity( Entity& entity );
 		virtual void postProcess();

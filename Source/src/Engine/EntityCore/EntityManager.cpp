@@ -1,13 +1,8 @@
-#if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
 #include "../../../include/Engine/EntityCore/EntityManager.h"
-#else
-#include "EntityManager.h"
-#include "Entity.h"
-#include "System.h"
-#include "RenderingSystem.h"
-#endif
 
-
+#include "../../../include/Engine/EntityCore/Entity.h"
+#include "../../../include/Engine/CoreSystems/System.h"
+#include "../../../include/Engine/CoreSystems/RenderingSystem.h"
 
 #include <ctime>
 
@@ -19,13 +14,15 @@ namespace Engine
 	nextID( 0 ),
 	usedIDs(),
 	entities()
-	{}
+	{
+        entities.reserve( 1000 );
+    }
 
 	EntityManager::~EntityManager()
 	{
 		for( std::vector< Entity* >::iterator it = entities.begin(); it != entities.end(); ++it )
 			destroyEntity( *it );
-        
+
         for( auto it = systems.begin(); it != systems.end(); ++it )
             delete *it;
 
@@ -40,105 +37,125 @@ namespace Engine
 		{
 			id = usedIDs.front();
 			usedIDs.pop();
+
+			Entity* entity = new Entity( id, *this, *eventManager );
+			entities[ id ] = entity;
+
+			// Notify systems
+			eventManager->pushEvent( EntityEvent( EVENT_ENTITY_CREATED, entity, nullptr ) );
+
+			return *entity;
 		}
 		else
 		{
 			id = nextID++;
 		}
-        
-        std::cout << "Current ID: " << id << '\n';
-        
-        Entity* entity = new Entity( id, *this );
-		
-		if( id >= entities.size() )
+
+        Entity* entity = new Entity( id, *this, *eventManager );
+
+		if( id >= entities.capacity() )
         {
-            // Add to queue, add entity later when there is time to resize.
+			// Add to queue, add entity later when there is time to reserve.
             toBeAdded.push( entity );
         }
         else
         {
-            entities[ id ] = entity;
+            entities.push_back( entity );
         }
-        
+
 		// Notify systems
-		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_CREATED, entity ) );
+		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_CREATED, entity, nullptr ) );
 
 		return *entity;
 	}
 
 	void EntityManager::destroyEntity( Entity* entity )
-	{
-        entities[ entity->getID() ] = nullptr;
-        
-		usedIDs.push( entity->getID() );
+    {
+		if( !entity )
+			return;
 
-		entity->destroyAllComponents();
-		
-		// Notify systems
-		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_DESTROYED, entity ) );
-
-		delete entity;
+		toBeRemoved.push( entity );
 	}
-    
+
     void EntityManager::registerSystem( System* system )
     {
         systems.push_back( system );
     }
-    
+
     void EntityManager::registerRenderingSystem( RenderingSystem *system )
     {
         renderingSystems.push_back( system );
     }
-    
+
     void EntityManager::init()
     {
         // Initialize all systems
         for( auto sIt = systems.begin(); sIt != systems.end(); ++sIt )
         {
-            (*sIt)->initialize();
+            (*sIt)->initialize( *this );
         }
-        
+
         for( auto rSIt = renderingSystems.begin(); rSIt != renderingSystems.end(); ++rSIt )
         {
-            (*rSIt)->initialize();
+            (*rSIt)->initialize( *this );
         }
     }
-    
+
     void EntityManager::update()
     {
+		// Remove entities in queue
+		while( !toBeRemoved.empty() )
+		{
+			Entity* e = toBeRemoved.front();
+	        e->destroyAllComponents();
+
+	        entities[ e->getID() ] = nullptr;
+
+			usedIDs.push( e->getID() );
+
+			// Notify systems
+			eventManager->pushEvent( EntityEvent( EVENT_ENTITY_DESTROYED, e, nullptr ) );
+
+			delete e;
+			toBeRemoved.pop();
+		}
+
         // Add entities in queue
-        entities.resize( toBeAdded.back()->getID() + 10, nullptr );
-        
-        while( !toBeAdded.empty() )
+        if( !toBeAdded.empty() )
+            entities.reserve( toBeAdded.back()->getID() + 100 );
+
+		int added = 0;
+        while( !toBeAdded.empty() && added < 100 )
         {
-            entities[ toBeAdded.front()->getID() ] = toBeAdded.front();
-            
+            entities.push_back( toBeAdded.front() );
+
             toBeAdded.pop();
+			++added;
         }
-        
+
         // Pre-process all systems...
         for( auto it = systems.begin(); it != systems.end(); ++it )
         {
             (*it)->update();
         }
-        
+
         for( auto it = renderingSystems.begin(); it != renderingSystems.end(); ++it )
         {
             (*it)->update();
         }
-        
+
         // Process all entities
         for( auto it = entities.begin(); it != entities.end(); ++it )
         {
             for( auto sIt = systems.begin(); sIt != systems.end(); ++sIt )
             {
                 // Check if entity should be processed by any system. If so, do it
-                if( *it != nullptr && (*sIt)->shouldProcessEntity( **it ) )
+				if( *it != nullptr && (*sIt)->shouldProcessEntity( **it ) )
                 {
                     (*sIt)->updateEntity( **it );
                 }
             }
-            
+
             for( auto rSIt = renderingSystems.begin(); rSIt != renderingSystems.end(); ++rSIt )
             {
                 // Check if entity should be processed by the rendering system. If so, do it
@@ -149,7 +166,7 @@ namespace Engine
             }
         }
     }
-    
+
     void EntityManager::render()
     {
         // Render all entities which should be rendered

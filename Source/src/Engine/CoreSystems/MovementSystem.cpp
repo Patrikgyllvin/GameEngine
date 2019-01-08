@@ -1,8 +1,4 @@
-#if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
 #include "../../../include/Engine/CoreSystems/MovementSystem.h"
-#else
-#include "MovementSystem.h"
-#endif
 
 namespace Engine
 {
@@ -16,10 +12,10 @@ namespace Engine
     {
         return entity.hasComponent( COMPONENT_MOVEMENT_BIT | COMPONENT_TRANSFORM_BIT );
     }
-    
-	void MovementSystem::init()
+
+	void MovementSystem::init( EntityManager& entityManager )
 	{}
-	
+
 	void MovementSystem::preProcess()
 	{}
 

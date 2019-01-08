@@ -6,22 +6,22 @@
 //  Copyright © 2017 Patrik Gyllvin. All rights reserved.
 //
 
-#include <RenderingSystem.h>
+#include "../../../include/Engine/CoreSystems/RenderingSystem.h"
 
 namespace Engine
 {
     RenderingSystem::RenderingSystem()
     {}
-    
+
     RenderingSystem::~RenderingSystem()
     {}
-    
+
     void RenderingSystem::render( Entity& entity )
     {
         preRender();
-        
+
         renderEntity( entity );
-        
+
         postRender();
     }
 }

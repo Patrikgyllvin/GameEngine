@@ -9,6 +9,8 @@
 
 #include <iostream>
 
+#include <cmath>
+
 namespace Engine
 {
     const int NO_INPUT = -1;

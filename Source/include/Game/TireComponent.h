@@ -18,12 +18,12 @@ public:
     :
     Component( COMPONENT_TIRE )
     {}
-    
+
     ~TireComponent()
     {}
-    
+
 private:
-    
+
 };
 
 #endif /* TireComponent_h */

@@ -7,7 +7,7 @@
 #include <cmath>
 
 namespace Engine
-{	
+{
 	class Vec2
 	{
 	public:

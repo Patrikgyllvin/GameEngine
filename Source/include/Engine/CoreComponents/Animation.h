@@ -1,6 +1,11 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
+#include <string>
+
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
 namespace Engine
 {
 	class Animation
@@ -29,7 +34,7 @@ namespace Engine
         int getFrame()
         {
 	    double currTime = glfwGetTime(); // TODO: engine get time...
-	    
+
 	    if( lastTime == -1)
 		    lastTime = currTime;
 
@@ -42,7 +47,7 @@ namespace Engine
 		else
 		    currFrame++;
 	    }
-	    
+
 	    lastTime = currTime;
 
 	    return currFrame;

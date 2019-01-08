@@ -14,13 +14,23 @@
 
 #include "CameraComponent.h"
 
+#include "RayCastComponent.h"
+#include "RayCastSystem.h"
+
 #include "CarComponent.h"
 #include "CarSystem.h"
+
+#include "GeneticAlgorithmSystem.h"
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 #include <Box2D/Box2D.h>
+
+#include <Eigen/Eigen>
+
+#include "Texture.h"
+#include "Track.h"
 
 class Game
 {
@@ -36,7 +46,7 @@ public:
 private:
 	Engine::EventManager* eventManager;
 	Engine::EntityManager* entityManager;
-    
+
     Engine::InputHandler* inputHandler;
 };
 

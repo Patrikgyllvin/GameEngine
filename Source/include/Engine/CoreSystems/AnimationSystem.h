@@ -15,8 +15,8 @@ namespace Engine
 	  virtual ~AnimationSystem();
 
   protected:
-	  virtual void init();
-      
+	  virtual void init( EntityManager& entityManager );
+
 	  virtual void preProcess();
 	  virtual void processEntity( Entity& entity );
 	  virtual void postProcess();

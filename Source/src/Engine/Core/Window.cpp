@@ -1,8 +1,4 @@
-#if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
 #include "../../../include/Engine/Core/Window.h"
-#else
-#include "Window.h"
-#endif
 
 namespace Engine
 {
@@ -29,12 +25,12 @@ namespace Engine
 		glfwWindowHint( GLFW_OPENGL_FORWARD_COMPAT, 1 );
 #endif
 		glfwWindowHint( GLFW_SAMPLES, 4 );
-		
+
 		if( resizable )
 			glfwWindowHint( GLFW_RESIZABLE, 1 );
 		else
 			glfwWindowHint( GLFW_RESIZABLE, 0 );
-		
+
 		if( fullscreen )
 			window = glfwCreateWindow( width, height, text.c_str(), glfwGetPrimaryMonitor(), nullptr );
 		else
@@ -51,7 +47,7 @@ namespace Engine
 
 		glfwMakeContextCurrent( window );
 
-		glfwGetWindowSize( window, &this->w, &this->h );
+        glfwGetFramebufferSize( window, &this->w, &this->h );
 
 		GLenum err = glewInit();
 		if( err != GLEW_OK )
@@ -74,7 +70,7 @@ namespace Engine
 
 		return 0;
 	}
-	
+
 	int Window::setupGL()
 	{
 		glViewport( 0, 0, this->w, this->h );
@@ -91,12 +87,12 @@ namespace Engine
 	{
 		return isInitialized;
 	}
-	
+
 	int Window::shouldClose()
 	{
 		return glfwWindowShouldClose( window );
 	}
-	
+
 	void Window::swapBuffers()
 	{
 		glfwSwapBuffers( window );

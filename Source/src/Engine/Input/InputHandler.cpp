@@ -1,14 +1,10 @@
-#if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
 #include "../../../include/Engine/Input/InputHandler.h"
-#else
-#include "InputHandler.h"
-#endif
 
 namespace Engine
 {
 	std::vector<KeyBinding> InputHandler::keyBindings;
 	std::vector<Axis> InputHandler::axes;
-	
+
 	bool InputHandler::joyButtonLast[ GLFW_JOYSTICK_LAST * JOYSTICK_BUTTONS ] = { false };
 	bool InputHandler::joysticks[ GLFW_JOYSTICK_LAST ] = { false };
 
@@ -55,7 +51,7 @@ namespace Engine
 
 		glfwGetCursorPos( glfwGetCurrentContext(), &lastMouseX, &lastMouseY );
 	}
-	
+
 	void InputHandler::addKeyBinding( KeyBinding binding )
 	{
 		keyBindings.push_back( binding );
@@ -206,10 +202,10 @@ namespace Engine
 			released = ( released || joyButUp[ i ] );
 		}
 
-		
+
 		return ( kbdButUp || mouseButUp || released );
 	}
-	
+
 	bool InputHandler::getButtonDown( const std::string& butName )
 	{
 		int button = GLFW_KEY_UNKNOWN, mouseButton = GLFW_KEY_UNKNOWN, joyButton = GLFW_KEY_UNKNOWN;
@@ -322,7 +318,7 @@ namespace Engine
 			else if( mouseAxis == MOUSE_AXIS_Y )
 				mouse = mouseY - lastMouseY;
 		}
-		
+
 		if( joyAxis != NO_INPUT )
 		{
 			const float* axis;
@@ -333,16 +329,16 @@ namespace Engine
 				if( joysticks[ i ] )
 				{
 					axis = glfwGetJoystickAxes( i, &nAxes );
-/* ADSASD
-					float a = axis[ 0 ], fractPt, intPt;
-					fractPt = modf( a, &intPt );
+
+					float a = axis[ joyAxis ], fractPt, intPt;
+/*					fractPt = modf( a, &intPt );
 
 					fractPt *= 10;
 					fractPt = (int)fractPt / 10.0;
 
 					a = intPt + fractPt;
-
-					joystick[ i ] = a;*/
+*/
+					joystick[ i ] = a;
 				}
 			}
 		}
@@ -365,7 +361,7 @@ namespace Engine
 
 		if( keyboard )
 			return keyboard;
-        
+
         return 0;
 	}
 

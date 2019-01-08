@@ -9,9 +9,11 @@ namespace Engine
     
 	struct EntityEvent : public IEvent
 	{
-		EntityEvent( EventType eType, Entity* e ) : IEvent( eType ), entity( e ) {}
+		EntityEvent( EventType eType, Entity* e, void* data ) : IEvent( eType ), entity( e ), data( data ) {}
 
 		Entity* entity;
+        
+        void* data;
 	};
 }
 

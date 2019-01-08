@@ -5,11 +5,9 @@
  *      Author: Patrik Gyllvin
  */
 
-#if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
 #include "../../../include/Engine/Core/Core.h"
-#else
-#include "Core.h"
-#endif
+
+#include "../../../include/Engine/Input/InputHandler.h"
 
 void errorCallback( int error, const char* desc )
 {
@@ -17,12 +15,13 @@ void errorCallback( int error, const char* desc )
 	std::cout << "\n";
 }
 
-namespace Engine {
+namespace Engine
+{
 	Core::Core()
 	:
 	window( new Window() ),
 	isRunning( false ),
-	framerate( 60.0 ),
+	framerate( 100.0 ),
 	frameTime( 1.0 / framerate ),
 	initializationFunc( nullptr ),
 	updateFunc( nullptr ),
@@ -57,7 +56,7 @@ namespace Engine {
 		else
 			std::cout << "Warning: Cannot destroy non-existent window!\n";
 	}
-	
+
 	void Core::start()
 	{
 		if( isRunning )
@@ -65,10 +64,10 @@ namespace Engine {
 			std::cout << "Cannot start; already running!\n";
 			return;
 		}
-		
+
 		run();
 	}
-	
+
 	void Core::stop()
 	{
 		if( !isRunning )
@@ -76,62 +75,74 @@ namespace Engine {
 			std::cout << "Cannot stop; not running!\n";
 			return;
 		}
-		
+
 		isRunning = false;
 	}
-	
+
 	void Core::run()
 	{
 		init();
-		
+
 		isRunning = true;
-		
+
 		double lastTime = glfwGetTime();
 		double currTime = lastTime;
 		double deltaTime = 0;
-		
+
 		double unproccessedTime = 0;
-		
+
 		double frameCounter = 0;
 		int frames = 0;
-		
+
+        bool toggleRender = true;
+        
 		while( isRunning )
 		{
 			bool willRender = false;
-			
+
 			frameTime = 1.0 / framerate;
-			
+
 			currTime = glfwGetTime();
 			deltaTime = currTime - lastTime;
 			lastTime = currTime;
-			
+
 			unproccessedTime += deltaTime;
-			
+
 			frameCounter += deltaTime;
-			
+
 			if( frameCounter >= 1.0 )
 			{
 				std::cout << "FPS: " << frames << '\n';
 				frames = 0;
 				frameCounter = 0;
 			}
-			
+
 			while( unproccessedTime > frameTime )
 			{
 				willRender = true;
-				
+
 				if( window->shouldClose() )
 					stop();
-				
+
                 update();
                 
+                if( InputHandler::getButtonDown( "Space" ) )
+                    toggleRender = !toggleRender;
+                
+                if( InputHandler::getButton( "1" ) )
+                    setFramerate( 100.0 );
+                if( InputHandler::getButton( "2" ) )
+                    setFramerate( 200.0 );
+                if( InputHandler::getButton( "3" ) )
+                    setFramerate( 300.0 );
+
 				unproccessedTime -= frameTime;
 			}
-			
-			if( willRender )
+
+			if( willRender && toggleRender )
 			{
 				render();
-                
+
                 frames++;
 			}
 			else
@@ -140,52 +151,52 @@ namespace Engine {
 			}
 		}
 	}
-	
+
 	void Core::init()
 	{
 		// Add INIT shit here
-		
-		
+
+
 		if( initializationFunc )
 			initializationFunc();
 	}
-	
+
 	void Core::update()
 	{
 		// Add update shit here
-		
-		
+
+
 		if( updateFunc )
 			updateFunc();
 
 		glfwPollEvents();
 	}
-	
+
 	void Core::render()
 	{
 		// Add render shit here
-		
+
 		if( renderFunc )
 			renderFunc();
 
 		window->swapBuffers();
 	}
-	
+
 	void Core::setFramerate( double framerate )
 	{
 		this->framerate = framerate;
 	}
-	
+
 	void Core::setInitFunction( void (*initFunc)() )
 	{
 		initializationFunc = initFunc;
 	}
-	
+
 	void Core::setUpdateFunction( void (*updtFunc)() )
 	{
 		updateFunc = updtFunc;
 	}
-	
+
 	void Core::setRenderFunction( void (*rndrFunc) () )
 	{
 		renderFunc = rndrFunc;

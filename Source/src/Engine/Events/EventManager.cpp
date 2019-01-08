@@ -1,8 +1,4 @@
-#if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
 #include "../../../include/Engine/Events/EventManager.h"
-#else
-#include "EventManager.h"
-#endif
 
 namespace Engine
 {

@@ -1,8 +1,4 @@
-#if !defined(__APPLE__) || defined(_MAC_MAKEFILE)
 #include "../../../include/Engine/Math/Vec3.h"
-#else
-#include "Vec3.h"
-#endif
 
 namespace Engine
 {
@@ -80,7 +76,7 @@ namespace Engine
 	{
 		return this->x;
 	}
-	
+
 	float Vec3::getY() const
 	{
 		return this->y;
@@ -119,7 +115,7 @@ namespace Engine
 
 		return *this;
 	}
-	
+
 	Vec3& Vec3::operator-=( const Vec3& otherVec )
 	{
 		this->x -= otherVec.getX();
@@ -137,7 +133,7 @@ namespace Engine
 
 		return *this;
 	}
-	
+
 	Vec3& Vec3::operator/=( float denominator )
 	{
 		this->x /= denominator;
