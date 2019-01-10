@@ -5,11 +5,11 @@ LIBDIR = $(RTDIR)/Include
 BINDIR = $(RTDIR)/bin
 OBJDIR = $(RTDIR)/obj
 
-CC = clang
+CC = g++
 #DEBUG FLAGS
-#CFLAGS = --std=c++11 -Wall -O0 -g -c -DDebug -D_MAC_MAKEFILE
+CFLAGS = --std=c++11 -Wall -O2 -g -c -DDebug -D_MAC_MAKEFILE
 #RELEASE FLAGS
-CFLAGS = --std=c++11 -Wall -O2 -c -D_MAC_MAKEFILE
+#CFLAGS = --std=c++11 -Wall -O2 -c -D_MAC_MAKEFILE
 LFLAGS = -lGL -lGLEW -lglfw
 INCLUDE = -I$(INCDIR)
 
@@ -18,7 +18,7 @@ else
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S),Darwin)
 		LFLAGS = -L/usr/local/lib -lpng -lGLEW -lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
-        INCLUDE += -I/usr/local/include -I/Users/patrikgyllvin/Library/Mobile\ Documents/com~apple~CloudDocs/Gymnasiearbete/GameEngine/Include
+        INCLUDE += -I/usr/local/include -I./Include
 	endif
 endif
 
