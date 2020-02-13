@@ -84,7 +84,7 @@ void RayCastSystem::processEntity( Engine::Entity& entity )
             {
                 // Don't cast to cars or other rays...
                 if( f->IsSensor() || f->GetFilterData().categoryBits == 0x0001 )
-                    continue;
+                    break;
 
                 b2RayCastOutput output;
                 if( !f->RayCast( &output, rayComp->getInput(), 0 ) )

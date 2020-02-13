@@ -311,6 +311,7 @@ void RenderSystem::renderEntity( Engine::Entity &entity )
     {
         const b2Vec3& fixtureData = *static_cast< const b2Vec3* >( f->GetUserData() );
         b2Vec2 centroid = static_cast< b2PolygonShape* >( f->GetShape() )->m_centroid;
+
         centroid *= 2;
 
         b2Vec2 pos = physComp.getBody()->GetPosition() + centroid;

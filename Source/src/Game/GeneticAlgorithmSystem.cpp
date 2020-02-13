@@ -163,7 +163,7 @@ void GeneticAlgorithmSystem::preProcess()
         bDef.angle = 0.0;
         bestFit->entityManager.genEntity().addComponent( new PhysicsBodyComponent( bDef, 1, 2, 0x0001, 0x0002, 1 ) ).addComponent( new CarComponent( true ) ).addComponent( new RayCastComponent() ).addComponent( new RayCastComponent() ).addComponent( new RayCastComponent() ).addComponent( new NeuralNetworkComponent( bestFitDNA.getGenome() ) ).addComponent( new DNAComponent( bestFitDNA.getGenome(), bestFitPos, -1 ) );
 
-        // Kill off old generation
+        // Kill off old generation. Might need to change order of killing and creating to save memory...
         for( auto it = dead.begin(); it != dead.end(); ++it )
         {
             (*it)->destroyEntity();

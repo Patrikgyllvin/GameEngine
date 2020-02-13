@@ -7,9 +7,9 @@ OBJDIR = $(RTDIR)/obj
 
 CC = g++
 #DEBUG FLAGS
-CFLAGS = --std=c++11 -Wall -O2 -g -c -DDebug -D_MAC_MAKEFILE
+#CFLAGS = --std=c++11 -Wall -O2 -g -c -DDebug -D_MAC_MAKEFILE
 #RELEASE FLAGS
-#CFLAGS = --std=c++11 -Wall -O2 -c -D_MAC_MAKEFILE
+CFLAGS = --std=c++11 -Wall -O2 -c -D_MAC_MAKEFILE
 LFLAGS = -lGL -lGLEW -lglfw
 INCLUDE = -I$(INCDIR)
 

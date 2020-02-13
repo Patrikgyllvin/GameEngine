@@ -23,7 +23,7 @@ void Game::init()
     entityManager->registerSystem( new Engine::MovementSystem() );
     entityManager->registerSystem( new CarSystem( *eventManager ) );
     entityManager->registerSystem( new RayCastSystem( *eventManager ) );
-		entityManager->registerSystem( new GeneticAlgorithmSystem( 40, 0.04 ) );
+	entityManager->registerSystem( new GeneticAlgorithmSystem( 40, 0.04 ) );
 
     entityManager->registerRenderingSystem( new RenderSystem() );
 
@@ -37,6 +37,7 @@ void Game::init()
     track->makeCurrent();
 
     cam = &entityManager->genEntity().addComponent( &( new Engine::TransformComponent() )->setPosition( 0.0, 0.0, 100.0 ) ).addComponent( new CameraComponent() );
+	//car = &entityManager->genEntity().addComponent( &( new CarComponent() ))
 
     b2BodyDef bDef;
     bDef.type = b2_dynamicBody;

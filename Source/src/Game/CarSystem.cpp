@@ -152,47 +152,47 @@ void CarSystem::processEntity( Engine::Entity& entity )
         physComp.getBody()->GetWorld()->SetContactListener( this );
         registered = true;
     }
-    
+
     // Speed
     b2Vec2 currentForwardNormal = physComp.getBody()->GetWorldVector( b2Vec2( 0, 1 ) );
     float currentSpeed = b2Dot( getForwardVelocity( physComp.getBody() ), currentForwardNormal );
-    
+
     Eigen::Vector2f output;
-    
-        std::vector< Engine::Component* >& rays = entity.getComponents( COMPONENT_RAYCAST );
 
-        // Ray 1
-        RayCastComponent* rayComp = static_cast< RayCastComponent* >( rays[ 0 ] );
+    std::vector< Engine::Component* >& rays = entity.getComponents( COMPONENT_RAYCAST );
 
-        b2Vec2 directionVec = b2Vec2( cosf( physComp.getBody()->GetAngle() + M_PI_2 ), sinf( physComp.getBody()->GetAngle() + M_PI_2 ) );
-        directionVec.Normalize();
+    // Ray 1
+    RayCastComponent* rayComp = static_cast< RayCastComponent* >( rays[ 0 ] );
 
-        rayComp->setP1( physComp.getBody()->GetPosition() + 2 * directionVec );
-        rayComp->setP2( physComp.getBody()->GetPosition() + 12 * directionVec );
+    b2Vec2 directionVec = b2Vec2( cosf( physComp.getBody()->GetAngle() + M_PI_2 ), sinf( physComp.getBody()->GetAngle() + M_PI_2 ) );
+    directionVec.Normalize();
 
-        // Ray 2
-        rayComp = static_cast< RayCastComponent* >( rays[ 1 ] );
-    /*
-        directionVec = b2Vec2( cosf( physComp.getBody()->GetAngle() + M_PI_2 ), sinf( physComp.getBody()->GetAngle() + M_PI_2 ) );
-        directionVec.Normalize();
-    */
-        b2Vec2 directionVec2 = b2Vec2( cosf( physComp.getBody()->GetAngle() + M_PI_2 + M_PI_4 ), sinf( physComp.getBody()->GetAngle() + M_PI_2 + M_PI_4 ) );
-        directionVec2.Normalize();
+    rayComp->setP1( physComp.getBody()->GetPosition() + 2 * directionVec );
+    rayComp->setP2( physComp.getBody()->GetPosition() + 12 * directionVec );
 
-        rayComp->setP1( physComp.getBody()->GetPosition() + 2 * directionVec );
-        rayComp->setP2( physComp.getBody()->GetPosition() + 2 * directionVec + 12 * directionVec2 );
+    // Ray 2
+    rayComp = static_cast< RayCastComponent* >( rays[ 1 ] );
+/*
+    directionVec = b2Vec2( cosf( physComp.getBody()->GetAngle() + M_PI_2 ), sinf( physComp.getBody()->GetAngle() + M_PI_2 ) );
+    directionVec.Normalize();
+*/
+    b2Vec2 directionVec2 = b2Vec2( cosf( physComp.getBody()->GetAngle() + M_PI_2 + M_PI_4 ), sinf( physComp.getBody()->GetAngle() + M_PI_2 + M_PI_4 ) );
+    directionVec2.Normalize();
 
-        // Ray 3
-        rayComp = static_cast< RayCastComponent* >( rays[ 2 ] );
+    rayComp->setP1( physComp.getBody()->GetPosition() + 2 * directionVec );
+    rayComp->setP2( physComp.getBody()->GetPosition() + 2 * directionVec + 12 * directionVec2 );
 
-        directionVec = b2Vec2( cosf( physComp.getBody()->GetAngle() + M_PI_2 ), sinf( physComp.getBody()->GetAngle() + M_PI_2 ) );
-        directionVec.Normalize();
+    // Ray 3
+    rayComp = static_cast< RayCastComponent* >( rays[ 2 ] );
 
-        directionVec2 = b2Vec2( cosf( physComp.getBody()->GetAngle() + M_PI_2 - M_PI_4 ), sinf( physComp.getBody()->GetAngle() + M_PI_2 - M_PI_4 ) );
-        directionVec2.Normalize();
+    directionVec = b2Vec2( cosf( physComp.getBody()->GetAngle() + M_PI_2 ), sinf( physComp.getBody()->GetAngle() + M_PI_2 ) );
+    directionVec.Normalize();
 
-        rayComp->setP1( physComp.getBody()->GetPosition() + 2 * directionVec );
-        rayComp->setP2( physComp.getBody()->GetPosition() + 2 * directionVec + 12 * directionVec2 );
+    directionVec2 = b2Vec2( cosf( physComp.getBody()->GetAngle() + M_PI_2 - M_PI_4 ), sinf( physComp.getBody()->GetAngle() + M_PI_2 - M_PI_4 ) );
+    directionVec2.Normalize();
+
+    rayComp->setP1( physComp.getBody()->GetPosition() + 2 * directionVec );
+    rayComp->setP2( physComp.getBody()->GetPosition() + 2 * directionVec + 12 * directionVec2 );
 
     if( carComp.isAutonomous() )
     {
@@ -213,7 +213,7 @@ void CarSystem::processEntity( Engine::Entity& entity )
 
         output = nnComp.feedForward( input );
     }
-    
+
     std::vector< Engine::Entity* >& tires = carComp.getTires();
     for( auto it = tires.begin(); it != tires.end(); ++it )
     {
@@ -228,7 +228,7 @@ void CarSystem::processEntity( Engine::Entity& entity )
             physComp.getBody()->SetActive( false );
             continue;
         }
-        
+
         if( carComp.isAutonomous() )
             updateDrive( tirePhys.getBody(), carComp, output( 0 ), output( 1 ) );
         else
@@ -263,7 +263,12 @@ b2Vec2 CarSystem::getForwardVelocity( b2Body* body )
 {
     b2Vec2 currentRightNormal = body->GetWorldVector( b2Vec2( 0, 1 ) );
 
-    return b2Dot( currentRightNormal, body->GetLinearVelocity() ) * currentRightNormal;
+    b2Vec2 dot = b2Dot( currentRightNormal, body->GetLinearVelocity() ) * currentRightNormal;
+
+    if( std::isnan( dot.x ) || std::isnan( dot.y ) )
+        return b2Vec2( 0.0, 0.0 );
+
+    return dot;
 }
 
 void CarSystem::updateFriction( b2Body* body )
@@ -288,7 +293,7 @@ void CarSystem::updateDrive( b2Body* body, CarComponent& carComp, float angle, f
 {
     bool autonomous = carComp.isAutonomous();
     float desiredSpeed = 0;
-    
+
     if( Engine::InputHandler::getButton( "Forward" ) && !autonomous )
     {
         desiredSpeed = carComp.getMaxSpeedFwd();
@@ -299,8 +304,11 @@ void CarSystem::updateDrive( b2Body* body, CarComponent& carComp, float angle, f
     }
 
     b2Vec2 currentForwardNormal = body->GetWorldVector( b2Vec2( 0, 1 ) );
+    if( std::isnan( currentForwardNormal.x ) || std::isnan( currentForwardNormal.y ) )
+        return;
+
     float currentSpeed = b2Dot( getForwardVelocity( body ), currentForwardNormal );
-    
+
     if( !autonomous )
     {
         if( !desiredSpeed )
@@ -319,7 +327,11 @@ void CarSystem::updateDrive( b2Body* body, CarComponent& carComp, float angle, f
         else if( force > 0 && currentSpeed < carComp.getMaxSpeedFwd() )
             force = force* carComp.getMaxEngineForceFwd();
     }
-    
+
+    b2Vec2 fVec = force * currentForwardNormal;
+    if( std::isnan( fVec.x ) || std::isnan( fVec.y ) )
+        return;
+
     if( force )
         body->ApplyForce( force * currentForwardNormal, body->GetWorldCenter(), true );
 
@@ -327,7 +339,7 @@ void CarSystem::updateDrive( b2Body* body, CarComponent& carComp, float angle, f
     float turnSpeedPerSec = glm::radians( 320.0 );
     float turnPerTimeStep = turnSpeedPerSec / 60.0f;
 
-    
+
     if( Engine::InputHandler::getButton( "Turn left" ) && !autonomous )
     {
         angle = 1.0;
@@ -336,7 +348,7 @@ void CarSystem::updateDrive( b2Body* body, CarComponent& carComp, float angle, f
     {
         angle = -1.0;
     }
-    
+
     angle *= lockAngle;
 
     float angleNow = ( *carComp.getFLJoint() )->GetJointAngle();

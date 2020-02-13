@@ -99,7 +99,7 @@ public:
     {
         return this->timeOut;
     }
-    
+
     const bool& isAutonomous() const
     {
         return this->selfDrive;
@@ -114,7 +114,7 @@ private:
     b2RevoluteJoint* flJoint, *frJoint;
 
     float distance, timeOut;
-    
+
     bool selfDrive;
 };
 
