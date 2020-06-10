@@ -1,7 +1,7 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include "Shader.h"
+#include "../Shaders/Shader.h"
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -11,10 +11,9 @@
 
 #include <Box2D/Box2D.h>
 
-#include "../Engine/CoreSystems/RenderingSystem.h"
+#include "RenderingSystem.h"
 
-#include "PhysicsBodyComponent.h"
-#include "../Engine/CoreComponents/TransformComponent.h"
+#include "../CoreComponents/TransformComponent.h"
 
 typedef struct {
 	GLfloat x, y, z;
@@ -28,14 +27,14 @@ typedef struct {
 	GLfloat u, v;
 } UVs;
 
-class RenderSystem : public Engine::RenderingSystem
+class StdRenderSystem : public Engine::RenderingSystem
 {
 	friend class Window;
 
 public:
-	RenderSystem();
+	StdRenderSystem();
 
-	~RenderSystem();
+	~StdRenderSystem();
 
     virtual bool shouldProcessEntity( const Engine::Entity& entity );
     virtual bool shouldRenderEntity( const Engine::Entity& entity );

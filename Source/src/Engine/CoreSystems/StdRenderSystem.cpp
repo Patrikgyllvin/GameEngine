@@ -1,9 +1,9 @@
-#include "../../include/Game/RenderSystem.h"
+#include "../../../include/Engine/CoreSystems/StdRenderSystem.h"
 
-RenderSystem::RenderSystem()
+StdRenderSystem::StdRenderSystem()
 {}
 
-RenderSystem::~RenderSystem()
+StdRenderSystem::~StdRenderSystem()
 {
 	glDeleteBuffers( 1, &quad );
 	glDeleteBuffers( 1, &color );
@@ -11,17 +11,17 @@ RenderSystem::~RenderSystem()
 	glDeleteVertexArrays( 1, &vao );
 }
 
-bool RenderSystem::shouldProcessEntity( const Engine::Entity& entity )
+bool StdRenderSystem::shouldProcessEntity( const Engine::Entity& entity )
 {
     return entity.hasComponent( COMPONENT_CAMERA_BIT | COMPONENT_TRANSFORM_BIT );
 }
 
-bool RenderSystem::shouldRenderEntity( const Engine::Entity &entity )
+bool StdRenderSystem::shouldRenderEntity( const Engine::Entity &entity )
 {
     return entity.hasComponent( COMPONENT_PHYSICS_BIT );
 }
 
-void RenderSystem::init( Engine::EntityManager& entityManager )
+void StdRenderSystem::init( Engine::EntityManager& entityManager )
 {
 	glfwGetWindowSize( glfwGetCurrentContext(), &winW, &winH );
 
@@ -147,7 +147,7 @@ void RenderSystem::init( Engine::EntityManager& entityManager )
 	glBufferData( GL_ARRAY_BUFFER, sizeof( uvArray ), uvArray, GL_STATIC_DRAW );
 }
 
-void RenderSystem::changePerspective( int w, int h )
+void StdRenderSystem::changePerspective( int w, int h )
 {
 	this->winW = w;
 	this->winH = h;
@@ -156,7 +156,7 @@ void RenderSystem::changePerspective( int w, int h )
 	projectionMatrix = glm::perspective<float>( 45.0f, (float) winW / (float) winH, 0.01f, 100.0f );
 }
 
-void RenderSystem::setTexture( std::string tex )
+void StdRenderSystem::setTexture( std::string tex )
 {
 	//if( tex == "sheet" )
 		//texture.bind();
@@ -164,7 +164,7 @@ void RenderSystem::setTexture( std::string tex )
 		//ground.bind();
 }
 /*
-void RenderSystem::drawSpriteBillboarded( glm::vec3 pos, glm::vec3 lookAtPos, int w, int h, int uP, int vP, glm::vec4 col )
+void StdRenderSystem::drawSpriteBillboarded( glm::vec3 pos, glm::vec3 lookAtPos, int w, int h, int uP, int vP, glm::vec4 col )
 {
 	w *= 16;
 	h *= 16;
@@ -229,10 +229,10 @@ void RenderSystem::drawSpriteBillboarded( glm::vec3 pos, glm::vec3 lookAtPos, in
 	glDrawArrays( GL_TRIANGLES, 0, 6 );
 }*/
 
-void RenderSystem::preProcess()
+void StdRenderSystem::preProcess()
 {}
 
-void RenderSystem::processEntity( Engine::Entity &entity )
+void StdRenderSystem::processEntity( Engine::Entity &entity )
 {
     Engine::TransformComponent& transComp = static_cast< Engine::TransformComponent& >( entity.getFirstComponentOf( COMPONENT_TRANSFORM ) );
     this->cam.x = transComp.getPosX();
@@ -250,13 +250,13 @@ void RenderSystem::processEntity( Engine::Entity &entity )
     viewMatrix = camTransMatrix * camRotationMatrix;
 }
 
-void RenderSystem::postProcess()
+void StdRenderSystem::postProcess()
 {}
 
-void RenderSystem::preRender()
+void StdRenderSystem::preRender()
 {}
 
-void RenderSystem::renderEntity( Engine::Entity &entity )
+void StdRenderSystem::renderEntity( Engine::Entity &entity )
 {
     PhysicsBodyComponent& physComp = static_cast< PhysicsBodyComponent& >( entity.getFirstComponentOf( COMPONENT_PHYSICS ) );
 
@@ -330,10 +330,10 @@ void RenderSystem::renderEntity( Engine::Entity &entity )
     }
 }
 
-void RenderSystem::postRender()
+void StdRenderSystem::postRender()
 {}
 
-void RenderSystem::drawQuad( glm::vec4 col )
+void StdRenderSystem::drawQuad( glm::vec4 col )
 {
 	if( isShaderSTD && !isShaderNoTex )
 	{
@@ -378,7 +378,7 @@ void RenderSystem::drawQuad( glm::vec4 col )
 	glDrawArrays( GL_TRIANGLES, 0, 6 );
 }
 
-void RenderSystem::drawCube( int uP, int vP, glm::vec4 col )
+void StdRenderSystem::drawCube( int uP, int vP, glm::vec4 col )
 {
 	//int texW = texture.getWidth(), texH = texture.getHeight();
 
