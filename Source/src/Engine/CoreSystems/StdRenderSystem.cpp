@@ -275,7 +275,7 @@ namespace Engine
 		};
 
 		transMatrix = glm::translate( glm::mat4( 1.0f ), glm::vec3( pos.x, pos.y, pos.z ) );
-		rotationMatrix = glm::rotate( glm::mat4( 1.0f ), glm::degrees( physComp.getBody()->GetAngle() + fixtureData.z ), glm::vec3( 0, 0, 1 ) );
+		//rotationMatrix = glm::rotate( glm::mat4( 1.0f ), glm::degrees(  ), glm::vec3( 0, 0, 1 ) );
 		scaleMatrix = glm::scale( glm::mat4( 1.0f ), glm::vec3( width, height, 1 ) );
 
 		modelMatrix = transMatrix * rotationMatrix * scaleMatrix;
