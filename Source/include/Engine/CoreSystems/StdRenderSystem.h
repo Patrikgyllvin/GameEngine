@@ -1,11 +1,6 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include "../Shaders/Shader.h"
-
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -29,8 +24,6 @@ namespace Engine
 
 	class StdRenderSystem : public Engine::RenderingSystem
 	{
-		friend class Window;
-
 	public:
 		StdRenderSystem();
 
@@ -78,9 +71,6 @@ namespace Engine
 
 		GLuint vao, quad, cube, UV, color;
 
-		bool isShaderSTD, isShaderNoTex;
-
-		Shader shader, shaderNoTex;
 		//Texture texture, ground;
 
 		GLuint MVPLocation, texMatLoc, MVPLocationNoTex;

@@ -10,22 +10,26 @@
 
 namespace Engine
 {
+	static ShaderManager shaderManager;
+
     RenderingSystem::RenderingSystem()
     {}
 
     RenderingSystem::~RenderingSystem()
-    {}
+    {
+		if( shaderManager )
+			delete shaderManager;
+	}
 
 	// Override initialize, initialize standard shaders statically and call init...
 	void RenderingSystem::initialize( EntityManager &entityManager )
 	{
-#if !defined __APPLE__ || defined _MAC_MAKEFILE
-    shader.loadAndCompile( "Res/Engine/Shaders/std.vs", "Res/Engine/Shaders/std.fs" );
-    shaderNoTex.loadAndCompile( "Res/Engine/Shaders/NoTex.vs", "Res/Engine/Shaders/NoTex.fs" );
-#else
-    shader.loadAndCompile( "std.vs", "std.fs" );
-    shaderNoTex.loadAndCompile( "NoTex.vs", "NoTex.fs" );
-#endif
+		if( !shaderManager )
+		{
+			shaderManager = new ShaderManager();
+		}
+
+		init( entityManager );
 	}
 
     void RenderingSystem::render( Entity& entity )

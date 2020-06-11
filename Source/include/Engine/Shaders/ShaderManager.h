@@ -13,7 +13,7 @@ namespace Engine
 
 		void useProgram( const Shader& shader );
 		
-		const Shader standard, standardNoTexture;
+		const Shader stdShader, stdNoTextureShader;
 	private:
 		GLuint currProgram;
 	};

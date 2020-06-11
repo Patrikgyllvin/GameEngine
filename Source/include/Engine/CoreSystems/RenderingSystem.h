@@ -9,7 +9,13 @@
 #ifndef RenderingSystem_h
 #define RenderingSystem_h
 
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
 #include "System.h"
+
+#include "../Shaders/ShaderManager.h"
+#include "../Shaders/Shader.h"
 
 namespace Engine {
     class RenderingSystem : public System
@@ -29,6 +35,10 @@ namespace Engine {
         virtual void renderEntity( Entity& entity ) = 0;
 
         virtual void postRender() = 0;
+
+		static ShaderManager* shaderManager;
+
+		// TODO: Settings struct/object for resolution, FOV, general rendering settings to be used in Render Systems.
     };
 }
 

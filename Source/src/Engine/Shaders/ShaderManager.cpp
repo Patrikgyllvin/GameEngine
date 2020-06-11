@@ -4,8 +4,8 @@ namespace Engine
 {
 	ShaderManager::ShaderManager()
 	:
-	standard( "Res/Engine/Shaders/std.vs", "Res/Engine/Shaders/std.fs" ),
-	standardNoTexture( "Res/Engine/Shaders/NoTex.vs", "Res/Engine/Shaders/NoTex.fs" ),
+	stdShader( "Res/Engine/Shaders/std.vs", "Res/Engine/Shaders/std.fs" ),
+	stdNoTextureShader( "Res/Engine/Shaders/NoTex.vs", "Res/Engine/Shaders/NoTex.fs" ),
 	currProgram( 0 )
 	{}
 
