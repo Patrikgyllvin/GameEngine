@@ -18,7 +18,8 @@ bool StdRenderSystem::shouldProcessEntity( const Engine::Entity& entity )
 
 bool StdRenderSystem::shouldRenderEntity( const Engine::Entity &entity )
 {
-    return entity.hasComponent( COMPONENT_PHYSICS_BIT );
+    return false; // entity.hasComponent( COMPONENT_SPRITE_BIT ) ||
+				  // entity.hasComponent( COMPONENT_MESH_CUBE_BIT );
 }
 
 void StdRenderSystem::init( Engine::EntityManager& entityManager )
@@ -32,8 +33,8 @@ void StdRenderSystem::init( Engine::EntityManager& entityManager )
     glBindVertexArray( vao );
 
 #if !defined __APPLE__ || defined _MAC_MAKEFILE
-    shader.loadAndCompile( "Res/Shaders/std.vs", "Res/Shaders/std.fs" );
-    shaderNoTex.loadAndCompile( "Res/Shaders/NoTex.vs", "Res/Shaders/NoTex.fs" );
+    shader.loadAndCompile( "Res/Engine/Shaders/std.vs", "Res/Engine/Shaders/std.fs" );
+    shaderNoTex.loadAndCompile( "Res/Engine/Shaders/NoTex.vs", "Res/Engine/Shaders/NoTex.fs" );
 #else
     shader.loadAndCompile( "std.vs", "std.fs" );
     shaderNoTex.loadAndCompile( "NoTex.vs", "NoTex.fs" );

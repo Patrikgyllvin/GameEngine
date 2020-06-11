@@ -9,8 +9,6 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include <Box2D/Box2D.h>
-
 #include "RenderingSystem.h"
 
 #include "../CoreComponents/TransformComponent.h"
