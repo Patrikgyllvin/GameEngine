@@ -13,75 +13,78 @@
 
 #include "../CoreComponents/TransformComponent.h"
 
-typedef struct {
-	GLfloat x, y, z;
-} Vertex;
-
-typedef struct {
-	GLubyte r, g, b, a;
-} Color;
-
-typedef struct {
-	GLfloat u, v;
-} UVs;
-
-class StdRenderSystem : public Engine::RenderingSystem
+namespace Engine
 {
-	friend class Window;
+	typedef struct {
+		GLfloat x, y, z;
+	} Vertex;
 
-public:
-	StdRenderSystem();
+	typedef struct {
+		GLubyte r, g, b, a;
+	} Color;
 
-	~StdRenderSystem();
+	typedef struct {
+		GLfloat u, v;
+	} UVs;
 
-    virtual bool shouldProcessEntity( const Engine::Entity& entity );
-    virtual bool shouldRenderEntity( const Engine::Entity& entity );
+	class StdRenderSystem : public Engine::RenderingSystem
+	{
+		friend class Window;
 
-	void drawSpriteBillboarded( glm::vec3 pos, glm::vec3 lookAtPos, int w, int h, int uP, int vP, glm::vec4 col );
-    void drawQuad( glm::vec4 col );
+	public:
+		StdRenderSystem();
 
-	void drawCube( int uP, int vP, glm::vec4 col );
+		~StdRenderSystem();
 
-	void setTexture( std::string tex );
+		virtual bool shouldProcessEntity( const Engine::Entity& entity );
+		virtual bool shouldRenderEntity( const Engine::Entity& entity );
 
-protected:
-    virtual void init( Engine::EntityManager& entityManager );
+		void drawSpriteBillboarded( glm::vec3 pos, glm::vec3 lookAtPos, int w, int h, int uP, int vP, glm::vec4 col );
+		void drawQuad( glm::vec4 col );
 
-    virtual void preProcess();
-    virtual void processEntity( Engine::Entity& entity );
-    virtual void postProcess();
+		void drawCube( int uP, int vP, glm::vec4 col );
 
-    virtual void preRender();
-    virtual void renderEntity( Engine::Entity& entity );
-    virtual void postRender();
+		void setTexture( std::string tex );
 
-private:
-	void changePerspective( int w, int h );
+	protected:
+		virtual void init( Engine::EntityManager& entityManager );
 
-    glm::vec3 cam, camRotation;
+		virtual void preProcess();
+		virtual void processEntity( Engine::Entity& entity );
+		virtual void postProcess();
 
-	glm::mat4 transMatrix;
-	glm::mat4 rotationMatrix;
-	glm::mat4 scaleMatrix;
+		virtual void preRender();
+		virtual void renderEntity( Engine::Entity& entity );
+		virtual void postRender();
 
-	glm::mat4 camTransMatrix;
-	glm::mat4 camRotationMatrix;
+	private:
+		void changePerspective( int w, int h );
 
-	glm::mat4 modelMatrix;
-	glm::mat4 viewMatrix;
-	glm::mat4 projectionMatrix;
-	glm::mat4 modelViewProjectionMatrix;
+		glm::vec3 cam, camRotation;
 
-	int winW, winH;
+		glm::mat4 transMatrix;
+		glm::mat4 rotationMatrix;
+		glm::mat4 scaleMatrix;
 
-	GLuint vao, quad, cube, UV, color;
+		glm::mat4 camTransMatrix;
+		glm::mat4 camRotationMatrix;
 
-	bool isShaderSTD, isShaderNoTex;
+		glm::mat4 modelMatrix;
+		glm::mat4 viewMatrix;
+		glm::mat4 projectionMatrix;
+		glm::mat4 modelViewProjectionMatrix;
 
-	Shader shader, shaderNoTex;
-	//Texture texture, ground;
+		int winW, winH;
 
-	GLuint MVPLocation, texMatLoc, MVPLocationNoTex;
-};
+		GLuint vao, quad, cube, UV, color;
+
+		bool isShaderSTD, isShaderNoTex;
+
+		Shader shader, shaderNoTex;
+		//Texture texture, ground;
+
+		GLuint MVPLocation, texMatLoc, MVPLocationNoTex;
+	};
+}
 
 #endif

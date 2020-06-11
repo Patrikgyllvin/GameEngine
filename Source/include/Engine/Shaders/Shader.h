@@ -12,20 +12,23 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-class Shader
-{
-public:
-	Shader();
-	Shader( const char* vertPath, const char* fragPath );
+namespace Engine
+{ 
+	class Shader
+	{
+	public:
+		Shader();
+		Shader( const char* vertPath, const char* fragPath );
 
-	~Shader();
+		~Shader();
 
-	void loadAndCompile( const char* vertPath, const char* fragPath );
+		void loadAndCompile( const char* vertPath, const char* fragPath );
 
-	GLuint getProgram();
+		const GLuint getProgram() const;
 
-private:
-	GLuint programID;
-};
+	private:
+		GLuint programID;
+	};
+}
 
 #endif

@@ -9,32 +9,35 @@
 #include <string>
 #include <cstdio>
 
-class Texture
+namespace Engine
 {
-public:
-	Texture();
-	Texture( std::string tex );
+	class Texture
+	{
+	public:
+		Texture();
+		Texture( std::string tex );
 
-	~Texture();
+		~Texture();
 
-	void loadTexture( std::string tFile );
+		void loadTexture( std::string tFile );
 
-	bool getLoaded() const;
+		bool getLoaded() const;
 
-	void bind() const;
+		void bind() const;
 
-	size_t getWidth() const;
-	size_t getHeight() const;
+		size_t getWidth() const;
+		size_t getHeight() const;
 
-    const png::image< png::rgba_pixel >& getRawImage() const;
+		const png::image< png::rgba_pixel >& getRawImage() const;
 
-private:
-	GLuint texID;
-    png::image< png::rgba_pixel > rawImage;
+	private:
+		GLuint texID;
+		png::image< png::rgba_pixel > rawImage;
 
-	bool loaded;
+		bool loaded;
 
-	size_t w, h;
-};
+		size_t w, h;
+	};
+}
 
 #endif

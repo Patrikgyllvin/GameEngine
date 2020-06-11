@@ -20,6 +20,7 @@ namespace Engine {
 
         virtual bool shouldRenderEntity( const Entity& entity ) = 0;
 
+		void initialize( EntityManager& entityManager );
         void render( Entity& entity );
 
     protected:
