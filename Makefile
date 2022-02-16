@@ -7,10 +7,10 @@ OBJDIR = $(RTDIR)/obj
 
 CC = g++
 #DEBUG FLAGS
-#CFLAGS = --std=c++11 -Wall -O2 -g -c -DDebug -D_MAC_MAKEFILE
+CFLAGS = --std=c++17 -Wall -O2 -g -fsanitize=address -c -DDebug -D_MAC_MAKEFILE
 #RELEASE FLAGS
-CFLAGS = --std=c++11 -Wall -O2 -c -D_MAC_MAKEFILE
-LFLAGS = -lGL -lGLEW -lglfw
+#CFLAGS = --std=c++17 -Wall -O2 -c -D_MAC_MAKEFILE
+LFLAGS = -fsanitize=address -lGL -lGLEW -lglfw -lpng
 INCLUDE = -I$(INCDIR)
 
 ifeq ($(OS),Windows_NT)

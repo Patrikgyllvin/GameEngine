@@ -10,7 +10,7 @@
 
 namespace Engine
 {
-	static ShaderManager shaderManager;
+	ShaderManager* RenderingSystem::shaderManager;
 
     RenderingSystem::RenderingSystem()
     {}

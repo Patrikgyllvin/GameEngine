@@ -13,6 +13,7 @@ syntax: glob
 *.idb
 *.opensdf
 tests/*.err
+bin/
 
 syntax: regexp
 .*\#.*\#$

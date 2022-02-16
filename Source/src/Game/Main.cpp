@@ -6,11 +6,12 @@
  */
 
 #include <iostream>
+#include <memory>
 
 #include "../../include/Engine/Core/Core.h"
 #include "../../include/Game/Game.h"
 
-Game* game;
+std::unique_ptr< Game > game;
 
 void init()
 {
@@ -29,16 +30,16 @@ void update()
 
 int main( int argc, char** argv )
 {
-	Engine::Core* engine = new Engine::Core();
-    game = new Game();
+	Engine::Core engine{};
+    game = std::make_unique< Game >();
 
-    engine->setRenderFunction(&render);
-    engine->setUpdateFunction(&update);
-    engine->setInitFunction(&init);
+    engine.setRenderFunction(&render);
+    engine.setUpdateFunction(&update);
+    engine.setInitFunction(&init);
 
-	engine->createWindow( 800, 600, "3D Game", false, false );
+	engine.createWindow( 800, 600, "3D Game", false, false );
 
-	engine->start();
+	engine.start();
 
 	return 0;
 }

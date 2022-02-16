@@ -34,8 +34,8 @@ namespace Engine
 
 	Core::~Core()
 	{
-		delete window;
 		glfwTerminate();
+		delete window;
 	}
 
 	void Core::createWindow(int w, int h, std::string text, bool resizable, bool fullscreen )

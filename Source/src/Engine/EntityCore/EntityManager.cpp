@@ -26,6 +26,9 @@ namespace Engine
         for( auto it = systems.begin(); it != systems.end(); ++it )
             delete *it;
 
+        for( auto& rSystem : renderingSystems )
+            delete rSystem;
+
 		entities.clear();
 	}
 

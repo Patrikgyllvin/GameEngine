@@ -11,6 +11,7 @@ Game::~Game()
 {
 	delete entityManager;
 	delete eventManager;
+    delete inputHandler;
 }
 
 void Game::init()

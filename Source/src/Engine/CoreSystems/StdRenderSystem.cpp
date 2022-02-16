@@ -20,8 +20,8 @@ namespace Engine
 
 	bool StdRenderSystem::shouldRenderEntity( const Engine::Entity &entity )
 	{
-		return entity.hasComponent( COMPONENT_TRANSFORM_BIT | COMPONENT_SPRITE_BIT ) ||
-			entity.hasComponent( COMPONENT_TRANSFORM_BIT | COMPONENT_MESH_CUBE_BIT );
+		return entity.hasComponent( COMPONENT_TRANSFORM_BIT | COMPONENT_SPRITE_BIT );
+			//entity.hasComponent( COMPONENT_TRANSFORM_BIT | COMPONENT_MESH_CUBE_BIT );
 	}
 
 	void StdRenderSystem::init( Engine::EntityManager& entityManager )
@@ -234,28 +234,21 @@ namespace Engine
 		glVertexAttribPointer( 2, 2, GL_FLOAT, GL_FALSE, 0, (void*)0 );
 
 		//scale( w / 16 * 1.0, h / 16 * 1.0, 1.0 );
+		
+		transMatrix = glm::translate( glm::mat4( 1.0f ), glm::vec3( transComp.getPosX(), transComp.getPosY(), transComp.getPosZ() ) );
+		rotationMatrix = glm::rotate( glm::mat4( 1.0f ), glm::degrees( transComp.getRotX() ), glm::vec3( 1, 0, 0 ) );
+		rotationMatrix = glm::rotate( rotationMatrix, glm::degrees( transComp.getRotX() ), glm::vec3( 0, 1, 0 ) );
+		rotationMatrix = glm::rotate( rotationMatrix, glm::degrees( transComp.getRotX() ), glm::vec3( 0, 0, 1 ) );
+		
+		// Get sprite size
+		scaleMatrix = glm::scale( glm::mat4( 1.0f ), glm::vec3( 1, 1, 1 ) );
 
-		for( b2Fixture* f = physComp.getBody()->GetFixtureList(); f; f = f->GetNext() )
-		{
-			const b2Vec3& fixtureData = *static_cast< const b2Vec3* >( f->GetUserData() );
-			b2Vec2 centroid = static_cast< b2PolygonShape* >( f->GetShape() )->m_centroid;
+		modelMatrix = transMatrix * rotationMatrix * scaleMatrix;
 
-			centroid *= 2;
+		modelViewProjectionMatrix = projectionMatrix * viewMatrix * modelMatrix;
 
-			b2Vec2 pos = physComp.getBody()->GetPosition() + centroid;
-			GLfloat width = fixtureData.x * 2, height = fixtureData.y * 2;
-
-			transMatrix = glm::translate( glm::mat4( 1.0f ), glm::vec3( pos.x, pos.y, 0 ) );
-			rotationMatrix = glm::rotate( glm::mat4( 1.0f ), glm::degrees( physComp.getBody()->GetAngle() + fixtureData.z ), glm::vec3( 0, 0, 1 ) );
-			scaleMatrix = glm::scale( glm::mat4( 1.0f ), glm::vec3( width, height, 1 ) );
-
-			modelMatrix = transMatrix * rotationMatrix * scaleMatrix;
-
-			modelViewProjectionMatrix = projectionMatrix * viewMatrix * modelMatrix;
-
-			glUniformMatrix4fv( MVPLocation, 1, GL_FALSE, &modelViewProjectionMatrix[ 0 ][ 0 ] );
-			glDrawArrays( GL_TRIANGLES, 0, 6 );
-		}
+		glUniformMatrix4fv( MVPLocation, 1, GL_FALSE, &modelViewProjectionMatrix[ 0 ][ 0 ] );
+		glDrawArrays( GL_TRIANGLES, 0, 6 );
 	}
 
 	void StdRenderSystem::postRender()
@@ -274,6 +267,7 @@ namespace Engine
 			{ static_cast<GLubyte>( col.x ), static_cast<GLubyte>( col.y ), static_cast<GLubyte>( col.z ), static_cast<GLubyte>( col.w ) }
 		};
 
+		/*
 		transMatrix = glm::translate( glm::mat4( 1.0f ), glm::vec3( pos.x, pos.y, pos.z ) );
 		//rotationMatrix = glm::rotate( glm::mat4( 1.0f ), glm::degrees(  ), glm::vec3( 0, 0, 1 ) );
 		scaleMatrix = glm::scale( glm::mat4( 1.0f ), glm::vec3( width, height, 1 ) );
@@ -302,6 +296,7 @@ namespace Engine
 		glVertexAttribPointer( 1, 4, GL_UNSIGNED_BYTE, GL_TRUE, 0, (void*)0 );
 
 		glDrawArrays( GL_TRIANGLES, 0, 6 );
+		*/
 	}
 
 	/*
