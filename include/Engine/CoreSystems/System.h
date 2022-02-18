@@ -1,10 +1,10 @@
 #ifndef SYSTEM_H
 #define SYSTEM_H
 
-#include "../Events/EventManager.h"
-#include "../EntityCore/Entity.h"
+#include "Events/EventManager.h"
+#include "EntityCore/Entity.h"
 
-#include "../../ComponentTypes.h"
+#include "ComponentTypes.h"
 
 namespace Engine
 {

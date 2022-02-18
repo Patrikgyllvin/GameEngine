@@ -6,7 +6,7 @@
 //  Copyright © 2017 Patrik Gyllvin. All rights reserved.
 //
 
-#include "../../../include/Engine/CoreSystems/RenderingSystem.h"
+#include "Engine/CoreSystems/RenderingSystem.h"
 
 namespace Engine
 {

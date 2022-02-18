@@ -1,4 +1,4 @@
-#include "../../../include/Engine/Shaders/Texture.h"
+#include "Engine/Shaders/Texture.h"
 
 namespace Engine
 {

@@ -6,7 +6,7 @@
 
 #include "RenderingSystem.h"
 
-#include "../CoreComponents/TransformComponent.h"
+#include "CoreComponents/TransformComponent.h"
 
 namespace Engine
 {

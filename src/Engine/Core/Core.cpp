@@ -5,9 +5,9 @@
  *      Author: Patrik Gyllvin
  */
 
-#include "../../../include/Engine/Core/Core.h"
+#include "Engine/Core/Core.h"
 
-#include "../../../include/Engine/Input/InputHandler.h"
+#include "Engine/Input/InputHandler.h"
 
 void errorCallback( int error, const char* desc )
 {

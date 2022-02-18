@@ -1,4 +1,4 @@
-#include "../../../include/Engine/Core/Window.h"
+#include "Engine/Core/Window.h"
 
 namespace Engine
 {

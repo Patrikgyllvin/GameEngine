@@ -3,8 +3,8 @@
 
 #include "System.h"
 
-#include "../CoreComponents/SpriteComponent.h"
-#include "../CoreComponents/AnimationComponent.h"
+#include "CoreComponents/SpriteComponent.h"
+#include "CoreComponents/AnimationComponent.h"
 
 namespace Engine
 {

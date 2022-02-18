@@ -1,4 +1,4 @@
-#include "../../../include/Engine/CoreSystems/System.h"
+#include "Engine/CoreSystems/System.h"
 
 namespace Engine
 {

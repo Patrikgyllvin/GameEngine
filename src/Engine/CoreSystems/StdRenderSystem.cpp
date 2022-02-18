@@ -1,4 +1,4 @@
-#include "../../../include/Engine/CoreSystems/StdRenderSystem.h"
+#include "Engine/CoreSystems/StdRenderSystem.h"
 
 namespace Engine
 {

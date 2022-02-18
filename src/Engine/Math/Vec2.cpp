@@ -1,4 +1,4 @@
-#include "../../../include/Engine/Math/Vec2.h"
+#include "Engine/Math/Vec2.h"
 
 namespace Engine
 {

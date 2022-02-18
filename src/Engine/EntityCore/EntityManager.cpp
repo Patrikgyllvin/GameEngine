@@ -1,8 +1,8 @@
-#include "../../../include/Engine/EntityCore/EntityManager.h"
+#include "Engine/EntityCore/EntityManager.h"
 
-#include "../../../include/Engine/EntityCore/Entity.h"
-#include "../../../include/Engine/CoreSystems/System.h"
-#include "../../../include/Engine/CoreSystems/RenderingSystem.h"
+#include "Engine/EntityCore/Entity.h"
+#include "Engine/CoreSystems/System.h"
+#include "Engine/CoreSystems/RenderingSystem.h"
 
 #include <ctime>
 

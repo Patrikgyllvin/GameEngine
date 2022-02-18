@@ -8,8 +8,8 @@
 #include <iostream>
 #include <memory>
 
-#include "../../include/Engine/Core/Core.h"
-#include "../../include/Game/Game.h"
+#include "Engine/Core/Core.h"
+#include "Game/Game.h"
 
 std::unique_ptr< Game > game;
 

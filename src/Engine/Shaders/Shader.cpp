@@ -1,4 +1,4 @@
-#include "../../../include/Engine/Shaders/Shader.h"
+#include "Engine/Shaders/Shader.h"
 
 namespace Engine
 {
