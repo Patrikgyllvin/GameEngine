@@ -1,7 +1,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "CoreComponents/Component.h"
+#include "Engine/CoreComponents/Component.h"
 
 #include "EntityManager.h"
 

@@ -1,8 +1,8 @@
 #ifndef SYSTEM_H
 #define SYSTEM_H
 
-#include "Events/EventManager.h"
-#include "EntityCore/Entity.h"
+#include "Engine/Events/EventManager.h"
+#include "Engine/EntityCore/Entity.h"
 
 #include "ComponentTypes.h"
 

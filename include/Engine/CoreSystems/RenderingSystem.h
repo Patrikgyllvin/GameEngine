@@ -14,8 +14,8 @@
 
 #include "System.h"
 
-#include "Shaders/ShaderManager.h"
-#include "Shaders/Shader.h"
+#include "Engine/Shaders/ShaderManager.h"
+#include "Engine/Shaders/Shader.h"
 
 namespace Engine {
     class RenderingSystem : public System

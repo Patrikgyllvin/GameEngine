@@ -7,10 +7,10 @@
 #include <vector>
 #include <queue>
 
-#include "Events/EventManager.h"
-#include "Events/EntityEvent.h"
+#include "Engine/Events/EventManager.h"
+#include "Engine/Events/EntityEvent.h"
 
-#include "CoreComponents/Component.h"
+#include "Engine/CoreComponents/Component.h"
 #include "ComponentTypes.h"
 
 namespace Engine
