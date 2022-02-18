@@ -1,86 +1,101 @@
 RTDIR = .
-SRCDIR = $(RTDIR)/Source/src
-INCDIR = $(RTDIR)/Source/include
-LIBDIR = $(RTDIR)/Include
+SRCDIR = $(RTDIR)/src
+INCDIR = $(RTDIR)/include
 BINDIR = $(RTDIR)/bin
 OBJDIR = $(RTDIR)/obj
 
-CC = g++
-#DEBUG FLAGS
-CFLAGS = --std=c++17 -Wall -O2 -g -fsanitize=address -c -DDebug -D_MAC_MAKEFILE
-#RELEASE FLAGS
-#CFLAGS = --std=c++17 -Wall -O2 -c -D_MAC_MAKEFILE
-LFLAGS = -fsanitize=address -lGL -lGLEW -lglfw -lpng
+CXX = g++
+CXXFLAGS = --std=c++17 -Wall -Werror
+
+LDFLAGS = -lGL -lGLEW -lglfw -lpng
 INCLUDE = -I$(INCDIR)
 
 ifeq ($(OS),Windows_NT)
 else
 	UNAME_S := $(shell uname -s)
 	ifeq ($(UNAME_S),Darwin)
-		LFLAGS = -L/usr/local/lib -lpng -lGLEW -lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
+		LDFLAGS = -L/usr/local/lib -lpng -lGLEW -lglfw -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
         INCLUDE += -I/usr/local/include -I./Include
 	endif
 endif
 
 EXEC = Game
 
-_SOURCES = $(wildcard $(SRCDIR)/*.cpp) $(wildcard $(SRCDIR)/*/*.cpp) $(wildcard $(SRCDIR)/*/*/*.cpp) \
-	$(wildcard $(SRCDIR)/*/*/*/*.cpp) $(wildcard $(SRCDIR)/*/*/*/*/*.cpp)
+SRCS := $(shell find $(SRCDIR) -name "*.cpp")
+INCLUDES := $(shell find $(INCDIR) -name "*.h") $(shell find $(SRCDIR) -name "*.h") $(shell find $(INCDIR) -name "*.hpp")
+OBJS := $(SRCS:$(SRCDIR)/%.cpp=%.o)
 
-SOURCES = $(subst $(SRCDIR)/,,$(_SOURCES))
+#DEBUG
+DBGDIR = debug
+DBGBINDIR = $(BINDIR)/$(DBGDIR)
+DBGOBJDIR = $(OBJDIR)/$(DBGDIR)
+DBGEXEC = $(DBGBINDIR)/$(EXEC)
+DBGOBJS = $(addprefix $(DBGOBJDIR)/, $(OBJS))
+DBGDEPS = $(DBGOBJS:%.o=%.d)
+DBGCXXFLAGS = -O0 -g -fsanitize=address -DDEBUG
+DBGLDFLAGS = -fsanitize=address
 
-_HEADERS = $(wildcard $(INCDIR)/*.h) $(wildcard $(INCDIR)/*/*.h) $(wildcard $(INCDIR)/*/*/*.h) \
-	$(wildcard $(INCDIR)/*/*/*/*.h) $(wildcard $(INCDIR)/*/*/*/*/*.h)
+#RELEASE
+RELDIR = release
+RELBINDIR = $(BINDIR)/$(RELDIR)
+RELOBJDIR = $(OBJDIR)/$(RELDIR)
+RELEXEC = $(RELBINDIR)/$(EXEC)
+RELOBJS = $(addprefix $(RELOBJDIR)/, $(OBJS))
+RELDEPS = $(RELOBJS:%.o=%.d)
+DBGCXXFLAGS = -O0 -g -fsanitize=address -DDEBUG
+RELCXXFLAGS = -O2 -DNDEBUG
+RELLDFLAGS =
 
-HEADERS = $(subst $(INCDIR)/,,$(_HEADERS))
+.PHONY: all debug run_debug release run_release rebuild clean
 
-_OBJS = $(basename $(SOURCES))
-_OBJECTS = $(patsubst %,$(OBJDIR)/%,$(_OBJS))
-OBJS = $(addsuffix .o,$(_OBJECTS))
-
-_LIBSOURCES = $(wildcard $(LIBDIR)/*.cpp) $(wildcard $(LIBDIR)/*/*.cpp) $(wildcard $(LIBDIR)/*/*/*.cpp) \
-	$(wildcard $(LIBDIR)/*/*/*/*.cpp) $(wildcard $(LIBDIR)/*/*/*/*/*.cpp)
-
-LIBSOURCES = $(subst $(LIBDIR)/,,$(_LIBSOURCES))
-
-_LIBOBJS = $(basename $(LIBSOURCES))
-_LIBOBJECTS = $(patsubst %,$(OBJDIR)/%,$(_LIBOBJS))
-LIBOBJS = $(addsuffix .o,$(_LIBOBJECTS))
-
-.PHONY: all
-
-all: $(LIBOBJS) $(OBJS) $(EXEC)
-
-.PHONY: rebuild
+# Default
+all: release
 
 rebuild: clean all
 
-.PHONY: run
-
-run: $(EXEC)
-
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR)
-	mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(INCLUDE) $< -o $@
-
-$(OBJDIR)/%.o: $(LIBDIR)/%.cpp | $(OBJDIR)
-	mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(INCLUDE) $< -o $@
-
-$(EXEC): $(BINDIR) $(OBJS) $(LIBOBJS)
-	$(CC) -o $</$@ $(OBJS) $(LIBOBJS) $(LFLAGS)
-	$(BINDIR)/$(EXEC)
-
-$(BINDIR):
-	mkdir -p $(BINDIR)
-	cp -r $(RTDIR)/Res $(BINDIR)/Res
-
-$(OBJDIR):
-	mkdir -p $(OBJDIR)
-
-$(OUT):
-
-.PHONY: clean
-
 clean:
 	rm -rf $(BINDIR) $(OBJDIR)
+
+# Debug
+debug: $(DBGEXEC) run_debug
+
+run_debug:
+	$(DBGEXEC)
+
+-include $(DBGDEPS)
+
+$(DBGOBJS): $(DBGOBJDIR)/%.o: $(SRCDIR)/%.cpp | $(DBGOBJDIR)
+	mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) $(DBGCXXFLAGS) $(INCLUDE) -MMD -c $< -o $@
+
+$(DBGEXEC): $(DBGOBJS) | $(DBGBINDIR)
+	$(CXX) $(LDFLAGS) $(DBGLDFLAGS) $^ -o $@
+
+$(DBGOBJDIR):
+	mkdir -p $@
+
+$(DBGBINDIR):
+	mkdir -p $@
+	cp -r $(RTDIR)/Res $(DBGBINDIR)/Res
+
+# Release
+release: $(RELEXEC) run_release
+
+run_release:
+	$(RELEXEC)
+
+-include $(RELDEPS)
+
+$(RELOBJS): $(RELOBJDIR)/%.o: $(SRCDIR)/%.cpp | $(RELOBJDIR)
+	mkdir -p $(@D)
+	$(CXX) $(CXXFLAGS) $(RELCXXFLAGS) $(INCLUDE) -MMD -c $< -o $@
+
+$(RELEXEC): $(RELOBJS) | $(RELBINDIR)
+	$(CXX) $(LDFLAGS) $(RELLDFLAGS) $^ -o $@
+
+$(RELOBJDIR):
+	mkdir -p $@
+
+$(RELBINDIR):
+	mkdir -p $@
+	cp -r $(RTDIR)/Res $(RELBINDIR)/Res
