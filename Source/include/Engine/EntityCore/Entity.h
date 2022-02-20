@@ -126,13 +126,13 @@ namespace Engine
 		}
 
 	private:
-        Entity( EntityID eID, EntityManager& eMgr, EventManager& evtMgr ) : entityManager( eMgr ), eventManager( evtMgr ), id( eID ), typeBits( 0 )
+        Entity( EntityID eID, EntityManager& eMgr, const EventManager& evtMgr ) : entityManager( eMgr ), eventManager( evtMgr ), id( eID ), typeBits( 0 )
 		{
 			components.resize( COMPONENT_LAST );
             empty.push_back(nullptr);
 		}
 
-        EventManager& eventManager;
+        const EventManager& eventManager;
 
 		const EntityID id;
 

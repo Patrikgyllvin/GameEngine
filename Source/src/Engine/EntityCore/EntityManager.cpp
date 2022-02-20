@@ -8,9 +8,9 @@
 
 namespace Engine
 {
-	EntityManager::EntityManager( EventManager* eManager )
+	EntityManager::EntityManager()
 	:
-	eventManager( eManager ),
+	eventManager{},
 	nextID( 0 ),
 	usedIDs(),
 	entities()
@@ -41,11 +41,11 @@ namespace Engine
 			id = usedIDs.front();
 			usedIDs.pop();
 
-			Entity* entity = new Entity( id, *this, *eventManager );
+			Entity* entity = new Entity( id, *this, eventManager );
 			entities[ id ] = entity;
 
 			// Notify systems
-			eventManager->pushEvent( EntityEvent( EVENT_ENTITY_CREATED, entity, nullptr ) );
+			eventManager.pushEvent( EntityEvent( EVENT_ENTITY_CREATED, entity, nullptr ) );
 
 			return *entity;
 		}
@@ -54,7 +54,7 @@ namespace Engine
 			id = nextID++;
 		}
 
-        Entity* entity = new Entity( id, *this, *eventManager );
+        Entity* entity = new Entity( id, *this, eventManager );
 
 		if( id >= entities.capacity() )
         {
@@ -67,7 +67,7 @@ namespace Engine
         }
 
 		// Notify systems
-		eventManager->pushEvent( EntityEvent( EVENT_ENTITY_CREATED, entity, nullptr ) );
+		eventManager.pushEvent( EntityEvent( EVENT_ENTITY_CREATED, entity, nullptr ) );
 
 		return *entity;
 	}
@@ -117,7 +117,7 @@ namespace Engine
 			usedIDs.push( e->getID() );
 
 			// Notify systems
-			eventManager->pushEvent( EntityEvent( EVENT_ENTITY_DESTROYED, e, nullptr ) );
+			eventManager.pushEvent( EntityEvent( EVENT_ENTITY_DESTROYED, e, nullptr ) );
 
 			delete e;
 			toBeRemoved.pop();

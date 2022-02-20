@@ -26,10 +26,10 @@ public:
 	void render();
 
 private:
-	Engine::EventManager* eventManager;
-	Engine::EntityManager* entityManager;
+	Engine::EventManager eventManager;
+	Engine::EntityManager entityManager;
 
-    Engine::InputHandler* inputHandler;
+    Engine::InputHandler inputHandler;
 };
 
 #endif

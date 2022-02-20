@@ -23,7 +23,7 @@ namespace Engine
 	class EntityManager
 	{
 	public:
-		EntityManager( EventManager* eManager );
+		EntityManager();
 		~EntityManager();
 
 		Entity& genEntity();
@@ -41,7 +41,7 @@ namespace Engine
         typedef std::vector< System* > SystemList;
         typedef std::vector< RenderingSystem* > RenderingSystemList;
 
-		EventManager* eventManager;
+		EventManager eventManager;
 
 		EntityID nextID;
 

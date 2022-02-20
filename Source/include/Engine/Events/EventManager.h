@@ -22,7 +22,7 @@ namespace Engine
 
 		void unsubscribeAll();
 
-		void pushEvent( const IEvent& e );
+		void pushEvent( const IEvent& e ) const;
 
 	private:
 		std::vector< IEventListener* > globalListeners;

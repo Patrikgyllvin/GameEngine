@@ -61,14 +61,14 @@ namespace Engine
 		listeners.clear();
 	}
 
-	void EventManager::pushEvent( const IEvent& e )
+	void EventManager::pushEvent( const IEvent& e ) const
 	{
 		for( std::vector< IEventListener* >::const_iterator it = globalListeners.begin(); it != globalListeners.end(); ++it )
 		{
 			( *it )->processEvent( e );
 		}
 
-		std::vector< IEventListener* >& listenerListType = listeners[ e.getType() ];
+		const std::vector< IEventListener* >& listenerListType = listeners[ e.getType() ];
 
 		for( std::vector< IEventListener* >::const_iterator it = listenerListType.begin(); it != listenerListType.end(); ++it )
 		{
