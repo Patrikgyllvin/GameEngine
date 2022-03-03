@@ -44,7 +44,7 @@ namespace Engine {
 		void setRenderFunction( void (*rndrFunc)() );
 
 	private:
-		Window* window;
+		Window window;
 
 		bool isRunning;
 		double framerate;

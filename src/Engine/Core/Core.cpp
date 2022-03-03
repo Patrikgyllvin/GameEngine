@@ -19,7 +19,7 @@ namespace Engine
 {
 	Core::Core()
 	:
-	window( new Window() ),
+	window{},
 	isRunning( false ),
 	framerate( 100.0 ),
 	frameTime( 1.0 / framerate ),
@@ -34,25 +34,25 @@ namespace Engine
 
 	Core::~Core()
 	{
-		delete window;
+		window.destroyWindow();
 		glfwTerminate();
 	}
 
 	void Core::createWindow(int w, int h, std::string text, bool resizable, bool fullscreen )
 	{
-		if( window->getInitialized() )
+		if( window.getInitialized() )
 		{
 			std::cout << "Warning: Cannot create more than one window!\n";
 			return;
 		}
 
-		window->createWindow( w, h, text, resizable, fullscreen );
+		window.createWindow( w, h, text, resizable, fullscreen );
 	}
 
 	void Core::destroyWindow()
 	{
-		if( window->getInitialized() )
-			window->destroyWindow();
+		if( window.getInitialized() )
+			window.destroyWindow();
 		else
 			std::cout << "Warning: Cannot destroy non-existent window!\n";
 	}
@@ -121,7 +121,7 @@ namespace Engine
 			{
 				willRender = true;
 
-				if( window->shouldClose() )
+				if( window.shouldClose() )
 					stop();
 
                 update();
@@ -154,18 +154,12 @@ namespace Engine
 
 	void Core::init()
 	{
-		// Add INIT shit here
-
-
 		if( initializationFunc )
 			initializationFunc();
 	}
 
 	void Core::update()
 	{
-		// Add update shit here
-
-
 		if( updateFunc )
 			updateFunc();
 
@@ -174,12 +168,10 @@ namespace Engine
 
 	void Core::render()
 	{
-		// Add render shit here
-
 		if( renderFunc )
 			renderFunc();
 
-		window->swapBuffers();
+		window.swapBuffers();
 	}
 
 	void Core::setFramerate( double framerate )
